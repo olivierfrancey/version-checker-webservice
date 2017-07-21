@@ -1,0 +1,39 @@
+
+
+<h1>Versions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Version number</th>
+      <th>Date</th>
+      <th>Author</th>
+      <th>Checker</th>
+      <th>Crypted</th>
+      <th>Current version</th>
+      <th>Comments</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @versions.each do |version| %>
+      <tr>
+        <td><%= version.version_number %></td>
+        <td><%= version.date %></td>
+        <td><%= version.author %></td>
+        <td><%= version.checker %></td>
+        <td><%= version.crypted_id %></td>
+        <td><%= version.current_version %></td>
+        <td><%= version.comments %></td>
+        <td><%= link_to 'Show', version %></td>
+        <td><%= link_to 'Edit', edit_version_path(version) %></td>
+        <td><%= link_to 'Destroy', version, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Version', new_version_path %>

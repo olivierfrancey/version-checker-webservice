@@ -1,0 +1,75 @@
+
+<div class="lang-selector">
+  <ul>
+    <li><%= link_to "EN", url_for(:locale => 'en') %></li>
+    <li><%= link_to "FR", url_for(:locale => 'fr') %></li>
+    <li><%= link_to t('home.login'), new_session_path %></li>
+  </ul>
+</div>
+
+<div class="page1">
+  
+  <div class="center">
+    <h1>version checker</h1>
+    <p class="text"><%= t('home.intro') %></p><br>
+    <span class="try-button">
+      <%= link_to t('home.try'), new_user_path %>
+      <span class="glyphicon glyphicon-chevron-right"></span>
+    </span>
+  </div>
+  <div class="arrow-down">
+    <a href="#">
+      <span class="glyphicon glyphicon-chevron-down"></span>
+    </a>
+  </div>
+</div>
+
+<div class="page2">
+  <div class="grid">
+    <div class="row">
+      <div class="col-md-4 home-content">
+        <div class="icon">
+          <span class="glyphicon glyphicon-lock"></span>
+        </div>
+        <h2><%= t('home.security.title') %></h2>
+        <p><%= t('home.security.content') %></p>
+      </div>
+      <div class="col-md-4 home-content">
+        <div class="icon">
+          <span class="glyphicon glyphicon-th-list"></span>
+        </div>
+        <h2><%= t('home.manage.title') %></h2>
+        <p><%= t('home.manage.content') %></p>
+      </div>
+      <div class="col-md-4 home-content">
+        <div class="icon">
+          <span class="glyphicon glyphicon-qrcode"></span>
+        </div>
+        <h2><%= t('home.mobile.title') %></h2>
+        <p><%= t('home.mobile.content') %></p><br>
+        <div>
+          <a href="#"><%= image_tag('appstore.png', width: "30%") %></a>
+          <a href="#"><%= image_tag('googleplay.png', width: "30%") %></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer grid">
+  <div class="row">
+    <div class="col-md-3">
+      <h3><%= t('home.footer.about') %></h3>
+    </div>
+
+    <div class="col-md-3">
+
+    </div>
+    <div class="col-md-3">
+
+    </div>
+    <div class="col-md-3">
+
+    </div>
+  </div>
+</div>

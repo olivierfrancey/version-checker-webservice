@@ -1,0 +1,84 @@
+
+
+fr:
+  navbar:
+    company: "Companie"
+    projects: "Projets"
+    documents: "Documents"
+    new_project: "Nouveau projet"
+    hello: "Bonjour"
+    signup: "S'enregistrer"
+    logout: "Se déconnecter"
+    login: "Se connecter"
+    projects: "Projets"
+    my_projects: "Mes projets"
+    new_project: "Nouveau projet"
+
+  home:
+    hello: "Bonjour le monde"
+    intro: "Gérez vos versions de documents simplement et efficacement"
+    try: "Essayez dès maintenant!"
+    login: "Se connecter"
+    security:
+      title: "Sécurité de vos données"
+      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse turpis neque, ullamcorper eget magna quis, ullamcorper tempus nulla. Donec libero massa, tincidunt ut arcu ut, malesuada sodales massa. Nullam gravida congue malesuada. Nunc nec sagittis elit, et porttitor mi. Vivamus nec nisi sapien. Proin sagittis pharetra lacus sed aliquam. In luctus enim eros, ac rhoncus tellus efficitur at."
+    manage:
+      title: "Gérer vos documents"
+      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse turpis neque, ullamcorper eget magna quis, ullamcorper tempus nulla. Donec libero massa, tincidunt ut arcu ut, malesuada sodales massa. Nullam gravida congue malesuada. Nunc nec sagittis elit, et porttitor mi. Vivamus nec nisi sapien. Proin sagittis pharetra lacus sed aliquam. In luctus enim eros, ac rhoncus tellus efficitur at."
+    mobile: 
+      title: "App mobile"
+      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse turpis neque, ullamcorper eget magna quis, ullamcorper tempus nulla. Donec libero massa, tincidunt ut arcu ut, malesuada sodales massa. Nullam gravida congue malesuada. Nunc nec sagittis elit, et porttitor mi. Vivamus nec nisi sapien. Proin sagittis pharetra lacus sed aliquam. In luctus enim eros, ac rhoncus tellus efficitur at."
+    footer:
+      about: "A propos de version checker"
+
+
+  signup:
+    last_name: "Nom"
+    first_name: "Prénom"
+    email: "Email"
+    password: "Mot de passe"
+    password_conf: "Confirmation du mot de passe"
+    signup: "S'enregistrer"
+
+  session:
+    title: "Connection"
+    email: "Email"
+    password: "Mot de passe"
+    submit: "Se connecter"
+    failed_connection: "L'email ou le mot de passe n'est pas valide"
+    successful_connection: "Vous vous êtes connecté avec succès"
+    logout: "Vous êtes déconnecté"
+
+  project:
+    index:
+      title: "Mes projets"
+      name: "Nom du projet"
+      identifier: "Identifiant"
+      docs_number: "Documents"
+      versions_number: "Versions"
+      show: "Detail"
+      edit: "Modifier"
+      destroy: "Supprimer"
+      destroy_conf: "Etes-vous sûr de vouloir supprimer ce projet?"
+      new_project: "Ajouter un projet"
+    show:
+      project: "Projet"
+      name: "Nom"
+      identifier: "Identifiant"
+      address: "Addresse"
+      npa: "NPA"
+      city: "Localité"
+      country: "Pays"
+      bill_option: ""
+      edit: "Editer"
+      my_projects: "Mes projets"
+      client:
+        client: "Client"
+        name: "Nom"
+        address: "Addresse"
+        npa: "NPA"
+        city: "Localité"
+        country: "Pays"
+    edit:
+      title: "Edition de project"
+      submit: "Enregistrer"

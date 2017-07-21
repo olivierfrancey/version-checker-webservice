@@ -1,0 +1,26 @@
+
+<h1><%= t('project.index.title') %></h1>
+
+
+<% @projects.each do |project| %>
+  <div class="tile">
+    <%= link_to project_path(project.id), class: "edit-icon" do %>
+      <span class="glyphicon glyphicon-plus"></span>
+    <% end %>
+    <%= link_to documents_path do %>
+      <h3><%= "#{project.identifier}" %></h3>
+      <h4><%= "#{project.name}" %></h4>
+      <p><%= "#{t('project.index.docs_number')} : 10" %></p>
+      <p><%= "#{t('project.index.versions_number')} : 16" %></p>
+    <% end %>
+  </div>
+<% end %>
+
+
+<div class="tile">
+  <%= link_to new_project_path do %>
+    <span class="super-large-symbol center">
+      <%= t('project.index.new_project') %>
+    </span>
+  <% end %>
+</div>

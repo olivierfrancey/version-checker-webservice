@@ -1,0 +1,32 @@
+<p>
+  <strong>Identifier:</strong>
+  <%= @document.identifier %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @document.title %>
+</p>
+
+<p>
+  <strong>Sub title:</strong>
+  <%= @document.sub_title %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @document.doc_type %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @document.size %>
+</p>
+
+<p>
+  <strong>Version format:</strong>
+  <%= @document.version_format %>
+</p>
+
+<%= link_to 'Edit', edit_document_path(@document) %> |
+<%= link_to 'Back', documents_path %>

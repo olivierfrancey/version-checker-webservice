@@ -1,0 +1,36 @@
+
+<h1>Documents</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Identifier</th>
+      <th>Title</th>
+      <th>Sub title</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Version format</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @documents.each do |document| %>
+      <tr>
+        <td><%= document.identifier %></td>
+        <td><%= document.title %></td>
+        <td><%= document.sub_title %></td>
+        <td><%= document.doc_type %></td>
+        <td><%= document.size %></td>
+        <td><%= document.version_format %></td>
+        <td><%= link_to 'Show', document %></td>
+        <td><%= link_to 'Edit', edit_document_path(document) %></td>
+        <td><%= link_to 'Destroy', document, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Document', new_document_path %>

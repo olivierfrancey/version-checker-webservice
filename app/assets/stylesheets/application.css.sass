@@ -1,0 +1,126 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets"
+@import "bootstrap"
+
+$body-background: #333
+$body-text-color: #ddd
+$tile-background: #333
+$tile-text-color: #ddd
+$tile-border: 1px solid black
+$button-background: #333
+$button-text-color: #ddd
+$input-border: 1px solid black
+$footer-background: #222
+$footer-text-color: #777
+
+body
+  background-color: $body-background
+  color: $body-text-color
+
+a
+  font-size: 1em
+
+h1 
+  font-size: 26px
+
+h2 
+  font-size: 22px
+
+input[type="submit"]:hover, input[type="button"]:hover
+  color: black
+
+input[type="submit"], input[type="button"], a.btn
+  @extend .btn
+  border-radius: 0
+  color: $button-text-color
+  background-color: $button-background
+  border: $input-border
+
+input[type="password"], input[type="email"], input[type="text"]
+  @extend .form-control
+  width: 250px
+  border-radius: 0
+  border: $input-border
+
+input[type="password"]:focus, input[type="email"]:focus
+  background-color: white
+
+input:-webkit-autofill
+  background-color: black !important
+
+.footer
+  position: fixed
+  bottom: 0
+  left: 0
+  font-size: 12px
+  padding: 5px 15px
+  height: 27px
+  width: 100%
+  border-top: 1px solid black
+  background-color: $footer-background
+  color: $footer-text-color
+
+
+
+.center
+  position: absolute
+  left: 50%
+  top: 50%
+  transform: translate(-50%, -50%)
+
+.main-content 
+  margin: 0
+  padding: 0 30px
+  margin-top: 60px
+
+.last-item
+  padding-right: 15px
+
+.nav-menu-separator
+  border-right: 1px solid black
+  height: 50px
+  width: 1px
+
+.tile
+  position: relative
+  margin: 15px
+  padding: 0 20px 20px 20px
+  background-color: $tile-background
+  color: $tile-text-color
+  width: 300px
+  height: 200px
+  border: $tile-border
+  float: left
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+
+.tile a
+  color: $tile-text-color
+  text-decoration: none
+
+.tile a:hover
+  color: white
+  background-color: $tile-background
+
+.edit-icon
+  position: absolute
+  right: 10px
+  top: 10px 
+
+.super-large-symbol
+  font-size: 1.3em
+  color: $tile-text-color

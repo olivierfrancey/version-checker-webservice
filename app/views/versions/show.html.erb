@@ -1,0 +1,39 @@
+
+
+<p>
+  <strong>Version number:</strong>
+  <%= @version.version_number %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @version.date %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @version.author %>
+</p>
+
+<p>
+  <strong>Checker:</strong>
+  <%= @version.checker %>
+</p>
+
+<p>
+  <strong>Crypted:</strong>
+  <%= @version.crypted_id %>
+</p>
+
+<p>
+  <strong>Current version:</strong>
+  <%= @version.current_version %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @version.comments %>
+</p>
+
+<%= link_to 'Edit', edit_version_path(@version) %> |
+<%= link_to 'Back', versions_path %>

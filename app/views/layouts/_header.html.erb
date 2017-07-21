@@ -1,0 +1,37 @@
+<nav class="navbar navbar-fixed-top navbar-inverse">
+
+  <%= link_to "version checker", projects_path, class: "navbar-brand" %>
+
+  <ul class="nav navbar-nav navbar-right">
+
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <%= t('navbar.projects') %><span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <% if @projects %>
+          <% @projects.each do |project| %>
+            <li><%= link_to "#{project.identifier} : #{project.name}",  documents_path %></li>
+          <% end %>
+        <% end %>
+          <li class="divider"></li>
+          <li><%= link_to t('navbar.my_projects'), projects_path %></li>
+          <li><%= link_to t('navbar.new_project'), new_project_path %></li>
+      </ul>
+    </li>
+
+    <li class="nav-menu-separator"></li>
+    <li><%= link_to "EN", url_for(:locale => 'en') %></li>
+    <li><%= link_to "FR", url_for(:locale => 'fr') %></li>
+    <li class="nav-menu-separator"></li>
+        <% if logged_in? %>
+          <li><%= link_to "#{current_user.first_name} #{current_user.last_name}", edit_user_path(current_user.id) %></li>
+          <li class="nav-menu-separator"></li>
+          <li class="last-item"><%= link_to 'Logout', session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to 'Sign Up', new_user_path %></li>
+          <li class="last-item"><%= link_to 'Log In', new_session_path %></li>
+        <% end %>
+  </ul>
+
+</nav>

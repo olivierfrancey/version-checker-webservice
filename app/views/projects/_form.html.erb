@@ -1,0 +1,77 @@
+<%= form_with(model: project, local: true) do |form| %>
+  <% if project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% project.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :project_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :identifier %>
+    <%= form.text_field :identifier, id: :project_identifier %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address, id: :project_address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :npa %>
+    <%= form.text_field :npa, id: :project_npa %>
+  </div>
+
+  <div class="field">
+    <%= form.label :city %>
+    <%= form.text_field :city, id: :project_city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :country %>
+    <%= form.text_field :country, id: :project_country %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bill_option %>
+    <%= form.text_field :bill_option, id: :project_bill_option %>
+  </div>
+
+  <div class="field">
+    <%= form.label :client_name %>
+    <%= form.text_field :client_name, id: :project_client_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :client_address %>
+    <%= form.text_field :client_address, id: :project_client_address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :client_npa %>
+    <%= form.text_field :client_npa, id: :project_client_npa %>
+  </div>
+
+  <div class="field">
+    <%= form.label :client_city %>
+    <%= form.text_field :client_city, id: :project_client_city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :client_country %>
+    <%= form.text_field :client_country, id: :project_client_country %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
