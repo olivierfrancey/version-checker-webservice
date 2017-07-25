@@ -9,8 +9,11 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :company
       t.string :discipline
 
+      t.integer :projects_count
+      t.integer :documents_count
+      t.integer :versions_count
+
       t.timestamps
     end
-    add_index :users, :email, unique: true
   end
 end

@@ -3,23 +3,23 @@
   <%= link_to "version checker", projects_path, class: "navbar-brand" %>
 
   <ul class="nav navbar-nav navbar-right">
-
+    <% if @projects.any? %>
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <%= t('navbar.projects') %><span class="caret"></span>
+        <%= current_project ? "#{current_project.identifier} : #{current_project.name}" : t('navbar.projects') %> <span class="caret"></span>
       </a>
       <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-        <% if @projects %>
+        
           <% @projects.each do |project| %>
-            <li><%= link_to "#{project.identifier} : #{project.name}",  documents_path %></li>
+            <li><%= link_to "#{project.identifier} : #{project.name}",  :controller => :projects, :action => :move_to_document, :id => project.id %></li>
           <% end %>
-        <% end %>
           <li class="divider"></li>
           <li><%= link_to t('navbar.my_projects'), projects_path %></li>
-          <li><%= link_to t('navbar.new_project'), new_project_path %></li>
+          <li><%= link_to t('navbar.new_project'), new_project_path %></li> 
       </ul>
     </li>
-
+    <% end %>
+    
     <li class="nav-menu-separator"></li>
     <li><%= link_to "EN", url_for(:locale => 'en') %></li>
     <li><%= link_to "FR", url_for(:locale => 'fr') %></li>

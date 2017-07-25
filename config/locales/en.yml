@@ -71,6 +71,8 @@ en:
       bill_option: ""
       edit: "Edit"
       my_projects: "My projects"
+      delete: "Delete this project"
+      delete_confirmation: "Are you sure you want to delete this project? You can not undo this operation."
       client:
         client: "Client"
         name: "Name"
@@ -78,6 +80,48 @@ en:
         npa: "NPA"
         city: "City"
         country: "Country"
+      users: "Access right"
+      new_access: "Invite an user"
     edit:
       title: "Editing project"
       submit: "Save"
+    new:
+      title: "New project"
+      success: "Your project was successfully created"
+    
+  document:
+    title: "Documents"
+    back: "Cancel"
+    submit: "Submit"
+    delete: "Delete"
+    delete_confirmation: "Are you sure you want to delete this document? You can not undo this operation. The dependent versions will be deleted too."
+    index:
+      new_document: "Add a document"
+      organised_by: "Organized by"
+      versions: "Versions"
+      current_version: "Current version"
+      current_version_date: "Date"
+      last_update: "Last update"
+    new:
+      title: "New document"
+      name: "Title"
+      sub_title: "Sub title"
+      identifier: "Identifier"
+      doc_type: "Type"
+      size: "Dimension"
+      version-format: "Index format"
+    edit:
+      title: "Editing document"
+      submit: "Save"
+
+  user:
+    submit: "Submit"
+    new:
+      title: "New user"
+      first_name: "First name"
+      last_name: "Last name"
+      email: "Email"
+      password: "Password"
+      password_confirmation: "Password confirmation"
+      company: "Firme"
+      discipline: "Discipline"

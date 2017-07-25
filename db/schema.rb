@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170719200520) do
+ActiveRecord::Schema.define(version: 20170724205141) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accesses", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "project_id"
+    t.string "role"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "documents", force: :cascade do |t|
     t.string "identifier"
@@ -21,7 +29,9 @@ ActiveRecord::Schema.define(version: 20170719200520) do
     t.string "sub_title"
     t.string "doc_type"
     t.string "size"
-    t.string "version_format"
+    t.integer "project_id"
+    t.integer "user_id"
+    t.integer "versions_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -39,6 +49,10 @@ ActiveRecord::Schema.define(version: 20170719200520) do
     t.string "client_npa"
     t.string "client_city"
     t.string "client_country"
+    t.integer "user_id"
+    t.integer "documents_count"
+    t.integer "versions_count"
+    t.integer "users_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -48,14 +62,6 @@ ActiveRecord::Schema.define(version: 20170719200520) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_super_administrators_on_user_id"
-  end
-
-  create_table "user_managed_accesses", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "project_id"
-    t.string "role"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "user_projects", force: :cascade do |t|
@@ -75,25 +81,25 @@ ActiveRecord::Schema.define(version: 20170719200520) do
     t.string "phone"
     t.string "company"
     t.string "discipline"
+    t.integer "projects_count"
+    t.integer "documents_count"
+    t.integer "versions_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   create_table "versions", force: :cascade do |t|
-    t.decimal "version_number"
+    t.string "version_number"
     t.date "date"
     t.string "author"
     t.string "checker"
     t.string "crypted_id"
     t.boolean "current_version"
     t.text "comments"
-    t.bigint "user_id"
-    t.bigint "document_id"
+    t.integer "document_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["document_id"], name: "index_versions_on_document_id"
-    t.index ["user_id"], name: "index_versions_on_user_id"
   end
 
 end

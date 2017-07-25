@@ -5,7 +5,7 @@ class VersionsController < ApplicationController
   # GET /versions
   # GET /versions.json
   def index
-    @versions = Version.all
+    @versions = Version.where(document_id: session[:current_document_id]).order(:version_number).reverse_order
   end
 
   # GET /versions/1
@@ -26,6 +26,12 @@ class VersionsController < ApplicationController
   # POST /versions.json
   def create
     @version = Version.new(version_params)
+    @version.user = current_user
+    @version.document = current_document
+    p session[:user_id]
+    p current_user
+    p session[:current_document_id]
+    p current_document
 
     respond_to do |format|
       if @version.save

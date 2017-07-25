@@ -72,6 +72,8 @@ fr:
       bill_option: ""
       edit: "Editer"
       my_projects: "Mes projets"
+      delete: "Supprimer ce projet"
+      delete_confirmation: "Etes-vous sûr de vouloir supprimer ce projet? Cette opération est irrémédiable."
       client:
         client: "Client"
         name: "Nom"
@@ -79,6 +81,48 @@ fr:
         npa: "NPA"
         city: "Localité"
         country: "Pays"
+      users: "Accès utilisateur"
+      new_access: "Inviter un utilisateur"
     edit:
       title: "Edition de project"
       submit: "Enregistrer"
+    new:
+      title: "Nouveau projet"
+      success: "Votre projet a été crée avec succes"
+  
+  document:
+    title: "Documents"
+    back: "Annuler"
+    submit: "Soumettre"
+    delete: "Supprimer"
+    delete_confirmation: "Etes-vous sûr de vouloir supprimer ce document? Cette opération est irrémédiable. Les versions liées seront également supprimées."
+    index:
+      new_document: "Ajouter un document"
+      organised_by: "Organiser par"
+      versions: "Versions"
+      current_version: "Version courrante"
+      current_version_date: "Date"
+      last_update: "Dernière modification"
+    new:
+      title: "Nouveau document"
+      name: "Titre"
+      sub_title: "Sous-titre"
+      identifier: "Identifiant"
+      doc_type: "Type"
+      size: "Dimension"
+      version-format: "Indices"
+    edit:
+      title: "Editer document"
+      submit: "Enregistrer"
+
+  user:
+    submit: "Soumettre"
+    new:
+      title: "Nouvel utilisateur"
+      first_name: "Prénom"
+      last_name: "Nom"
+      email: "Email"
+      password: "Mot de passe"
+      password_confirmation: "Confirmation"
+      company: "Entreprise"
+      discipline: "Discipline"

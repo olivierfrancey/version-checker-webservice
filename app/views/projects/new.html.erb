@@ -1,5 +1,134 @@
-<h1>New Project</h1>
 
-<%= render 'form', project: @project %>
 
-<%= link_to 'Back', projects_path %>
+<%= form_with(model: @project, local: true) do |f| %>
+
+  <div class="row">
+    <div class="col-md-4 col-md-offset-1">
+      <h1><%= t('project.new.title') %></h1>
+    </div>
+  </div>
+  <div class="row">
+
+    <div class="col-md-2 col-md-offset-1">
+      <h2><%= t('project.show.project') %></h2>
+    </div>
+
+    <div class="col-md-2"></div>
+
+    <div class="col-md-2">
+      <h2><%= t('project.show.client.client') %>
+    </div>
+
+    <div class="col-md-2"></div>
+
+  </div>
+  <div class="row">
+
+    <div class="col-md-1 col-md-offset-1">
+      <%= t('project.show.name') %> *
+    </div>
+    <div class="col-md-3">
+      <%= f.text_field :name, :tabindex => 1 %>
+    </div>
+
+    <div class="col-md-1">
+      <%= t('project.show.client.name') %>
+    </div>
+    <div class="col-md-3">
+      <%= f.text_field :client_name, :tabindex => 7 %>
+    </div>
+
+  </div>
+  <div class="row">
+
+    <div class="col-md-1 col-md-offset-1">
+      <%= t('project.show.identifier') %> *
+    </div>
+    <div class="col-md-3">
+      <%= f.text_field :identifier, :tabindex => 2 %>
+    </div>
+
+    <div class="col-md-1">
+      
+    </div>
+    <div class="col-md-3">
+      
+    </div>
+
+  </div>
+  <div class="row">
+
+    <div class="col-md-1 col-md-offset-1">
+      <%= t('project.show.address') %>
+    </div>
+    <div class="col-md-3">
+      <%= f.text_field :address, :tabindex => 3 %>
+    </div>
+
+    <div class="col-md-1">
+      <%= t('project.show.client.address') %>
+    </div>
+    <div class="col-md-3">
+      <%= f.text_field :client_address, :tabindex => 8 %>
+    </div>
+
+  </div>
+  <div class="row">
+
+    <div class="col-md-1 col-md-offset-1">
+      <%= t('project.show.npa') %>
+    </div>
+    <div class="col-md-3">
+      <%= f.text_field :npa, :tabindex => 4 %>
+    </div>
+
+    <div class="col-md-1">
+      <%= t('project.show.client.npa') %>
+    </div>
+    <div class="col-md-3">
+      <%= f.text_field :client_npa, :tabindex => 9 %>
+    </div>
+
+  </div>
+  <div class="row">
+
+    <div class="col-md-1 col-md-offset-1">
+      <%= t('project.show.city') %>
+    </div>
+    <div class="col-md-3">
+      <%= f.text_field :city, :tabindex => 5 %>
+    </div>
+
+    <div class="col-md-1">
+      <%= t('project.show.client.city') %>
+    </div>
+    <div class="col-md-3">
+      <%= f.text_field :client_city, :tabindex => 10 %>
+    </div>
+
+  </div>
+  <div class="row">
+
+    <div class="col-md-1 col-md-offset-1">
+      <%= t('project.show.country') %>
+    </div>
+    <div class="col-md-3">
+      <%= f.text_field :country, :tabindex => 6 %>
+    </div>
+
+    <div class="col-md-1">
+      <%= t('project.show.client.country') %>
+    </div>
+    <div class="col-md-3">
+      <%= f.text_field :client_country, :tabindex => 11 %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-2">
+      <%= f.submit t('project.edit.submit'), :tabindex => 12 %> 
+      <%= button_to 'Back', projects_path, class: "btn" %>
+    </div>
+  </div>
+<% end %>
+
+

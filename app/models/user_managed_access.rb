@@ -1,2 +1,0 @@
-class UserManagedAccess < ApplicationRecord
-end

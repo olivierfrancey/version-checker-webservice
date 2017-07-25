@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   get 'sessions/new'
 
-  resource :session, only: %i[new create destroy]
-  resources :user_projects
+  get 'projects/move_to_document/:id' => 'projects#move_to_document'
+  get 'documents/move_to_version/:id' => 'documents#move_to_version'
 
   scope "(:locale)", locale: /en|fr|de/ do
     root 'static_pages#home'
+    resource :session, only: %i[new create destroy]
     resources :users
     resources :versions
     resources :documents

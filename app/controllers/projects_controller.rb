@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    @projects = Project.where(id: session[:projects])
     #authorize @projects
   end
 
@@ -13,8 +13,6 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @project = Project.find(params[:id])
-    #@admin = User.find(@project.project_administrator)
-    #authorize @project
   end
 
   # GET /projects/new
@@ -30,13 +28,18 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(project_params)
+    p "create project.user"
+    @project.user = current_user
+
+    # managed accesses
+    access = Access.new()
+    access.user = current_user
+    access.project = @project
+    access.role = "projectAdmin"
 
     respond_to do |format|
-      if @project.save
-
-        UserManagedAccess.create(:user_id => session[:user_id], :project_id => @project.id, :role => 'projectAdmin')
-        
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
+      if @project.save && access.save       
+        format.html { redirect_to @project, notice: t('project.new.success') }
         format.json { render :show, status: :created, location: @project }
       else
         format.html { render :new }
@@ -69,8 +72,9 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def select_project
-    session[:active_project] = project_params
+  def move_to_document
+    session[:current_project_id] = params[:id]
+    redirect_to documents_path
   end
 
   private

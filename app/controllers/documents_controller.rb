@@ -5,7 +5,8 @@ class DocumentsController < ApplicationController
   # GET /documents
   # GET /documents.json
   def index
-    @documents = Document.all
+    @documents = Document.where(project_id: session[:current_project_id]).order(:identifier)
+    @project = current_project
   end
 
   # GET /documents/1
@@ -26,10 +27,12 @@ class DocumentsController < ApplicationController
   # POST /documents.json
   def create
     @document = Document.new(document_params)
+    @document.user = current_user
+    @document.project = current_project
 
     respond_to do |format|
       if @document.save
-        format.html { redirect_to @document, notice: 'Document was successfully created.' }
+        format.html { redirect_to documents_path, notice: 'Document was successfully created.' }
         format.json { render :show, status: :created, location: @document }
       else
         format.html { render :new }
@@ -43,7 +46,7 @@ class DocumentsController < ApplicationController
   def update
     respond_to do |format|
       if @document.update(document_params)
-        format.html { redirect_to @document, notice: 'Document was successfully updated.' }
+        format.html { redirect_to documents_path, notice: 'Document was successfully updated.' }
         format.json { render :show, status: :ok, location: @document }
       else
         format.html { render :edit }
@@ -62,6 +65,11 @@ class DocumentsController < ApplicationController
     end
   end
 
+  def move_to_version
+    session[:current_document_id] = params[:id]
+    redirect_to versions_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_document
@@ -70,6 +78,6 @@ class DocumentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def document_params
-      params.require(:document).permit(:identifier, :title, :sub_title, :doc_type, :size, :version_format)
+      params.require(:document).permit(:identifier, :title, :sub_title, :doc_type, :size)
     end
 end

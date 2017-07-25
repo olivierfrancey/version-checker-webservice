@@ -1,125 +1,140 @@
 
 <h1><%= "#{t('project.show.project')} : #{@project.name}" %></h1>
 
-
 <div class="row">
+  <div class="col-md-6">
+    <div class="row">
 
-  <div class="col-md-2">
-    <h2><%= t('project.show.project') %></h2>
+      <div class="col-md-6">
+        <h2><%= t('project.show.project') %></h2>
+      </div>
+
+      <div class="col-md-6">
+        <h2><%= t('project.show.client.client') %>
+      </div>
+
+    </div>
+    <div class="row">
+
+      <div class="col-md-2">
+        <%= t('project.show.name') %> 
+      </div>
+      <div class="col-md-4">
+        <%= @project.name %>
+      </div>
+
+      <div class="col-md-2">
+        <%= t('project.show.client.name') %>
+      </div>
+      <div class="col-md-4">
+        <%= @project.client_name %>
+      </div>
+
+    </div>
+    <div class="row">
+
+      <div class="col-md-2">
+        <%= t('project.show.identifier') %>
+      </div>
+      <div class="col-md-4">
+        <%= @project.identifier %>
+      </div>
+
+      <div class="col-md-2">
+        
+      </div>
+      <div class="col-md-4">
+        
+      </div>
+
+    </div>
+    <div class="row">
+
+      <div class="col-md-2">
+        <%= t('project.show.address') %>
+      </div>
+      <div class="col-md-4">
+        <%= @project.address %>
+      </div>
+
+      <div class="col-md-2">
+        <%= t('project.show.client.address') %>
+      </div>
+      <div class="col-md-4">
+        <%= @project.client_address %>
+      </div>
+
+    </div>
+    <div class="row">
+
+      <div class="col-md-2">
+        <%= t('project.show.npa') %>
+      </div>
+      <div class="col-md-4">
+        <%= @project.npa %>
+      </div>
+
+      <div class="col-md-2">
+        <%= t('project.show.client.npa') %>
+      </div>
+      <div class="col-md-4">
+        <%= @project.client_npa %>
+      </div>
+
+    </div>
+    <div class="row">
+
+      <div class="col-md-2">
+        <%= t('project.show.city') %>
+      </div>
+      <div class="col-md-4">
+        <%= @project.city %>
+      </div>
+
+      <div class="col-md-2">
+        <%= t('project.show.client.city') %>
+      </div>
+      <div class="col-md-4">
+        <%= @project.client_city %>
+      </div>
+
+    </div>
+    <div class="row">
+
+      <div class="col-md-2">
+        <%= t('project.show.country') %>
+      </div>
+      <div class="col-md-4">
+        <%= @project.country %>
+      </div>
+
+      <div class="col-md-2">
+        <%= t('project.show.client.country') %>
+      </div>
+      <div class="col-md-4">
+        <%= @project.client_country %>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-md-2">
+        Admin
+      </div>
+      <div class="col-md-4">
+        <%= "#{@project.user.first_name} #{@project.user.last_name}" %>
+      </div>
+    </div>
   </div>
-
-  <div class="col-md-2"></div>
-
-  <div class="col-md-2 offset-md-2">
-    <h2><%= t('project.show.client.client') %>
+  <div class="col-md-6">
+    <div class="row">
+      <div class="col-md-5 col-md-offset-1">
+        <h2><%= t('project.show.users') %></h2>
+        <%= button_to t('project.show.new_access') %>
+      </div>
+    </div>
   </div>
-
-  <div class="col-md-2"></div>
-
 </div>
-<div class="row">
-
-  <div class="col-md-1">
-    <%= t('project.show.name') %> 
-  </div>
-  <div class="col-md-3">
-    <%= @project.name %>
-  </div>
-
-  <div class="col-md-1 offset-md-1">
-    <%= t('project.show.client.name') %>
-  </div>
-  <div class="col-md-3">
-    <%= @project.client_name %>
-  </div>
-
-</div>
-<div class="row">
-
-  <div class="col-md-1">
-    <%= t('project.show.identifier') %>
-  </div>
-  <div class="col-md-3">
-    <%= @project.identifier %>
-  </div>
-
-  <div class="col-md-1 offset-md-1">
-    
-  </div>
-  <div class="col-md-3">
-    
-  </div>
-
-</div>
-<div class="row">
-
-  <div class="col-md-1">
-    <%= t('project.show.address') %>
-  </div>
-  <div class="col-md-3">
-    <%= @project.address %>
-  </div>
-
-  <div class="col-md-1 offset-md-1">
-    <%= t('project.show.client.address') %>
-  </div>
-  <div class="col-md-3">
-    <%= @project.client_address %>
-  </div>
-
-</div>
-<div class="row">
-
-  <div class="col-md-1">
-    <%= t('project.show.npa') %>
-  </div>
-  <div class="col-md-3">
-    <%= @project.npa %>
-  </div>
-
-  <div class="col-md-1 offset-md-1">
-    <%= t('project.show.client.npa') %>
-  </div>
-  <div class="col-md-3">
-    <%= @project.client_npa %>
-  </div>
-
-</div>
-<div class="row">
-
-  <div class="col-md-1">
-    <%= t('project.show.city') %>
-  </div>
-  <div class="col-md-3">
-    <%= @project.city %>
-  </div>
-
-  <div class="col-md-1 offset-md-1">
-    <%= t('project.show.client.city') %>
-  </div>
-  <div class="col-md-3">
-    <%= @project.client_city %>
-  </div>
-
-</div>
-<div class="row">
-
-  <div class="col-md-1">
-    <%= t('project.show.country') %>
-  </div>
-  <div class="col-md-3">
-    <%= @project.country %>
-  </div>
-
-  <div class="col-md-1 offset-md-1">
-    <%= t('project.show.client.country') %>
-  </div>
-  <div class="col-md-3">
-    <%= @project.client_country %>
-  </div>
-
-</div>
-<br>
 
 <%= link_to t('project.show.edit'), edit_project_path(@project), class: "btn" %> 
 <%= link_to t('project.show.my_projects'), projects_path, class: "btn" %> 
+<%= link_to t('project.show.delete'), @project, :method => :delete, data: { confirm: t('project.show.delete_confirmation') }, class: "btn danger" %>
