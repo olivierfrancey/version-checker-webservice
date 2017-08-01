@@ -9,9 +9,11 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :company
       t.string :discipline
 
-      t.integer :projects_count
-      t.integer :documents_count
-      t.integer :versions_count
+      t.integer :projects_count, :default => 0
+      t.integer :documents_count, :default => 0
+      t.integer :groups_count, :default => 0
+      t.integer :versions_count, :default => 0
+      t.integer :accesses_count, :default => 0
 
       t.timestamps
     end

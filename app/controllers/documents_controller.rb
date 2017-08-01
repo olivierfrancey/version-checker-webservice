@@ -1,5 +1,6 @@
 class DocumentsController < ApplicationController
   before_action :set_document, only: [:show, :edit, :update, :destroy]
+  #before_action :set_group, only: [:new, :create]
   before_action :check_logged_in
   
   # GET /documents
@@ -67,8 +68,13 @@ class DocumentsController < ApplicationController
 
   def move_to_version
     session[:current_document_id] = params[:id]
-    redirect_to versions_path
+    if params[:new]
+      redirect_to new_version_path
+    else
+      redirect_to versions_path
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -76,8 +82,23 @@ class DocumentsController < ApplicationController
       @document = Document.find(params[:id])
     end
 
+    # def set_group
+    #   @groups = Group.where(project_id: session[:current_project_id]).pluck(:name, :id)
+    #   #@groups = ['Default']
+    #   p @groups
+    #   if !@groups.any?
+    #     p "Is empty!"
+    #     @groups = Group.new
+    #     @groups.user = current_user
+    #     @groups.project = current_project
+    #     @groups.name = "Default"
+
+    #     @groups.save
+    #   end
+    # end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def document_params
-      params.require(:document).permit(:identifier, :title, :sub_title, :doc_type, :size)
+      params.require(:document).permit(:identifier, :title, :sub_title, :doc_type, :size, :group)
     end
 end

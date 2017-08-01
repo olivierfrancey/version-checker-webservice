@@ -17,7 +17,7 @@ en:
   home:
     hello: "Hello world"
     intro: "Manage your documents and their versions easily and efficently"
-    try: "Try it right now!"
+    try: "Try it right now"
     login: "Login"
     security:
       title: "Security"
@@ -45,16 +45,19 @@ en:
     password: "Password"
     submit: "Log in"
     failed_connection: "Email or password is invalid"
-    successful_connection: "You have logged in with success"
+    successfull_connection: "You have logged in with success"
     logout: "You are logged out"
 
   project:
+    submit: "Submit"
+    cancel: "Cancel"
     index:
       title: "My projects"
       name: "Project name"
       identifier: "Project identifier"
       docs_number: "Documents"
       versions_number: "Versions"
+      accesses_number: "Users"
       show: "Detail"
       edit: "Edit"
       destroy: "Delete"
@@ -81,7 +84,7 @@ en:
         city: "City"
         country: "Country"
       users: "Access right"
-      new_access: "Invite an user"
+      new_access: "Add an user"
     edit:
       title: "Editing project"
       submit: "Save"
@@ -110,12 +113,14 @@ en:
       doc_type: "Type"
       size: "Dimension"
       version-format: "Index format"
+      group: "Group"
     edit:
       title: "Editing document"
       submit: "Save"
 
   user:
     submit: "Submit"
+    cancel: "Cancel"
     new:
       title: "New user"
       first_name: "First name"
@@ -125,3 +130,13 @@ en:
       password_confirmation: "Password confirmation"
       company: "Firme"
       discipline: "Discipline"
+
+  access:
+    submit: "Submit"
+    cancel: "Cancel"
+    new:
+      title: "New access"
+      user: "User email"
+      role: "Role"
+      basic_user: "Basic user"
+      project_admin: "Project admin"

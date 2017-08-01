@@ -9,8 +9,10 @@ class CreateVersions < ActiveRecord::Migration[5.1]
       t.boolean :current_version
       t.text :comments
 
-      t.integer :document_id
       t.integer :user_id
+      t.integer :project_id
+      t.integer :group_id
+      t.integer :document_id
 
       t.timestamps
     end

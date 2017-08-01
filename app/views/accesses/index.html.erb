@@ -1,0 +1,31 @@
+
+<div class="row">
+  <div class="col-md-12">
+    <h1><%= t('access.index.title') %></h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to t('access.index.new'), new_access_path, class: "btn" %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table">
+      <% @accesses.each do |access| %>
+      <tr>
+        <td class="middle"><%= "#{access.user.first_name} #{access.user.last_name}" %></td>
+        <td class="middle"><%= access.user.email %></td>
+        <td class="middle"><%= t('access.index.'+access.role) %></td>
+        <td class="middle">
+            <%= link_to t('access.index.edit'), edit_access_path(access), class: "btn sharp" %>
+            <%= link_to t('access.index.delete'), access, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn sharp danger" %></td>
+      </tr>
+      <% end %>
+
+    </table>
+  </div>
+</div>
+

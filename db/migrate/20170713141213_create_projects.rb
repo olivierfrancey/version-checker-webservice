@@ -7,7 +7,6 @@ class CreateProjects < ActiveRecord::Migration[5.1]
       t.string :npa
       t.string :city
       t.string :country
-      t.string :bill_option
       t.string :client_name
       t.string :client_address
       t.string :client_npa
@@ -15,9 +14,11 @@ class CreateProjects < ActiveRecord::Migration[5.1]
       t.string :client_country
       
       t.integer :user_id
-      t.integer :documents_count
-      t.integer :versions_count
-      t.integer :users_count
+
+      t.integer :groups_count, :default => 0
+      t.integer :documents_count, :default => 0
+      t.integer :versions_count, :default => 0
+      t.integer :accesses_count, :default => 0
 
       t.timestamps
     end

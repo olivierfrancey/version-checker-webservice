@@ -17,7 +17,7 @@ fr:
   home:
     hello: "Bonjour le monde"
     intro: "Gérez vos versions de documents simplement et efficacement"
-    try: "Essayez dès maintenant!"
+    try: "Essayez dès maintenant"
     login: "Se connecter"
     security:
       title: "Sécurité de vos données"
@@ -46,16 +46,19 @@ fr:
     password: "Mot de passe"
     submit: "Se connecter"
     failed_connection: "L'email ou le mot de passe n'est pas valide"
-    successful_connection: "Vous vous êtes connecté avec succès"
+    successfull_connection: "Vous vous êtes connecté avec succès"
     logout: "Vous êtes déconnecté"
 
   project:
+    submit: "Soumettre"
+    cancel: "Annuler"
     index:
       title: "Mes projets"
       name: "Nom du projet"
       identifier: "Identifiant"
       docs_number: "Documents"
       versions_number: "Versions"
+      accesses_number: "Utilisateurs"
       show: "Detail"
       edit: "Modifier"
       destroy: "Supprimer"
@@ -82,7 +85,7 @@ fr:
         city: "Localité"
         country: "Pays"
       users: "Accès utilisateur"
-      new_access: "Inviter un utilisateur"
+      new_access: "Ajouter un utilisateur"
     edit:
       title: "Edition de project"
       submit: "Enregistrer"
@@ -111,12 +114,14 @@ fr:
       doc_type: "Type"
       size: "Dimension"
       version-format: "Indices"
+      group: "Groupe"
     edit:
       title: "Editer document"
       submit: "Enregistrer"
 
   user:
     submit: "Soumettre"
+    cancel: "Annuler"
     new:
       title: "Nouvel utilisateur"
       first_name: "Prénom"
@@ -126,3 +131,21 @@ fr:
       password_confirmation: "Confirmation"
       company: "Entreprise"
       discipline: "Discipline"
+
+  access:
+    submit: "Soumettre"
+    cancel: "Annuler"
+    new:
+      title: "Nouvel accès"
+      user: "Email"
+      role: "Rôle"
+      basic_user: "Utilisateur de base"
+      project_admin: "Administrateur du project"
+    index:
+      title: "Liste des droits d'accès au projet"
+      new: "Nouvel utilisateur"
+      show: "Détails"
+      edit: "Modifier"
+      delete: "Supprimer"
+      projectAdmin: "Administrateur"
+      basicUser: "Utilisateur"

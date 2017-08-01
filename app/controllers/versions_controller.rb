@@ -28,14 +28,16 @@ class VersionsController < ApplicationController
     @version = Version.new(version_params)
     @version.user = current_user
     @version.document = current_document
-    p session[:user_id]
-    p current_user
-    p session[:current_document_id]
-    p current_document
+    @version.project = current_project
+    @version.current_version = true
+    @version.crypted_id = SecureRandom.hex(15)
+
+    other_versions = Version.where(document_id: current_document.id)
+    other_versions.update(:current_version => false)
 
     respond_to do |format|
       if @version.save
-        format.html { redirect_to @version, notice: 'Version was successfully created.' }
+        format.html { redirect_to versions_path, notice: 'Version was successfully created.' }
         format.json { render :show, status: :created, location: @version }
       else
         format.html { render :new }
@@ -49,7 +51,7 @@ class VersionsController < ApplicationController
   def update
     respond_to do |format|
       if @version.update(version_params)
-        format.html { redirect_to @version, notice: 'Version was successfully updated.' }
+        format.html { redirect_to versions_path, notice: 'Version was successfully updated.' }
         format.json { render :show, status: :ok, location: @version }
       else
         format.html { render :edit }
@@ -68,6 +70,16 @@ class VersionsController < ApplicationController
     end
   end
 
+  def make_current
+    other_versions = Version.where(document_id: current_document.id)
+    other_versions.update(:current_version => false)
+
+    version = Version.find(params[:id])
+    version.update(:current_version => true)
+
+    redirect_to versions_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_version
@@ -77,5 +89,12 @@ class VersionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def version_params
       params.require(:version).permit(:version_number, :date, :author, :checker, :crypted_id, :current_version, :comments)
+    end
+
+    def numeric?(string)
+      # `!!` converts parsed number to `true`
+      !!Kernel.Float(string) 
+    rescue TypeError, ArgumentError
+      false
     end
 end

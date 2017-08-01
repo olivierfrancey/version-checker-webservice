@@ -1,5 +1,5 @@
 <nav class="navbar navbar-fixed-top navbar-inverse">
-
+<div class="container">
   <%= link_to "version checker", projects_path, class: "navbar-brand" %>
 
   <ul class="nav navbar-nav navbar-right">
@@ -19,19 +19,35 @@
       </ul>
     </li>
     <% end %>
-    
+
     <li class="nav-menu-separator"></li>
     <li><%= link_to "EN", url_for(:locale => 'en') %></li>
     <li><%= link_to "FR", url_for(:locale => 'fr') %></li>
     <li class="nav-menu-separator"></li>
         <% if logged_in? %>
-          <li><%= link_to "#{current_user.first_name} #{current_user.last_name}", edit_user_path(current_user.id) %></li>
+          <% if current_user.first_name? || current_user.last_name? %>
+            <li><%= link_to "#{current_user.first_name} #{current_user.last_name}", edit_user_path(current_user.id) %></li>
+          <% else %>
+            <li><%= link_to "Connection", edit_user_path(current_user.id) %></li>
+          <% end %>
           <li class="nav-menu-separator"></li>
-          <li class="last-item"><%= link_to 'Logout', session_path, method: :delete %></li>
+          <li class="last-item">
+            <%= link_to session_path, method: :delete do %>
+              Logout <span class="glyphicon glyphicon-log-out"></span>
+            <% end %>
+          </li>
         <% else %>
-          <li><%= link_to 'Sign Up', new_user_path %></li>
-          <li class="last-item"><%= link_to 'Log In', new_session_path %></li>
+          <li>
+            <%= link_to new_user_path do %>
+                <span class="glyphicon glyphicon-play-circle"></span><%= 'Sign Up' %>
+            <% end %>
+          </li>
+          <li class="last-item">
+            <%= link_to new_session_path do %>
+              <span class="glyphicon glyphicon-log-in"></span><%= 'Log In' %> 
+            <% end %>
+          </li>
         <% end %>
   </ul>
-
+</div>
 </nav>

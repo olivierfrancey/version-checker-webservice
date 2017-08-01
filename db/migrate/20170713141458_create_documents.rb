@@ -6,11 +6,12 @@ class CreateDocuments < ActiveRecord::Migration[5.1]
       t.string :sub_title
       t.string :doc_type
       t.string :size
-
-      t.integer :project_id
+   
       t.integer :user_id
-
-      t.integer :versions_count
+      t.integer :project_id
+      t.integer :group_id
+      
+      t.integer :versions_count, :default => 0
 
       t.timestamps
     end

@@ -1,11 +1,12 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :clear_current_project, only: [:index]
   before_action :check_logged_in
   
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.where(id: session[:projects])
+    @projects = Project.where(id: session[:projects]).order(:identifier)
     #authorize @projects
   end
 
@@ -39,7 +40,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save && access.save       
-        format.html { redirect_to @project, notice: t('project.new.success') }
+        format.html { redirect_to projects_path, notice: t('project.new.success') }
         format.json { render :show, status: :created, location: @project }
       else
         format.html { render :new }
@@ -77,10 +78,19 @@ class ProjectsController < ApplicationController
     redirect_to documents_path
   end
 
+  def move_to_access
+    session[:current_project_id] = params[:id]
+    redirect_to accesses_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project
       @project = Project.find(params[:id])
+    end
+
+    def clear_current_project
+      session[:current_project_id] = nil
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

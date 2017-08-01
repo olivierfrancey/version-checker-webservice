@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170724205141) do
+ActiveRecord::Schema.define(version: 20170801072947) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "accesses", force: :cascade do |t|
+    t.string "role"
     t.integer "user_id"
     t.integer "project_id"
-    t.string "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -29,9 +29,20 @@ ActiveRecord::Schema.define(version: 20170724205141) do
     t.string "sub_title"
     t.string "doc_type"
     t.string "size"
-    t.integer "project_id"
     t.integer "user_id"
-    t.integer "versions_count"
+    t.integer "project_id"
+    t.integer "group_id"
+    t.integer "versions_count", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string "name"
+    t.integer "user_id"
+    t.integer "project_id"
+    t.integer "documents_count", default: 0
+    t.integer "versions_count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -43,16 +54,16 @@ ActiveRecord::Schema.define(version: 20170724205141) do
     t.string "npa"
     t.string "city"
     t.string "country"
-    t.string "bill_option"
     t.string "client_name"
     t.string "client_address"
     t.string "client_npa"
     t.string "client_city"
     t.string "client_country"
     t.integer "user_id"
-    t.integer "documents_count"
-    t.integer "versions_count"
-    t.integer "users_count"
+    t.integer "groups_count", default: 0
+    t.integer "documents_count", default: 0
+    t.integer "versions_count", default: 0
+    t.integer "accesses_count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -81,9 +92,11 @@ ActiveRecord::Schema.define(version: 20170724205141) do
     t.string "phone"
     t.string "company"
     t.string "discipline"
-    t.integer "projects_count"
-    t.integer "documents_count"
-    t.integer "versions_count"
+    t.integer "projects_count", default: 0
+    t.integer "documents_count", default: 0
+    t.integer "groups_count", default: 0
+    t.integer "versions_count", default: 0
+    t.integer "accesses_count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -96,8 +109,10 @@ ActiveRecord::Schema.define(version: 20170724205141) do
     t.string "crypted_id"
     t.boolean "current_version"
     t.text "comments"
-    t.integer "document_id"
     t.integer "user_id"
+    t.integer "project_id"
+    t.integer "group_id"
+    t.integer "document_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

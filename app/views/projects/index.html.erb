@@ -4,14 +4,22 @@
 
 <% @projects.each do |project| %>
   <div class="tile">
-    <%= link_to project_path(project.id), class: "edit-icon" do %>
-      <span class="glyphicon glyphicon-plus"></span>
-    <% end %>
+
+    <div class="dropdown edit-icon">
+      <a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown">
+      <span class="glyphicon glyphicon-option-vertical"></span>o</a>
+      <ul class="dropdown-menu">
+        <li><%= link_to 'Détails', project_path(project.id) %></li>
+        <li><%= link_to 'Utilisateurs', :controller => :projects, :action => :move_to_access, :id => project.id %></li>
+      </ul>
+    </div>
+
     <%= link_to :controller => :projects, :action => :move_to_document, :id => project.id do %>
       <h3><%= "#{project.identifier}" %></h3>
       <h4><%= "#{project.name}" %></h4>
-      <p><%= "#{t('project.index.docs_number')} : #{project.documents_count}" %></p>
-      <p><%= "#{t('project.index.versions_number')} : #{project.versions_count}" %></p>
+      <p><%= "#{t('project.index.docs_number')} : #{project.documents_count}" %><br>
+         <%= "#{t('project.index.versions_number')} : #{project.versions_count}" %><br>
+         <%= "#{t('project.index.accesses_number')} : #{project.accesses_count}" %></p>
     <% end %>
   </div>
 <% end %>

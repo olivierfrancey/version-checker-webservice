@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       session[:current_project] = nil
       session[:current_document] = nil
-      redirect_to projects_path, notice: t('session.successful_connection')
+      redirect_to projects_path, notice: t('session.successfull_connection')
     else
       flash.now.alert = t('session.failed_connection')
       render :new

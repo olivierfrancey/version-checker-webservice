@@ -47,21 +47,21 @@ h1
 h2 
   font-size: 22px
 
+h3
+  margin-top: 15px
+
 input[type="submit"]:hover, input[type="button"]:hover
   color: black
 
-input[type="submit"], input[type="button"], a.btn
+input[type="submit"], input[type="button"], button[type="submit"], a.btn
   @extend .btn
-  margin: 15px 0
+  margin: 15px 5px 15px 0
   border-radius: 0
   color: $button-text-color
   background-color: $button-background
   border: $input-border
 
-.btn-sharp
-  margin: 0 !important
-
-input[type="password"], input[type="email"], input[type="text"]
+input[type="password"], input[type="email"], input[type="text"], input[type="date"]
   @extend .form-control
   width: 250px
   height: 27px
@@ -76,12 +76,22 @@ input[type="password"]:focus, input[type="email"]:focus
 
 input:-webkit-autofill
   background-color: black !important
+  
+textarea
+  width: 250px
+  height: 100px
+  border: $input-border
+  color: $input-text-color
+  background-color: $input-background
 
-select
+html select
   @extend input[type="button"]
   height: 34px
-  width: 90px
+  width: auto
+  margin: 1px 0
+  appearance: select
   -webkit-appearance: select
+  background-image: $input-text-color
 
 td
   border-bottom: 1px solid white
@@ -101,14 +111,26 @@ td
 .danger
   background-color: #890000 !important
 
+.glyphicon
+  margin: 0 5px 0 0
+
+.sharp
+  margin: 2px 0 !important
+
 .center
   position: absolute
   left: 50%
   top: 50%
-  transform: translate(-50%, -50%)
+  transform: translate(-50%, -60%)
 
 .middle
   vertical-align: middle !important
+
+.input-short
+  width: 150px !important
+
+.input-shorter
+  width: 100px !important
 
 .page
   height: 100vh
@@ -128,7 +150,7 @@ td
 
 .tile
   position: relative
-  margin: 15px
+  margin: 15px 15px 0 0
   padding: 0 20px 20px 20px
   background-color: $tile-background
   color: $tile-text-color
@@ -147,7 +169,7 @@ td
   background-color: $tile-background
 
 .login
-  width: 385px
+  width: 430px
   height: 189px
   transform: translate(-50%, -85%)
 
@@ -164,8 +186,8 @@ td
 
 .edit-icon
   position: absolute
-  right: 10px
-  top: 10px 
+  right: 16px
+  top: 14px 
 
 .super-large-symbol
   font-size: 1.3em

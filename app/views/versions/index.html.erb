@@ -8,11 +8,11 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Version number</th>
-      <th>Date</th>
-      <th>Author</th>
-      <th>Checker</th>
-      <th>Current version</th>
+      <th class="text-center">Version</th>
+      <th class="text-center">Date</th>
+      <th class="text-center">Author</th>
+      <th class="text-center">Checker</th>
+      <th class="text-center">Current version</th>
       <th>Comments</th>
       <th></th>
     </tr>
@@ -21,15 +21,21 @@
   <tbody>
     <% @versions.each do |version| %>
       <tr>
-        <td class="middle"><%= version.version_number %></td>
-        <td class="middle"><%= version.date %></td>
-        <td class="middle"><%= version.author %></td>
-        <td class="middle"><%= version.checker %></td>
-        <td class="middle"><%= radio_button_tag 'current', version.current_version, version.current_version %></td>
+        <td class="middle text-center"><%= version.version_number %></td>
+        <td class="middle text-center"><%= version.date %></td>
+        <td class="middle text-center"><%= version.author %></td>
+        <td class="middle text-center"><%= version.checker %></td>
+        <td class="middle text-center">
+        <% if version.current_version %>
+          <span class="glyphicon glyphicon-ok"></span>
+        <% else %>
+          <%= link_to 'Make current', {:controller => :versions, :action => :make_current, :id => version.id} , class: "btn sharp" %>
+        <% end %>
+        </td>
         <td class="middle"><%= version.comments %></td>
-        <td class="middle"><%= link_to 'Show', version, class: "btn btn-sharp" %> 
-          <%= link_to 'Edit', edit_version_path(version), class: "btn btn-sharp" %> 
-          <%= link_to 'Destroy', version, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn danger btn-sharp" %>
+        <td class="middle"><%= link_to 'Show', version, class: "btn sharp" %> 
+          <%= link_to 'Edit', edit_version_path(version), class: "btn sharp" %> 
+          <%= link_to 'Destroy', version, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn danger sharp" %>
         </td>
       </tr>
     <% end %>

@@ -1,0 +1,39 @@
+
+<%= form_with(model: @access, local: true) do |f| %>
+
+  <div class="row">
+    <div class="col-md-4">
+      <h1><%= t('access.new.title') %></h1>
+    </div>
+  </div>
+ 
+  <div class="row">
+    <div class="col-md-2">
+      <%= t('access.new.user') %> *
+    </div>
+    <div class="col-md-4">
+      <%= f.text_field :email, :tabindex => 1 %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2">
+      <%= t('access.new.role') %> *
+    </div>
+    <div class="col-md-4">
+      <%= f.select(:role, options_for_select(@roles, 'basic_user')) %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 col-md-offset-2">
+      <%= button_to :class => "btn", :tabindex => 3 do %>
+        <span class="glyphicon glyphicon-ok"></span><%= t('access.submit') %>
+      <% end %>
+      <%= link_to projects_path, class: "btn" do %>
+        <span class="glyphicon glyphicon-remove"></span><%= t('access.cancel') %>
+      <% end %>
+    </div>
+  </div>
+
+<% end %>

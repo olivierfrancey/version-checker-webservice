@@ -35,8 +35,8 @@
         </td>
         
         <td class="middle">
-          <%= link_to 'Add version', new_version_path, class: "btn" %> 
-          <%= link_to 'Show versions', {:controller => :documents, :action => :move_to_version, :id => document.id}, class: "btn" %>
+          <%= link_to 'Add version',   {:controller => :documents, :action => :move_to_version, :id => document.id, :new => true},  class: "btn" %> 
+          <%= link_to 'Show versions', {:controller => :documents, :action => :move_to_version, :id => document.id, :new => false}, class: "btn" %>
         </td>
       </tr>
     <% end %>

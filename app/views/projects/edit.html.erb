@@ -119,6 +119,11 @@
     </div>
 
   </div>
-  <br>
-  <%= submit_tag t('project.edit.submit') %> 
+  <div class="row">
+    <div class="col-md-6">
+      <%= button_to :class => "btn" do %>
+        <span class="glyphicon glyphicon-ok"></span> <%= t('project.submit') %> 
+      <% end %>
+    </div>
+  </div>
 <% end %>
