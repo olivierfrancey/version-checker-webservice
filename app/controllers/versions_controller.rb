@@ -30,10 +30,18 @@ class VersionsController < ApplicationController
     @version.document = current_document
     @version.project = current_project
     @version.current_version = true
-    @version.crypted_id = SecureRandom.hex(15)
+    @version.crypted_id = BCrypt::Password.create(current_project.id.to_s+current_document.id.to_s+@version.version_number)
 
     other_versions = Version.where(document_id: current_document.id)
-    other_versions.update(:current_version => false)
+    if other_versions.any?
+      p other_versions
+      other_versions.update(:current_version => false)
+    else
+      p 'no other version'
+    end
+
+    document = Document.find(current_document.id)
+    document.update(:last_version => @version.version_number, :last_version_date => @version.date)
 
     respond_to do |format|
       if @version.save
@@ -71,12 +79,16 @@ class VersionsController < ApplicationController
   end
 
   def make_current
-    other_versions = Version.where(document_id: current_document.id)
+    other_versions = Version.where(document_id: session[:current_document_id])
     other_versions.update(:current_version => false)
 
     version = Version.find(params[:id])
     version.update(:current_version => true)
 
+    document = Document.find(session[:current_document_id])
+    document.update(:last_version => version.version_number, :last_version_date => version.date)
+    p document
+    
     redirect_to versions_path
   end
 

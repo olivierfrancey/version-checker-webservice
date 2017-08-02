@@ -6,6 +6,8 @@ class CreateDocuments < ActiveRecord::Migration[5.1]
       t.string :sub_title
       t.string :doc_type
       t.string :size
+      t.string :last_version, :default => '-'
+      t.date :last_version_date
    
       t.integer :user_id
       t.integer :project_id

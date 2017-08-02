@@ -121,9 +121,11 @@
   </div>
   <div class="row">
     <div class="col-md-4 col-md-offset-2">
-      <%= f.submit t('project.submit'), :tabindex => 12 %> 
+      <%= button_to controller: "projects", action: "create", :tabindex => 12 do %> 
+        <span class="glyphicon glyphicon-ok"></span><%= t('project.submit') %>
+      <% end %>
       <%= link_to projects_path, class: "btn" do %>
-        <span class=""></span><%= t('project.cancel') %>
+        <span class="glyphicon glyphicon-remove"></span><%= t('project.cancel') %>
       <% end %>
     </div>
   </div>

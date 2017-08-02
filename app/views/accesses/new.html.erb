@@ -11,8 +11,14 @@
     <div class="col-md-2">
       <%= t('access.new.user') %> *
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
       <%= f.text_field :email, :tabindex => 1 %>
+    </div>
+
+    <div class="new-access-warning">
+      <span>
+        <%= t('access.new.warning') %>
+      </span>
     </div>
   </div>
 
@@ -20,8 +26,8 @@
     <div class="col-md-2">
       <%= t('access.new.role') %> *
     </div>
-    <div class="col-md-4">
-      <%= f.select(:role, options_for_select(@roles, 'basic_user')) %>
+    <div class="col-md-3">
+      <%= f.select(:role, options_for_select(@roles, 'basicUser')) %>
     </div>
   </div>
 

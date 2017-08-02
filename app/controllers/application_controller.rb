@@ -1,19 +1,19 @@
 class ApplicationController < ActionController::Base
   include Pundit
   protect_from_forgery with: :exception
-  helper_method :current_user, :logged_in?, :current_project
+  helper_method :current_user, :current_project, :logged_in?
 
-  before_action :set_locale, :get_projects, :user_projects, :set_projects
+  before_action :set_locale, :user_projects, :set_projects
   layout :resolve_layout
  
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
   end
 
-  def get_projects
-    @projects = Project.all
-    #@projects = UserProject.where(['user_id = ?', session[:user_id]])
-  end
+  # def get_projects
+  #   @projects = Project.all
+  #   #@projects = UserProject.where(['user_id = ?', session[:user_id]])
+  # end
 
   def check_logged_in
     if !logged_in?

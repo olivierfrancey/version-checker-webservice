@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get 'projects/move_to_document/:id' => 'projects#move_to_document'
   get 'projects/move_to_access/:id' => 'projects#move_to_access'
+  get 'projects/move_to_detail/:id' => 'projects#move_to_detail'
   get 'documents/move_to_version/:id' => 'documents#move_to_version'
   get 'versions/make_current/:id' => 'versions#make_current'
 

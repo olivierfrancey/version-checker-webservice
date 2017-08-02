@@ -45,6 +45,8 @@ class DocumentsController < ApplicationController
   # PATCH/PUT /documents/1
   # PATCH/PUT /documents/1.json
   def update
+    p document_params
+    p @document
     respond_to do |format|
       if @document.update(document_params)
         format.html { redirect_to documents_path, notice: 'Document was successfully updated.' }
@@ -68,7 +70,7 @@ class DocumentsController < ApplicationController
 
   def move_to_version
     session[:current_document_id] = params[:id]
-    if params[:new]
+    if params[:new] == 'true'
       redirect_to new_version_path
     else
       redirect_to versions_path
@@ -99,6 +101,6 @@ class DocumentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def document_params
-      params.require(:document).permit(:identifier, :title, :sub_title, :doc_type, :size, :group)
+      params.require(:document).permit(:identifier, :title, :sub_title, :doc_type, :size, :group, :last_version, :last_version_date)
     end
 end

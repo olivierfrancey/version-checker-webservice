@@ -15,10 +15,10 @@ class CreateProjects < ActiveRecord::Migration[5.1]
       
       t.integer :user_id
 
-      t.integer :groups_count, :default => 0
+      t.integer :groups_count,    :default => 0
       t.integer :documents_count, :default => 0
-      t.integer :versions_count, :default => 0
-      t.integer :accesses_count, :default => 0
+      t.integer :versions_count,  :default => 0
+      t.integer :accesses_count,  :default => 0
 
       t.timestamps
     end

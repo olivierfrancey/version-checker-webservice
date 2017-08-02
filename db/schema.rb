@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20170801072947) do
     t.string "sub_title"
     t.string "doc_type"
     t.string "size"
+    t.string "last_version", default: "-"
+    t.date "last_version_date"
     t.integer "user_id"
     t.integer "project_id"
     t.integer "group_id"
@@ -107,11 +109,11 @@ ActiveRecord::Schema.define(version: 20170801072947) do
     t.string "author"
     t.string "checker"
     t.string "crypted_id"
-    t.boolean "current_version"
+    t.string "file_name"
+    t.boolean "current_version", default: true
     t.text "comments"
     t.integer "user_id"
     t.integer "project_id"
-    t.integer "group_id"
     t.integer "document_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

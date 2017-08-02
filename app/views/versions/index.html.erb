@@ -1,19 +1,23 @@
 
 
-<h1>Versions</h1>
+<h1><%= t('version.index.title') %></h1>
 
-<%= link_to 'New Version', new_version_path, class: "btn" %>
-<%= link_to 'Back to documents', documents_path, class: "btn" %>
+<%= link_to new_version_path, class: "btn" do %>
+  <span class="glyphicon glyphicon-plus"></span><%= t('version.index.add') %>
+<% end %>
+<%= link_to documents_path, class: "btn" do %>
+  <span class="glyphicon glyphicon-arrow-left"></span><%= t('version.index.back') %>
+<% end %>
 
 <table class="table">
   <thead>
     <tr>
-      <th class="text-center">Version</th>
-      <th class="text-center">Date</th>
-      <th class="text-center">Author</th>
-      <th class="text-center">Checker</th>
-      <th class="text-center">Current version</th>
-      <th>Comments</th>
+      <th class="text-center"><%= t('version.index.version') %></th>
+      <th class="text-center"><%= t('version.index.date') %></th>
+      <th class="text-center"><%= t('version.index.author') %></th>
+      <th class="text-center"><%= t('version.index.checker') %></th>
+      <th class="text-center"><%= t('version.index.current_version') %></th>
+      <th><%= t('version.index.comments') %></th>
       <th></th>
     </tr>
   </thead>
@@ -29,13 +33,17 @@
         <% if version.current_version %>
           <span class="glyphicon glyphicon-ok"></span>
         <% else %>
-          <%= link_to 'Make current', {:controller => :versions, :action => :make_current, :id => version.id} , class: "btn sharp" %>
+          <%= link_to t('version.index.make_current'), {:controller => :versions, :action => :make_current, :id => version.id} , class: "btn sharp" %>
         <% end %>
         </td>
         <td class="middle"><%= version.comments %></td>
-        <td class="middle"><%= link_to 'Show', version, class: "btn sharp" %> 
-          <%= link_to 'Edit', edit_version_path(version), class: "btn sharp" %> 
-          <%= link_to 'Destroy', version, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn danger sharp" %>
+        <td class="middle">
+          <%= link_to edit_version_path(version), class: "btn sharp" do %>
+            <span class="glyphicon glyphicon-pencil"></span><%= t('version.index.edit') %> 
+          <% end %>
+          <%= link_to version, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn danger sharp" do %>
+            <span class="glyphicon glyphicon-remove"></span><%= t('version.index.delete') %>
+          <% end %>
         </td>
       </tr>
     <% end %>

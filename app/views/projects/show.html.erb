@@ -130,8 +130,16 @@
     <div class="row">
       <div class="col-md-12">
         <h2><%= t('project.show.users') %></h2>
-        <%= link_to new_access_path, :class => "btn" do %>
-          <span class="glyphicon glyphicon-plus"></span> <%= t('project.show.new_access') %>
+        <table>
+        <% @accesses.each do |access| %>
+          <tr>
+            <td class="no-line"><%= access.user.email %></td> 
+            <td class="no-line">(<%= t('access.role.'+access.role) %>)</td>
+          </tr>
+        <% end %>
+        </table>
+        <%= link_to accesses_path, :class => "btn" do %>
+          <span class="glyphicon glyphicon-user"></span> <%= t('project.show.accesses') %>
         <% end %>
       </div>
     </div>

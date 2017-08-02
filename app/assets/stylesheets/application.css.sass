@@ -93,9 +93,10 @@ html select
   -webkit-appearance: select
   background-image: $input-text-color
 
-td
-  border-bottom: 1px solid white
+td, th
+  border-bottom: 1px solid white !important
 
+// general
 .footer
   position: fixed
   bottom: 0
@@ -108,14 +109,14 @@ td
   background-color: $footer-background
   color: $footer-text-color
 
-.danger
-  background-color: #890000 !important
+.page
+  height: 100vh
 
 .glyphicon
   margin: 0 5px 0 0
 
-.sharp
-  margin: 2px 0 !important
+.right
+  text-align: right
 
 .center
   position: absolute
@@ -123,23 +124,44 @@ td
   top: 50%
   transform: translate(-50%, -60%)
 
+.main-content 
+  margin: 0
+  padding: 0 30px
+  margin-top: 60px
+
+//buttons
+.danger
+  background-color: #890000 !important
+
+.sharp
+  margin: 2px 0 !important
+
+// tables
 .middle
   vertical-align: middle !important
 
+td.no-line
+  border: none !important
+
+// grid
+.new-access-warning
+  position: relative
+  height: 0
+  top: -2px
+  left: 9px
+
+.new-access-warning > span
+  position: absolute
+  width: 230px
+
+// form
 .input-short
   width: 150px !important
 
 .input-shorter
   width: 100px !important
 
-.page
-  height: 100vh
-
-.main-content 
-  margin: 0
-  padding: 0 30px
-  margin-top: 60px
-
+// nav bar
 .last-item
   padding-right: 15px
 
@@ -148,6 +170,14 @@ td
   height: 50px
   width: 1px
 
+.dropdown-menu
+  background-color: $body-background
+  border-radius: 0
+
+.dropdown-menu > li > a
+  color: $body-text-color
+
+//tiles
 .tile
   position: relative
   margin: 15px 15px 0 0
@@ -172,17 +202,9 @@ td
   width: 430px
   height: 189px
   transform: translate(-50%, -85%)
-
 .add_project
   background-color: #222
   border-color: black
-
-.dropdown-menu
-  background-color: $body-background
-  border-radius: 0
-
-.dropdown-menu > li > a
-  color: $body-text-color
 
 .edit-icon
   position: absolute

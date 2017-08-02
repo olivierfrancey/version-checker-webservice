@@ -14,6 +14,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @project = Project.find(params[:id])
+    @accesses = Access.where(project_id: session[:current_project_id])
   end
 
   # GET /projects/new
@@ -29,10 +30,9 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(project_params)
-    p "create project.user"
     @project.user = current_user
 
-    # managed accesses
+    # create default access as project admin
     access = Access.new()
     access.user = current_user
     access.project = @project
@@ -81,6 +81,11 @@ class ProjectsController < ApplicationController
   def move_to_access
     session[:current_project_id] = params[:id]
     redirect_to accesses_path
+  end
+
+  def move_to_detail
+    session[:current_project_id] = params[:id]
+    redirect_to project_path(params[:id])
   end
 
   private

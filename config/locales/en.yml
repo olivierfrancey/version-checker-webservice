@@ -85,6 +85,7 @@ en:
         country: "Country"
       users: "Access right"
       new_access: "Add an user"
+      accesses: "Manage users"
     edit:
       title: "Editing project"
       submit: "Save"
@@ -105,6 +106,9 @@ en:
       current_version: "Current version"
       current_version_date: "Date"
       last_update: "Last update"
+      back: "Back to projects"
+      add_version: "Add a version"
+      show_versions: "Show the versions"
     new:
       title: "New document"
       name: "Title"
@@ -134,9 +138,33 @@ en:
   access:
     submit: "Submit"
     cancel: "Cancel"
+    role:
+      basicUser: "Basic user"
+      projectAdmin: "Project admin"
     new:
       title: "New access"
       user: "User email"
       role: "Role"
-      basic_user: "Basic user"
-      project_admin: "Project admin"
+    index:
+      title: "Access list for the project"
+      new: "New user"
+      show: "Details"
+      edit: "Edit"
+      delete: "Delete"
+      
+  version:
+    submit: "Submit"
+    cancel: "Cancel"
+    index:
+      title: "Versions"
+      add: "Add a new version"
+      back: "Back to documents"
+      version: "Versions"
+      date: "Date"
+      author: "Author"
+      checker: "Checker"
+      current_version: "Current version"
+      comments: "Comments"
+      edit: "Edit"
+      delete: "Delete"
+      make_current: "Make current"

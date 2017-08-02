@@ -7,7 +7,7 @@ class CreateGroups < ActiveRecord::Migration[5.1]
       t.integer :project_id
 
       t.integer :documents_count, :default => 0
-      t.integer :versions_count, :default => 0
+      t.integer :versions_count,  :default => 0
 
       t.timestamps
     end

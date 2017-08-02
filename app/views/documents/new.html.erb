@@ -1,16 +1,6 @@
-
+<h1><%= t('document.new.title') %></h1>
 <%= form_with(model: @document, local: true) do |f| %>
 
-  <div class="row">
-    <div class="col-md-4">
-      <h1><%= t('document.new.title') %></h1>
-    </div>
-  </div>
-  <div class="row">
-
-
-
-  </div>
   <div class="row">
 
     <div class="col-md-2">
@@ -63,10 +53,10 @@
   </div>
   <div class="row">
     <div class="col-md-4 col-md-offset-2">
-      <%= button_to :tabindex => 7 do %>
+      <%= button_to controller: "documents", action: "create", :tabindex => 7 do %>
         <span class="glyphicon glyphicon-ok"> </span><%= t('document.submit') %>
       <% end %>
-      <%= link_to projects_path, :class => "btn" do %>
+      <%= link_to documents_path, :class => "btn" do %>
         <span class="glyphicon glyphicon-remove"> </span> <%= t('document.back') %>
       <% end %>
     </div>

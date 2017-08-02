@@ -28,23 +28,23 @@
           <% if current_user.first_name? || current_user.last_name? %>
             <li><%= link_to "#{current_user.first_name} #{current_user.last_name}", edit_user_path(current_user.id) %></li>
           <% else %>
-            <li><%= link_to "Connection", edit_user_path(current_user.id) %></li>
+            <li><%= link_to t('navbar.connection'), edit_user_path(current_user.id) %></li>
           <% end %>
           <li class="nav-menu-separator"></li>
           <li class="last-item">
             <%= link_to session_path, method: :delete do %>
-              Logout <span class="glyphicon glyphicon-log-out"></span>
+              <%= t('navbar.logout') %> <span class="glyphicon glyphicon-log-out"></span>
             <% end %>
           </li>
         <% else %>
           <li>
             <%= link_to new_user_path do %>
-                <span class="glyphicon glyphicon-play-circle"></span><%= 'Sign Up' %>
+                <span class="glyphicon glyphicon-play-circle"></span><%= t('navbar.signup') %>
             <% end %>
           </li>
           <li class="last-item">
             <%= link_to new_session_path do %>
-              <span class="glyphicon glyphicon-log-in"></span><%= 'Log In' %> 
+              <span class="glyphicon glyphicon-log-in"></span><%= t('navbar.login') %> 
             <% end %>
           </li>
         <% end %>

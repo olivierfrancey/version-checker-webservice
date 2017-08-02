@@ -86,6 +86,7 @@ fr:
         country: "Pays"
       users: "Accès utilisateur"
       new_access: "Ajouter un utilisateur"
+      accesses: "Gérer les utilisateurs"
     edit:
       title: "Edition de project"
       submit: "Enregistrer"
@@ -106,6 +107,9 @@ fr:
       current_version: "Version courrante"
       current_version_date: "Date"
       last_update: "Dernière modification"
+      back: "Retour à projets"
+      add_version: "Ajouter une version"
+      show_versions: "Afficher les versions"
     new:
       title: "Nouveau document"
       name: "Titre"
@@ -118,6 +122,7 @@ fr:
     edit:
       title: "Editer document"
       submit: "Enregistrer"
+      delete: "Supprimer le document"
 
   user:
     submit: "Soumettre"
@@ -135,17 +140,34 @@ fr:
   access:
     submit: "Soumettre"
     cancel: "Annuler"
+    role:
+      projectAdmin: "Administrateur"
+      basicUser: "Utilisateur"
     new:
       title: "Nouvel accès"
       user: "Email"
       role: "Rôle"
-      basic_user: "Utilisateur de base"
-      project_admin: "Administrateur du project"
+      warning: "Si l'email de cet utilisateur n'est pas dans la base de données de version-checker, une invitation lui sera automatiquement envoyée."
     index:
       title: "Liste des droits d'accès au projet"
       new: "Nouvel utilisateur"
       show: "Détails"
       edit: "Modifier"
       delete: "Supprimer"
-      projectAdmin: "Administrateur"
-      basicUser: "Utilisateur"
+
+  version:
+    submit: "Soumettre"
+    cancel: "Annuler"
+    index:
+      title: "Versions"
+      add: "Ajouter une nouvelle version"
+      back: "Retour à documents"
+      version: "Versions"
+      date: "Date"
+      author: "Auteur"
+      checker: "Contrôleur"
+      current_version: "Version courante"
+      comments: "Commentaires"
+      edit: "Modifier"
+      delete: "Supprimer"
+      make_current: "Rendre courrant"

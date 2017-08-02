@@ -1,6 +1,7 @@
 class AccessesController < ApplicationController
   before_action :set_access, only: [:show, :edit, :update, :destroy]
   before_action :set_roles, only: [:new, :create, :edit]
+  before_action :check_logged_in
 
   # GET /accesses
   # GET /accesses.json
@@ -84,8 +85,8 @@ class AccessesController < ApplicationController
 
     def set_roles
       @roles = [
-        [t('access.new.basic_user'), 'basicUser'],
-        [t('access.new.project_admin'), 'projectAdmin']
+        [t('access.role.basicUser'), 'basicUser'],
+        [t('access.role.projectAdmin'), 'projectAdmin']
       ]
     end
 

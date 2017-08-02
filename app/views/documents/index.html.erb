@@ -1,8 +1,11 @@
 <h1><%= t('document.title') %></h1>
 
-
-
-<%= link_to t('document.index.new_document'), new_document_path, class: "btn" %>
+<%= link_to new_document_path, class: "btn" do %>
+  <span class="glyphicon glyphicon-plus"></span><%= t('document.index.new_document') %>
+<% end %>
+<%= link_to projects_path, class: "btn" do %>
+  <span class="glyphicon glyphicon-arrow-left"></span><%= t('document.index.back') %>
+<% end %>
 
 <table class="table">
   <tbody>
@@ -10,8 +13,6 @@
       <tr>
         <td class="middle">
           <h4><%= document.identifier %></h4>
-        </td>
-        <td class="middle">
           <strong><%= document.title %></strong><br>
           <%= document.sub_title %>
         </td>
@@ -22,21 +23,25 @@
         </td>
 
         <td class="middle">
-          <%= link_to t('document.edit.title'), edit_document_path(document), class: "btn" %> 
-          <%= link_to t('document.delete'), document, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn danger" %>
+          <%= link_to edit_document_path(document), class: "btn sharp" do %>
+            <span class="glyphicon glyphicon-pencil"></span><%= t('document.edit.title') %>
+          <% end %><br>
+          <%= link_to document, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn danger sharp" do %>
+            <span class="glyphicon glyphicon-remove"></span><%= t('document.delete') %>
+          <% end %>
         </td>
 
         <td width="50px"></td>
 
         <td class="middle">
-          <%= "#{t('document.index.current_version')} : #{'A'}" %><br>
-          <%= "#{t('document.index.current_version_date')} : #{'26.02.2017'}" %><br>
+          <%= "#{t('document.index.current_version')} : #{document.last_version}" %><br>
+          <%= "#{t('document.index.current_version_date')} : #{document.last_version_date}" %><br>
           <%= "#{t('document.index.versions')} : #{document.versions_count}" %>
         </td>
         
         <td class="middle">
-          <%= link_to 'Add version',   {:controller => :documents, :action => :move_to_version, :id => document.id, :new => true},  class: "btn" %> 
-          <%= link_to 'Show versions', {:controller => :documents, :action => :move_to_version, :id => document.id, :new => false}, class: "btn" %>
+          <%= link_to t('document.index.add_version'),   {:controller => :documents, :action => :move_to_version, :id => document.id, :new => true},  class: "btn sharp" %><br> 
+          <%= link_to t('document.index.show_versions'), {:controller => :documents, :action => :move_to_version, :id => document.id, :new => false}, class: "btn sharp" %>
         </td>
       </tr>
     <% end %>

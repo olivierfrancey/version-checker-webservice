@@ -6,12 +6,12 @@ class CreateVersions < ActiveRecord::Migration[5.1]
       t.string :author
       t.string :checker
       t.string :crypted_id
-      t.boolean :current_version
+      t.string :file_name
+      t.boolean :current_version, :default => true
       t.text :comments
 
       t.integer :user_id
       t.integer :project_id
-      t.integer :group_id
       t.integer :document_id
 
       t.timestamps
