@@ -1,64 +1,57 @@
 <h1><%= t('document.new.title') %></h1>
-<%= form_with(model: @document, local: true) do |f| %>
+
+<%= form_with model: @document, local: true do |f| %>
 
   <div class="row">
-
     <div class="col-md-2">
       <%= t('document.new.identifier') %> *
     </div>
     <div class="col-md-4">
-      <%= f.text_field :identifier, :tabindex => 1 %>
+      <%= f.text_field :identifier, tabindex: 1 %>
     </div>
-
   </div>
-  <div class="row">
 
+  <div class="row">
     <div class="col-md-2">
       <%= t('document.new.name') %> *
     </div>
     <div class="col-md-4">
-      <%= f.text_field :title, :tabindex => 2 %>
+      <%= f.text_field :title, tabindex: 2 %>
     </div>
-
   </div>
-  <div class="row">
 
+  <div class="row">
     <div class="col-md-2">
       <%= t('document.new.sub_title') %>
     </div>
     <div class="col-md-4">
-      <%= f.text_field :sub_title, :tabindex => 3 %>
+      <%= f.text_field :sub_title, tabindex: 3 %>
     </div>
-
   </div>
-  <div class="row">
 
+  <div class="row">
     <div class="col-md-2">
       <%= t('document.new.doc_type') %>
     </div>
     <div class="col-md-4">
-      <%= f.text_field :doc_type, :tabindex => 4 %>
+      <%= f.text_field :doc_type, tabindex: 4 %>
     </div>
-
   </div>
-  <div class="row">
 
+  <div class="row">
     <div class="col-md-2">
       <%= t('document.new.size') %>
     </div>
     <div class="col-md-4">
-      <%= f.text_field :size, :tabindex => 5 %>
+      <%= f.text_field :size, tabindex: 5 %>
     </div>
-
   </div>
+
   <div class="row">
     <div class="col-md-4 col-md-offset-2">
-      <%= button_to controller: "documents", action: "create", :tabindex => 7 do %>
-        <span class="glyphicon glyphicon-ok"> </span><%= t('document.submit') %>
-      <% end %>
-      <%= link_to documents_path, :class => "btn" do %>
-        <span class="glyphicon glyphicon-remove"> </span> <%= t('document.back') %>
-      <% end %>
+      <%= f.submit t('document.submit'), tabindex: 7 %>
+      <%= link_to t('document.back'), documents_path, class: "btn" %>
     </div>
   </div>
+  
 <% end %>

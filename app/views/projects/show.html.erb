@@ -138,9 +138,7 @@
           </tr>
         <% end %>
         </table>
-        <%= link_to accesses_path, :class => "btn" do %>
-          <span class="glyphicon glyphicon-user"></span> <%= t('project.show.accesses') %>
-        <% end %>
+        <%= link_to t('project.show.accesses'), accesses_path, :class => "btn" %>
       </div>
     </div>
   </div>
@@ -148,18 +146,12 @@
 </div>
 <div class="row">
   <div class="col-md-4">
-    <%= link_to edit_project_path(@project), :class => "btn" do %>
-      <span class="glyphicon glyphicon-pencil"></span> <%= t('project.show.edit') %>
-    <% end %> 
-    <%= link_to projects_path, :class => "btn" do %> 
-      <span class="glyphicon glyphicon-remove"></span><%= t('Cancel') %>
-    <% end %>
+    <%= link_to t('project.show.edit'), edit_project_path(@project), :class => "btn" %>
+    <%= link_to t('project.cancel'), projects_path, :class => "btn" %> 
   </div>
 </div>
 <div class="row">
   <div class="col-md-4">
-    <%= link_to  @project, :method => :delete, data: { confirm: t('project.show.delete_confirmation') }, class: "btn danger sharp" do %>
-      <span class="glyphicon glyphicon-remove"></span> <%= t('project.show.delete') %>
-    <% end %>
+    <%= link_to t('project.show.delete'), @project, :method => :delete, data: { confirm: t('project.show.delete_confirmation') }, class: "btn danger sharp" %>
   </div>
 </div>

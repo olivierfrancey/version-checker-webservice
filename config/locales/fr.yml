@@ -95,12 +95,12 @@ fr:
       success: "Votre projet a été crée avec succes"
   
   document:
-    title: "Documents"
     back: "Annuler"
     submit: "Soumettre"
     delete: "Supprimer"
     delete_confirmation: "Etes-vous sûr de vouloir supprimer ce document? Cette opération est irrémédiable. Les versions liées seront également supprimées."
     index:
+      title: "Documents du projet"
       new_document: "Ajouter un document"
       organised_by: "Organiser par"
       versions: "Versions"
@@ -110,6 +110,7 @@ fr:
       back: "Retour à projets"
       add_version: "Ajouter une version"
       show_versions: "Afficher les versions"
+      edit: "Modifier"
     new:
       title: "Nouveau document"
       name: "Titre"
@@ -120,7 +121,7 @@ fr:
       version-format: "Indices"
       group: "Groupe"
     edit:
-      title: "Editer document"
+      title: "Editer le document"
       submit: "Enregistrer"
       delete: "Supprimer le document"
 
@@ -159,7 +160,7 @@ fr:
     submit: "Soumettre"
     cancel: "Annuler"
     index:
-      title: "Versions"
+      title: "Versions du document"
       add: "Ajouter une nouvelle version"
       back: "Retour à documents"
       version: "Versions"
@@ -167,7 +168,15 @@ fr:
       author: "Auteur"
       checker: "Contrôleur"
       current_version: "Version courante"
-      comments: "Commentaires"
+      comments: "Commentaire"
       edit: "Modifier"
       delete: "Supprimer"
-      make_current: "Rendre courrant"
+      make_current: "Rendre courant"
+    new:
+      title: "Nouvelle version"
+      version_number: "Numéro de la version"
+      version_number_comment: "Valeurs alphanumériques autorisées"
+      date: "Date"
+      author: "Auteur"
+      checker: "Contrôleur"
+      comment: "Commentaire"

@@ -1,13 +1,9 @@
 
 
-<h1><%= t('version.index.title') %></h1>
+<h1><%= "#{t('version.index.title')} : #{current_document.identifier} - #{current_document.title}" %></h1>
 
-<%= link_to new_version_path, class: "btn" do %>
-  <span class="glyphicon glyphicon-plus"></span><%= t('version.index.add') %>
-<% end %>
-<%= link_to documents_path, class: "btn" do %>
-  <span class="glyphicon glyphicon-arrow-left"></span><%= t('version.index.back') %>
-<% end %>
+<%= link_to t('version.index.add'), new_version_path, class: "btn" %>
+<%= link_to t('version.index.back'), documents_path, class: "btn" %>
 
 <table class="table">
   <thead>
@@ -37,13 +33,9 @@
         <% end %>
         </td>
         <td class="middle"><%= version.comments %></td>
-        <td class="middle">
-          <%= link_to edit_version_path(version), class: "btn sharp" do %>
-            <span class="glyphicon glyphicon-pencil"></span><%= t('version.index.edit') %> 
-          <% end %>
-          <%= link_to version, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn danger sharp" do %>
-            <span class="glyphicon glyphicon-remove"></span><%= t('version.index.delete') %>
-          <% end %>
+        <td class="middle right">
+          <%= link_to t('version.index.edit'), edit_version_path(version), class: "btn sharp" %>
+          <%= link_to t('version.index.delete'), version, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn danger sharp" %>
         </td>
       </tr>
     <% end %>

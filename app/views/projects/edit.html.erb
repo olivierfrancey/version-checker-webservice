@@ -1,129 +1,105 @@
 <h1><%= t('project.edit.title') %></h1>
 
-<%= form_for @project, url: {action: "update"} do |f| %>
+<%= form_with model: @project, method: :patch, local: true do |f| %>
 
   <div class="row">
-
     <div class="col-md-2">
       <h2><%= t('project.show.project') %></h2>
     </div>
-
-    <div class="col-md-2"></div>
-
-    <div class="col-md-2 offset-md-2">
+    <div class="col-md-2 offset-md-4">
       <h2><%= t('project.show.client.client') %>
     </div>
-
-    <div class="col-md-2"></div>
-
   </div>
-  <div class="row">
 
+  <div class="row">
     <div class="col-md-1">
       <%= t('project.show.name') %>
     </div>
     <div class="col-md-3">
       <%= f.text_field :name %>
     </div>
-
     <div class="col-md-1 offset-md-1">
       <%= t('project.show.client.name') %>
     </div>
     <div class="col-md-3">
       <%= f.text_field :client_name %>
     </div>
-
   </div>
-  <div class="row">
 
+  <div class="row">
     <div class="col-md-1">
       <%= t('project.show.identifier') %>
     </div>
     <div class="col-md-3">
       <%= f.text_field :identifier %>
     </div>
-
-    <div class="col-md-1 offset-md-1">
-      
-    </div>
-    <div class="col-md-3">
-      
-    </div>
-
   </div>
-  <div class="row">
 
+  <div class="row">
     <div class="col-md-1">
       <%= t('project.show.address') %>
     </div>
     <div class="col-md-3">
       <%= f.text_field :address %>
     </div>
-
     <div class="col-md-1 offset-md-1">
       <%= t('project.show.client.address') %>
     </div>
     <div class="col-md-3">
       <%= f.text_field :client_address %>
     </div>
-
   </div>
-  <div class="row">
 
+  <div class="row">
     <div class="col-md-1">
       <%= t('project.show.npa') %>
     </div>
     <div class="col-md-3">
       <%= f.text_field :npa %>
     </div>
-
     <div class="col-md-1 offset-md-1">
       <%= t('project.show.client.npa') %>
     </div>
     <div class="col-md-3">
       <%= f.text_field :client_npa %>
     </div>
-
   </div>
-  <div class="row">
 
+  <div class="row">
     <div class="col-md-1">
       <%= t('project.show.city') %>
     </div>
     <div class="col-md-3">
       <%= f.text_field :city %>
     </div>
-
     <div class="col-md-1 offset-md-1">
       <%= t('project.show.client.city') %>
     </div>
     <div class="col-md-3">
       <%= f.text_field :client_city %>
     </div>
-
   </div>
-  <div class="row">
 
+  <div class="row">
     <div class="col-md-1">
       <%= t('project.show.country') %>
     </div>
     <div class="col-md-3">
       <%= f.text_field :country %>
     </div>
-
     <div class="col-md-1 offset-md-1">
       <%= t('project.show.client.country') %>
     </div>
     <div class="col-md-3">
       <%= f.text_field :client_country %>
     </div>
-
   </div>
+
   <div class="row">
     <div class="col-md-6">
-      <%= button_to :class => "btn" do %>
-        <span class="glyphicon glyphicon-ok"></span> <%= t('project.submit') %> 
-      <% end %>
+      <%= f.submit t('project.submit'), class: "btn" %>
+      <%= link_to t('project.cancel'), projects_path, class: "btn" %>
     </div>
   </div>
+  
 <% end %>

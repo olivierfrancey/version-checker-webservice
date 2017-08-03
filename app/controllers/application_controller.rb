@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   include Pundit
   protect_from_forgery with: :exception
-  helper_method :current_user, :current_project, :logged_in?
+  helper_method :current_user, :current_project, :current_document, :logged_in?
 
   before_action :set_locale, :user_projects, :set_projects
   layout :resolve_layout

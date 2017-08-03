@@ -1,22 +1,17 @@
+<h1><%= t('access.new.title') %></h1>
 
-<%= form_with(model: @access, local: true) do |f| %>
-
-  <div class="row">
-    <div class="col-md-4">
-      <h1><%= t('access.new.title') %></h1>
-    </div>
-  </div>
+<%= form_with model: @access, local: true do |f| %>
  
   <div class="row">
     <div class="col-md-2">
       <%= t('access.new.user') %> *
     </div>
     <div class="col-md-3">
-      <%= f.text_field :email, :tabindex => 1 %>
+      <%= f.text_field :email, tabindex: 1 %>
     </div>
 
     <div class="new-access-warning">
-      <span>
+      <span class="grey">
         <%= t('access.new.warning') %>
       </span>
     </div>
@@ -26,19 +21,15 @@
     <div class="col-md-2">
       <%= t('access.new.role') %> *
     </div>
-    <div class="col-md-3">
-      <%= f.select(:role, options_for_select(@roles, 'basicUser')) %>
+    <div class="col-md-4">
+      <%= f.select :role, options_for_select(@roles, 'basicUser') %>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-4 col-md-offset-2">
-      <%= button_to :class => "btn", :tabindex => 3 do %>
-        <span class="glyphicon glyphicon-ok"></span><%= t('access.submit') %>
-      <% end %>
-      <%= link_to projects_path, class: "btn" do %>
-        <span class="glyphicon glyphicon-remove"></span><%= t('access.cancel') %>
-      <% end %>
+      <%= f.submit t('access.submit'), class: "btn", tabindex: 3 %>
+      <%= link_to t('access.cancel'), projects_path, class: "btn" %>
     </div>
   </div>
 

@@ -32,20 +32,14 @@
           <% end %>
           <li class="nav-menu-separator"></li>
           <li class="last-item">
-            <%= link_to session_path, method: :delete do %>
-              <%= t('navbar.logout') %> <span class="glyphicon glyphicon-log-out"></span>
-            <% end %>
+            <%= link_to t('navbar.logout'), session_path, method: :delete %>
           </li>
         <% else %>
           <li>
-            <%= link_to new_user_path do %>
-                <span class="glyphicon glyphicon-play-circle"></span><%= t('navbar.signup') %>
-            <% end %>
+            <%= link_to t('navbar.signup'), new_user_path %>
           </li>
           <li class="last-item">
-            <%= link_to new_session_path do %>
-              <span class="glyphicon glyphicon-log-in"></span><%= t('navbar.login') %> 
-            <% end %>
+            <%= link_to t('navbar.login'), new_session_path %>
           </li>
         <% end %>
   </ul>

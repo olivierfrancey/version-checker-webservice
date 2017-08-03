@@ -94,12 +94,12 @@ en:
       success: "Your project was successfully created"
     
   document:
-    title: "Documents"
     back: "Cancel"
     submit: "Submit"
     delete: "Delete"
     delete_confirmation: "Are you sure you want to delete this document? You can not undo this operation. The dependent versions will be deleted too."
     index:
+      title: "Documents of project"
       new_document: "Add a document"
       organised_by: "Organized by"
       versions: "Versions"
@@ -145,6 +145,7 @@ en:
       title: "New access"
       user: "User email"
       role: "Role"
+      warning: "If the email of this user is not into the database of version-checker, he will receive an email of invitation."
     index:
       title: "Access list for the project"
       new: "New user"
@@ -156,7 +157,7 @@ en:
     submit: "Submit"
     cancel: "Cancel"
     index:
-      title: "Versions"
+      title: "Versions of document"
       add: "Add a new version"
       back: "Back to documents"
       version: "Versions"
@@ -168,3 +169,11 @@ en:
       edit: "Edit"
       delete: "Delete"
       make_current: "Make current"
+    new:
+      title: "New version"
+      version_number: "Version number"
+      version_number_comment: "Alphanumeric values allowed"
+      date: "Date"
+      author: "Author"
+      checker: "Checker"
+      comment: "Comment"
