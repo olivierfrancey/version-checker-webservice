@@ -31,15 +31,6 @@ fr:
     footer:
       about: "A propos de version checker"
 
-
-  signup:
-    last_name: "Nom"
-    first_name: "Prénom"
-    email: "Email"
-    password: "Mot de passe"
-    password_conf: "Confirmation du mot de passe"
-    signup: "S'enregistrer"
-
   session:
     title: "Connection"
     email: "Email"
@@ -52,20 +43,15 @@ fr:
   project:
     submit: "Soumettre"
     cancel: "Annuler"
+    delete: "Supprimer ce projet"
+    delete_confirmation: "Etes-vous sûr de vouloir supprimer ce projet? Cette opération est irrémédiable."
     index:
       title: "Mes projets"
-      name: "Nom du projet"
-      identifier: "Identifiant"
-      docs_number: "Documents"
-      versions_number: "Versions"
-      accesses_number: "Utilisateurs"
-      show: "Detail"
-      edit: "Modifier"
-      destroy: "Supprimer"
-      destroy_conf: "Etes-vous sûr de vouloir supprimer ce projet?"
       new_project: "Ajouter un projet"
-    show:
-      project: "Projet"
+      docs_count: "Documents"
+      versions_count: "Versions"
+      accesses_count: "Utilisateurs"
+    form:
       name: "Nom"
       identifier: "Identifiant"
       address: "Addresse"
@@ -75,8 +61,6 @@ fr:
       bill_option: ""
       edit: "Editer"
       my_projects: "Mes projets"
-      delete: "Supprimer ce projet"
-      delete_confirmation: "Etes-vous sûr de vouloir supprimer ce projet? Cette opération est irrémédiable."
       client:
         client: "Client"
         name: "Nom"
@@ -86,7 +70,7 @@ fr:
         country: "Pays"
       users: "Accès utilisateur"
       new_access: "Ajouter un utilisateur"
-      accesses: "Gérer les utilisateurs"
+      accesses: "Gérer les utilisateurs"  
     edit:
       title: "Edition de project"
       submit: "Enregistrer"
@@ -97,7 +81,8 @@ fr:
   document:
     back: "Annuler"
     submit: "Soumettre"
-    delete: "Supprimer"
+    edit: "Modifier"
+    delete: "Supprimer le document"
     delete_confirmation: "Etes-vous sûr de vouloir supprimer ce document? Cette opération est irrémédiable. Les versions liées seront également supprimées."
     index:
       title: "Documents du projet"
@@ -110,9 +95,9 @@ fr:
       back: "Retour à projets"
       add_version: "Ajouter une version"
       show_versions: "Afficher les versions"
-      edit: "Modifier"
     new:
       title: "Nouveau document"
+    form:
       name: "Titre"
       sub_title: "Sous-titre"
       identifier: "Identifiant"
@@ -122,14 +107,13 @@ fr:
       group: "Groupe"
     edit:
       title: "Editer le document"
-      submit: "Enregistrer"
-      delete: "Supprimer le document"
 
   user:
     submit: "Soumettre"
     cancel: "Annuler"
     new:
       title: "Nouvel utilisateur"
+    form:
       first_name: "Prénom"
       last_name: "Nom"
       email: "Email"
@@ -141,11 +125,14 @@ fr:
   access:
     submit: "Soumettre"
     cancel: "Annuler"
+    edit: "Modifier"
+    delete: "Supprimer"
     role:
       projectAdmin: "Administrateur"
       basicUser: "Utilisateur"
     new:
       title: "Nouvel accès"
+    form:
       user: "Email"
       role: "Rôle"
       warning: "Si l'email de cet utilisateur n'est pas dans la base de données de version-checker, une invitation lui sera automatiquement envoyée."
@@ -153,8 +140,6 @@ fr:
       title: "Liste des droits d'accès au projet"
       new: "Nouvel utilisateur"
       show: "Détails"
-      edit: "Modifier"
-      delete: "Supprimer"
 
   version:
     submit: "Soumettre"
@@ -174,6 +159,7 @@ fr:
       make_current: "Rendre courant"
     new:
       title: "Nouvelle version"
+    form:
       version_number: "Numéro de la version"
       version_number_comment: "Valeurs alphanumériques autorisées"
       date: "Date"

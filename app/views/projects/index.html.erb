@@ -18,9 +18,9 @@
     <%= link_to :controller => :projects, :action => :move_to_document, :id => project.id do %>
       <h3><%= "#{project.identifier}" %></h3>
       <h4><%= "#{project.name}" %></h4>
-      <p><%= "#{t('project.index.docs_number')} : #{project.documents_count}" %><br>
-         <%= "#{t('project.index.versions_number')} : #{project.versions_count}" %><br>
-         <%= "#{t('project.index.accesses_number')} : #{project.accesses_count}" %></p>
+      <p><%= "#{t('project.index.docs_count')} : #{project.documents_count}" %><br>
+         <%= "#{t('project.index.versions_count')} : #{project.versions_count}" %><br>
+         <%= "#{t('project.index.accesses_count')} : #{project.accesses_count}" %></p>
     <% end %>
   </div>
 <% end %>

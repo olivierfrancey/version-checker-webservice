@@ -31,14 +31,6 @@ en:
     footer:
       about: "About version checker"
 
-  signup:
-    last_name: "Last name"
-    first_name: "First name"
-    email: "Email"
-    password: "Password"
-    password_conf: "Password confirmation"
-    signup: "Sign up"
-
   session:
     title: "Log in"
     email: "Email"
@@ -51,20 +43,15 @@ en:
   project:
     submit: "Submit"
     cancel: "Cancel"
+    delete: "Delete this project"
+    delete_confirmation: "Are you sure you want to delete this project? You can not undo this operation."
     index:
       title: "My projects"
-      name: "Project name"
-      identifier: "Project identifier"
-      docs_number: "Documents"
-      versions_number: "Versions"
-      accesses_number: "Users"
-      show: "Detail"
-      edit: "Edit"
-      destroy: "Delete"
-      destroy_conf: "Are you sure you want to delete this project?"
       new_project: "Add a project"
-    show:
-      project: "Project"
+      docs_count: "Documents"
+      versions_count: "Versions"
+      accesses_count: "Users"
+    form:
       name: "Name"
       identifier: "Identifier"
       address: "Address"
@@ -74,8 +61,6 @@ en:
       bill_option: ""
       edit: "Edit"
       my_projects: "My projects"
-      delete: "Delete this project"
-      delete_confirmation: "Are you sure you want to delete this project? You can not undo this operation."
       client:
         client: "Client"
         name: "Name"
@@ -96,7 +81,8 @@ en:
   document:
     back: "Cancel"
     submit: "Submit"
-    delete: "Delete"
+    edit: "Edit"
+    delete: "Delete document"
     delete_confirmation: "Are you sure you want to delete this document? You can not undo this operation. The dependent versions will be deleted too."
     index:
       title: "Documents of project"
@@ -111,6 +97,7 @@ en:
       show_versions: "Show the versions"
     new:
       title: "New document"
+    form:
       name: "Title"
       sub_title: "Sub title"
       identifier: "Identifier"
@@ -120,13 +107,13 @@ en:
       group: "Group"
     edit:
       title: "Editing document"
-      submit: "Save"
 
   user:
     submit: "Submit"
     cancel: "Cancel"
     new:
       title: "New user"
+    form:
       first_name: "First name"
       last_name: "Last name"
       email: "Email"
@@ -138,11 +125,14 @@ en:
   access:
     submit: "Submit"
     cancel: "Cancel"
+    edit: "Edit"
+    delete: "Delete"
     role:
       basicUser: "Basic user"
       projectAdmin: "Project admin"
     new:
       title: "New access"
+    form:
       user: "User email"
       role: "Role"
       warning: "If the email of this user is not into the database of version-checker, he will receive an email of invitation."
@@ -150,12 +140,11 @@ en:
       title: "Access list for the project"
       new: "New user"
       show: "Details"
-      edit: "Edit"
-      delete: "Delete"
-      
+          
   version:
     submit: "Submit"
     cancel: "Cancel"
+    delete: "Delete"
     index:
       title: "Versions of document"
       add: "Add a new version"
@@ -167,10 +156,10 @@ en:
       current_version: "Current version"
       comments: "Comments"
       edit: "Edit"
-      delete: "Delete"
       make_current: "Make current"
     new:
       title: "New version"
+    form:
       version_number: "Version number"
       version_number_comment: "Alphanumeric values allowed"
       date: "Date"

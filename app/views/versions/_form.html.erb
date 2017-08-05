@@ -14,7 +14,7 @@
 
   <div class="row">
     <div class="col-md-2">
-      <%= t('version.new.date') %>
+      <%= t('version.form.date') %>
     </div>
     <div class="col-md-4">
       <%= f.date_field :date, tabindex: 2, value: Date.today, class: "input-short" %>
@@ -23,7 +23,7 @@
 
   <div class="row">
     <div class="col-md-2">
-      <%= t('version.new.author') %>
+      <%= t('version.form.author') %>
     </div>
     <div class="col-md-4">
       <%= f.text_field :author, tabindex: 3, class: "input-shorter" %>
@@ -32,7 +32,7 @@
 
   <div class="row">
     <div class="col-md-2">
-      <%= t('version.new.checker') %>
+      <%= t('version.form.checker') %>
     </div>
     <div class="col-md-4">
       <%= f.text_field :checker, tabindex: 4, class: "input-shorter" %>
@@ -41,7 +41,7 @@
 
   <div class="row">
     <div class="col-md-2">
-      <%= t('version.new.comment') %>
+      <%= t('version.form.comment') %>
     </div>
     <div class="col-md-4">
       <%= f.text_field :comments, tabindex: 5 %>
