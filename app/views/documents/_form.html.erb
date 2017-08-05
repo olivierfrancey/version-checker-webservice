@@ -1,4 +1,4 @@
-<%= form_with(model: document, local: true) do |form| %>
+<%= form_with(model: document, local: true) do |f| %>
   <% if document.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(document.errors.count, "error") %> prohibited this document from being saved:</h2>
@@ -11,32 +11,62 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :document_title %>
-  </div>
+  <div class="row">
 
-  <div class="field">
-    <%= form.label :sub_title %>
-    <%= form.text_field :sub_title, id: :document_sub_title %>
-  </div>
+    <div class="col-md-2">
+      <%= t('document.new.identifier') %> *
+    </div>
+    <div class="col-md-4">
+      <%= f.text_field :identifier, tabindex: 1 %>
+    </div>
 
-  <div class="field">
-    <%= form.label :doc_type %>
-    <%= form.text_field :doc_type, id: :document_doc_type %>
   </div>
+  <div class="row">
 
-  <div class="field">
-    <%= form.label :size %>
-    <%= form.text_field :size, id: :document_size %>
-  </div>
+    <div class="col-md-2">
+      <%= t('document.new.name') %> *
+    </div>
+    <div class="col-md-4">
+      <%= f.text_field :title, tabindex: 2 %>
+    </div>
 
-  <div class="field">
-    <%= form.label :version_format %>
-    <%= form.text_field :version_format, id: :document_version_format %>
   </div>
+  <div class="row">
 
-  <div class="actions">
-    <%= form.submit %>
+    <div class="col-md-2">
+      <%= t('document.new.sub_title') %>
+    </div>
+    <div class="col-md-4">
+      <%= f.text_field :sub_title, tabindex: 3 %>
+    </div>
+
   </div>
+  <div class="row">
+
+    <div class="col-md-2">
+      <%= t('document.new.doc_type') %>
+    </div>
+    <div class="col-md-4">
+      <%= f.text_field :doc_type, tabindex: 4 %>
+    </div>
+
+  </div>
+  <div class="row">
+
+    <div class="col-md-2">
+      <%= t('document.new.size') %>
+    </div>
+    <div class="col-md-4">
+      <%= f.text_field :size, tabindex: 5 %>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-2">
+      <%= f.submit t('document.edit.submit'), class: "btn", tabindex: 7 %>
+      <%= link_to t('document.back'), documents_path, class: "btn" %>
+      <%= link_to t('document.edit.delete'), @document, method: :delete, data: { confirm: t('document.delete_confirmation') }, class: "btn danger sharp" %>
+    </div>
+  </div>
+  
 <% end %>

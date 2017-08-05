@@ -1,4 +1,4 @@
-<%= form_with(model: project, local: true) do |form| %>
+<%= form_with model: project, local: true do |f| %>
   <% if project.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
@@ -10,68 +10,104 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :project_name %>
+  <div class="row">
+    <div class="col-md-2">
+      <h2><%= t('project.show.project') %></h2>
+    </div>
+    <div class="col-md-2 offset-md-4">
+      <h2><%= t('project.show.client.client') %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :identifier %>
-    <%= form.text_field :identifier, id: :project_identifier %>
+  <div class="row">
+    <div class="col-md-1">
+      <%= t('project.show.name') %>
+    </div>
+    <div class="col-md-3">
+      <%= f.text_field :name %>
+    </div>
+    <div class="col-md-1 offset-md-1">
+      <%= t('project.show.client.name') %>
+    </div>
+    <div class="col-md-3">
+      <%= f.text_field :client_name %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address, id: :project_address %>
+  <div class="row">
+    <div class="col-md-1">
+      <%= t('project.show.identifier') %>
+    </div>
+    <div class="col-md-3">
+      <%= f.text_field :identifier %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :npa %>
-    <%= form.text_field :npa, id: :project_npa %>
+  <div class="row">
+    <div class="col-md-1">
+      <%= t('project.show.address') %>
+    </div>
+    <div class="col-md-3">
+      <%= f.text_field :address %>
+    </div>
+    <div class="col-md-1 offset-md-1">
+      <%= t('project.show.client.address') %>
+    </div>
+    <div class="col-md-3">
+      <%= f.text_field :client_address %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :city %>
-    <%= form.text_field :city, id: :project_city %>
+  <div class="row">
+    <div class="col-md-1">
+      <%= t('project.show.npa') %>
+    </div>
+    <div class="col-md-3">
+      <%= f.text_field :npa %>
+    </div>
+    <div class="col-md-1 offset-md-1">
+      <%= t('project.show.client.npa') %>
+    </div>
+    <div class="col-md-3">
+      <%= f.text_field :client_npa %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :country %>
-    <%= form.text_field :country, id: :project_country %>
+  <div class="row">
+    <div class="col-md-1">
+      <%= t('project.show.city') %>
+    </div>
+    <div class="col-md-3">
+      <%= f.text_field :city %>
+    </div>
+    <div class="col-md-1 offset-md-1">
+      <%= t('project.show.client.city') %>
+    </div>
+    <div class="col-md-3">
+      <%= f.text_field :client_city %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :bill_option %>
-    <%= form.text_field :bill_option, id: :project_bill_option %>
+  <div class="row">
+    <div class="col-md-1">
+      <%= t('project.show.country') %>
+    </div>
+    <div class="col-md-3">
+      <%= f.text_field :country %>
+    </div>
+    <div class="col-md-1 offset-md-1">
+      <%= t('project.show.client.country') %>
+    </div>
+    <div class="col-md-3">
+      <%= f.text_field :client_country %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :client_name %>
-    <%= form.text_field :client_name, id: :project_client_name %>
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.submit t('project.submit'), class: "btn" %>
+      <%= link_to t('project.cancel'), projects_path, class: "btn" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :client_address %>
-    <%= form.text_field :client_address, id: :project_client_address %>
-  </div>
-
-  <div class="field">
-    <%= form.label :client_npa %>
-    <%= form.text_field :client_npa, id: :project_client_npa %>
-  </div>
-
-  <div class="field">
-    <%= form.label :client_city %>
-    <%= form.text_field :client_city, id: :project_client_city %>
-  </div>
-
-  <div class="field">
-    <%= form.label :client_country %>
-    <%= form.text_field :client_country, id: :project_client_country %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  
 <% end %>

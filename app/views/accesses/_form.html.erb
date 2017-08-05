@@ -11,22 +11,29 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :role %>
-    <%= form.text_field :role, id: :access_role %>
+  <div class="row">
+    <div class="col-md-2">
+      <%= t('access.new.user') %> *
+    </div>
+    <div class="col-md-4">
+      <%= @access.user.email %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id, id: :access_user_id %>
+  <div class="row">
+    <div class="col-md-2">
+      <%= t('access.new.role') %> *
+    </div>
+    <div class="col-md-4">
+      <%= f.select(:role, options_for_select(@roles, @access.role)) %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :project_id %>
-    <%= form.number_field :project_id, id: :access_project_id %>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-2">
+      <%= f.submit t('access.submit'), class: "btn", tabindex: 3 %>
+      <%= link_to t('access.cancel'), accesses_path, class: "btn" %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

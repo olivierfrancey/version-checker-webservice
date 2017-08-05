@@ -9,33 +9,46 @@
     <% @documents.each do |document| %>
       <tr>
         <td class="middle">
+          <div class="dropdown">
+            <a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown">
+            <span class="fa fa-plus-square-o"></span>o</a>
+            <ul class="dropdown-menu">
+              <li><%= link_to t('document.index.edit'), edit_document_path(document) %></li>
+              <li><%= link_to t('document.delete'), document, method: :delete, data: { confirm: 'Are you sure?' }, class: "danger" %></li>
+              <li><%= link_to t('document.index.add_version'),   {controller: :documents, action: :move_to_version, id: document.id, new: true} %></li> 
+              <li><%= link_to t('document.index.show_versions'), {controller: :documents, action: :move_to_version, id: document.id, new: false} %></li>
+            </ul>
+          </div>
+        </td>
+        <td class="middle">
           <h4><%= document.identifier %></h4>
-          <strong><%= document.title %></strong><br>
+        </td>
+        <td class="middle">
+          <strong><%= document.title %></strong>
+        </td>
+        <td class="middle">
           <%= document.sub_title %>
         </td>
 
         <td class="middle">
-          <%= "#{document.doc_type}" %><br>
+          <%= "#{document.doc_type}" %>
+        </td>
+        <td class="middle">
           <%= "#{document.size}" %>
         </td>
 
-        <td class="middle right">
-          <%= link_to t('document.index.edit'), edit_document_path(document), class: "btn sharp" %>
-          <%= link_to t('document.delete'), document, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn danger sharp" %>
-        </td>
-
-        <td width="50px"></td>
+        <td width="100px"></td>
 
         <td class="middle">
-          <%= "#{t('document.index.current_version')} : #{document.last_version}" %><br>
-          <%= "#{t('document.index.current_version_date')} : #{document.last_version_date}" %><br>
+          <%= "#{t('document.index.current_version')} : #{document.last_version}" %>
+        </td>
+        <td class="middle">
+          <%= "#{t('document.index.current_version_date')} : #{document.last_version_date}" %>
+        </td>
+        <td class="middle">
           <%= "#{t('document.index.versions')} : #{document.versions_count}" %>
         </td>
-        
-        <td class="middle right">
-          <%= link_to t('document.index.add_version'),   {:controller => :documents, :action => :move_to_version, :id => document.id, :new => true},  class: "btn sharp" %> 
-          <%= link_to t('document.index.show_versions'), {:controller => :documents, :action => :move_to_version, :id => document.id, :new => false}, class: "btn sharp" %>
-        </td>
+
       </tr>
     <% end %>
   </tbody>

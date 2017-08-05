@@ -1,52 +1,58 @@
-<%= form_with(model: version, local: true) do |form| %>
-  <% if version.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(version.errors.count, "error") %> prohibited this version from being saved:</h2>
+<%= form_with model: version, local: true do |f| %>
 
-      <ul>
-      <% version.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <div class="row">
+    <div class="col-md-2">
+      <%= t('version.new.version_number') %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :version_number %>
-    <%= form.text_field :version_number, id: :version_version_number %>
+    <div class="col-md-2">
+      <%= f.text_field :version_number, tabindex: 1, class: "input-shorter" %>
+    </div>
+    <div class="col-md-6 grey">
+      <%= t('version.new.version_number_comment') %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :date %>
-    <%= form.date_select :date, id: :version_date %>
+  <div class="row">
+    <div class="col-md-2">
+      <%= t('version.new.date') %>
+    </div>
+    <div class="col-md-4">
+      <%= f.date_field :date, tabindex: 2, value: Date.today, class: "input-short" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :author %>
-    <%= form.text_field :author, id: :version_author %>
+  <div class="row">
+    <div class="col-md-2">
+      <%= t('version.new.author') %>
+    </div>
+    <div class="col-md-4">
+      <%= f.text_field :author, tabindex: 3, class: "input-shorter" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :checker %>
-    <%= form.text_field :checker, id: :version_checker %>
+  <div class="row">
+    <div class="col-md-2">
+      <%= t('version.new.checker') %>
+    </div>
+    <div class="col-md-4">
+      <%= f.text_field :checker, tabindex: 4, class: "input-shorter" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :crypted_id %>
-    <%= form.text_field :crypted_id, id: :version_crypted_id %>
+  <div class="row">
+    <div class="col-md-2">
+      <%= t('version.new.comment') %>
+    </div>
+    <div class="col-md-4">
+      <%= f.text_field :comments, tabindex: 5 %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :current_version %>
-    <%= form.check_box :current_version, id: :version_current_version %>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-2">
+      <%= f.submit t('version.submit'), class: "btn", tabindex: 6 %>
+      <%= link_to t('version.cancel'), versions_path, class: "btn" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :comments %>
-    <%= form.text_area :comments, id: :version_comments %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  
 <% end %>
