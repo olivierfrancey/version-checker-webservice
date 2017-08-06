@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170801072947) do
+ActiveRecord::Schema.define(version: 20170806104521) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,22 +70,6 @@ ActiveRecord::Schema.define(version: 20170801072947) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "super_administrators", force: :cascade do |t|
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_super_administrators_on_user_id"
-  end
-
-  create_table "user_projects", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "project_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["project_id"], name: "index_user_projects_on_project_id"
-    t.index ["user_id"], name: "index_user_projects_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -109,7 +93,6 @@ ActiveRecord::Schema.define(version: 20170801072947) do
     t.string "author"
     t.string "checker"
     t.string "crypted_id"
-    t.string "file_name"
     t.boolean "current_version", default: true
     t.text "comments"
     t.integer "user_id"
@@ -117,6 +100,7 @@ ActiveRecord::Schema.define(version: 20170801072947) do
     t.integer "document_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "file"
   end
 
 end

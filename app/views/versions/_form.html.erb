@@ -52,11 +52,8 @@
     <div class="col-md-2">
       <%= t('version.form.file') %>
     </div>
-    <div class="col-md-4">
-    <%= f.label :file, for: 'file', class: "btn sharp" do %>
-      <%= t('version.form.upload_button') %>
-      <%= f.file_field :file, id: :file, class: "hidden", tabindex: 6 %>
-    <% end %>
+    <div class="col-md-10">
+      <%= f.file_field :file, tabindex: 6 %>
     </div>
   </div>
 

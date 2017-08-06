@@ -1,5 +1,5 @@
 
-<h1><%= "#{t('project.show.project')} : #{@project.name}" %></h1>
+<h1><%= "#{t('project.show.title')} : #{@project.name}" %></h1>
 
 <div class="row">
   <div class="col-md-7">
@@ -38,13 +38,6 @@
       </div>
       <div class="col-md-4">
         <%= @project.identifier %>
-      </div>
-
-      <div class="col-md-2">
-        
-      </div>
-      <div class="col-md-4">
-        
       </div>
 
     </div>
@@ -118,7 +111,7 @@
     </div>
     <div class="row">
       <div class="col-md-2">
-        Admin
+        <%= t('project.show.owner') %>
       </div>
       <div class="col-md-4">
         <%= "#{@project.user.first_name} #{@project.user.last_name}" %>
@@ -138,7 +131,7 @@
           </tr>
         <% end %>
         </table>
-        <%= link_to t('project.show.accesses'), accesses_path, :class => "btn" %>
+        <%= link_to t('project.show.accesses'), accesses_path, class: "btn" %>
       </div>
     </div>
   </div>
@@ -146,12 +139,12 @@
 </div>
 <div class="row">
   <div class="col-md-4">
-    <%= link_to t('project.show.edit'), edit_project_path(@project), :class => "btn" %>
-    <%= link_to t('project.cancel'), projects_path, :class => "btn" %> 
+    <%= link_to t('project.edit_button'), edit_project_path(@project), class: "btn" %>
+    <%= link_to t('project.cancel'), projects_path, class: "btn" %> 
   </div>
 </div>
 <div class="row">
   <div class="col-md-4">
-    <%= link_to t('project.show.delete'), @project, :method => :delete, data: { confirm: t('project.show.delete_confirmation') }, class: "btn danger sharp" %>
+    <%= link_to t('project.delete_button'), @project, method: :delete, data: { confirm: t('project.delete_confirmation') }, class: "btn danger sharp" %>
   </div>
 </div>

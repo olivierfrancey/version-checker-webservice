@@ -45,6 +45,7 @@ class VersionsController < ApplicationController
 
     respond_to do |format|
       if @version.save
+        p "save version"
         format.html { redirect_to versions_path, notice: 'Version was successfully created.' }
         format.json { render :show, status: :created, location: @version }
       else
@@ -80,17 +81,22 @@ class VersionsController < ApplicationController
 
   def make_current
     other_versions = Version.where(document_id: session[:current_document_id])
-    other_versions.update(:current_version => false)
+    other_versions.update(current_version: false)
 
     version = Version.find(params[:id])
-    version.update(:current_version => true)
+    version.update(current_version: true)
 
     document = Document.find(session[:current_document_id])
-    document.update(:last_version => version.version_number, :last_version_date => version.date)
+    document.update(last_version: version.version_number, last_version_date: version.date)
     p document
     
     redirect_to versions_path
   end
+
+  def download
+    send_file CGI::unescape("#{Rails.root}/public#{params[:file_name]}")
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -100,7 +106,7 @@ class VersionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def version_params
-      params.require(:version).permit(:version_number, :date, :author, :checker, :crypted_id, :current_version, :comments)
+      params.require(:version).permit(:version_number, :date, :author, :checker, :crypted_id, :file, :current_version, :comments)
     end
 
     def numeric?(string)

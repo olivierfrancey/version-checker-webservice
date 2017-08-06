@@ -43,7 +43,8 @@ fr:
   project:
     submit: "Soumettre"
     cancel: "Annuler"
-    delete: "Supprimer ce projet"
+    edit_button: "Modifier"
+    delete_button: "Supprimer ce projet"
     delete_confirmation: "Etes-vous sûr de vouloir supprimer ce projet? Cette opération est irrémédiable."
     index:
       title: "Mes projets"
@@ -77,6 +78,25 @@ fr:
     new:
       title: "Nouveau projet"
       success: "Votre projet a été crée avec succes"
+    show:
+      title: "Projet"
+      project: "Données du projet"
+      name: "Nom"
+      identifier: "Identifiant"
+      address: "Addresse"
+      npa: "NPA"
+      city: "Localité"
+      country: "Pays"
+      owner: "Propriétaire"
+      client:
+        client: "Données du client"
+        name: "Nom"
+        address: "Addresse"
+        npa: "NPA"
+        city: "Localité"
+        country: "Pays"
+      users: "Utilisateurs"
+      accesses: "Gestion des accès"
   
   document:
     back: "Annuler"
@@ -137,8 +157,8 @@ fr:
       role: "Rôle"
       warning: "Si l'email de cet utilisateur n'est pas dans la base de données de version-checker, une invitation lui sera automatiquement envoyée."
     index:
-      title: "Liste des droits d'accès au projet"
-      new: "Nouvel utilisateur"
+      title: "Droits d'accès au projet"
+      new: "Nouvel accès"
       show: "Détails"
 
   version:
@@ -157,6 +177,7 @@ fr:
       edit: "Modifier"
       delete: "Supprimer"
       make_current: "Rendre courant"
+      download_file: "Télécharger le fichier"
     new:
       title: "Nouvelle version"
     form:
