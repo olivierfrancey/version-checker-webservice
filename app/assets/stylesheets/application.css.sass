@@ -53,9 +53,6 @@ h3
 h4
   margin: 5px 0
 
-input[type="submit"]:hover, input[type="button"]:hover
-  color: black
-
 input[type="submit"], input[type="button"], button[type="submit"], a.btn
   @extend .btn
   margin: 15px 5px 15px 0
@@ -74,13 +71,17 @@ input[type="password"], input[type="email"], input[type="text"], input[type="dat
   color: $input-text-color
   background-color: $input-background
 
+input:-webkit-autofill
+  background-color: black !important
+
+input[type="submit"]:hover, input[type="button"]:hover,
+input[type="submit"]:active, input[type="button"]:active
+  color: black
+
 input[type="password"]:focus, input[type="email"]:focus
   background-color: white
   color: black
 
-input:-webkit-autofill
-  background-color: black !important
-  
 textarea
   width: 250px
   height: 100px
@@ -98,7 +99,7 @@ html select
   background-image: $input-text-color
 
 td, th
-  border-bottom: 1px solid white !important
+  border-bottom: 1px solid #ddd !important
 
 tr > td
   padding: 4px !important

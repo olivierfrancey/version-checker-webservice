@@ -8,12 +8,13 @@
 <table class="table">
   <thead>
     <tr>
+      <th></th>
       <th class="text-center"><%= t('version.index.version') %></th>
       <th class="text-center"><%= t('version.index.date') %></th>
       <th class="text-center"><%= t('version.index.author') %></th>
       <th class="text-center"><%= t('version.index.checker') %></th>
       <th class="text-center"><%= t('version.index.current_version') %></th>
-      <th><%= t('version.index.comments') %></th>
+      <th width="350px"><%= t('version.index.comments') %></th>
       <th></th>
     </tr>
   </thead>
@@ -21,21 +22,32 @@
   <tbody>
     <% @versions.each do |version| %>
       <tr>
+        <td class="middle">
+          <div class="dropdown">
+            <a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown">
+            <span class="glyphicon glyphicon-chevron-down"></span></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to t('version.edit'), edit_version_path(version) %></li>
+              <li><%= link_to t('version.delete'), version, method: :delete, data: { confirm: 'Are you sure?' }, class: "danger" %></li>
+            </ul>
+          </div>
+        </td>
         <td class="middle text-center"><%= version.version_number %></td>
         <td class="middle text-center"><%= version.date %></td>
         <td class="middle text-center"><%= version.author %></td>
         <td class="middle text-center"><%= version.checker %></td>
-        <td class="middle text-center">
+        <td class="middle text-center" style="font-size: 1.2em">
         <% if version.current_version %>
-          <span class="glyphicon glyphicon-ok"></span>
+          <span class="glyphicon glyphicon-check"></span>
         <% else %>
-          <%= link_to t('version.index.make_current'), {:controller => :versions, :action => :make_current, :id => version.id} , class: "btn sharp" %>
+          <%= link_to controller: :versions, action: :make_current, id: version.id do %>
+            <span class="glyphicon glyphicon-unchecked"></span>
+          <% end %>
         <% end %>
         </td>
         <td class="middle"><%= version.comments %></td>
         <td class="middle right">
-          <%= link_to t('version.index.edit'), edit_version_path(version), class: "btn sharp" %>
-          <%= link_to t('version.index.delete'), version, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn danger sharp" %>
+          
         </td>
       </tr>
     <% end %>

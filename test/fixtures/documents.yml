@@ -6,7 +6,6 @@ one:
   sub_title: Armature
   doc_type: Plan
   size: A1
-  version_format: alphabetical
   project: one
 
 two:
@@ -15,5 +14,4 @@ two:
   sub_title: Coffrage
   doc_type: Plan
   size: A1
-  version_format: numerical
   project: one
