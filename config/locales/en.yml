@@ -162,6 +162,8 @@ en:
     form:
       version_number: "Version number"
       version_number_comment: "Alphanumeric values allowed"
+      file: "File"
+      upload_button: "Upload file"
       date: "Date"
       author: "Author"
       checker: "Checker"

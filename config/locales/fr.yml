@@ -162,6 +162,8 @@ fr:
     form:
       version_number: "Numéro de la version"
       version_number_comment: "Valeurs alphanumériques autorisées"
+      file: "Fichier"
+      upload_button: "Ajouter un fichier"
       date: "Date"
       author: "Auteur"
       checker: "Contrôleur"

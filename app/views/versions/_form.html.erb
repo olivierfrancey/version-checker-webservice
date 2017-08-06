@@ -49,8 +49,20 @@
   </div>
 
   <div class="row">
+    <div class="col-md-2">
+      <%= t('version.form.file') %>
+    </div>
+    <div class="col-md-4">
+    <%= f.label :file, for: 'file', class: "btn sharp" do %>
+      <%= t('version.form.upload_button') %>
+      <%= f.file_field :file, id: :file, class: "hidden", tabindex: 6 %>
+    <% end %>
+    </div>
+  </div>
+
+  <div class="row">
     <div class="col-md-4 col-md-offset-2">
-      <%= f.submit t('version.submit'), class: "btn", tabindex: 6 %>
+      <%= f.submit t('version.submit'), class: "btn", tabindex: 7 %>
       <%= link_to t('version.cancel'), versions_path, class: "btn" %>
     </div>
   </div>
