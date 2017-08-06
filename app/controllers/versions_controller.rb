@@ -30,7 +30,33 @@ class VersionsController < ApplicationController
     @version.document = current_document
     @version.project = current_project
     @version.current_version = true
-    @version.crypted_id = BCrypt::Password.create(current_project.id.to_s+current_document.id.to_s+@version.version_number)
+    encrypted_id = BCrypt::Password.create(current_project.id.to_s+current_document.id.to_s+@version.version_number)
+    qrcode = RQRCode::QRCode.new(encrypted_id)
+    png = qrcode.as_png(
+          resize_gte_to: false,
+          resize_exactly_to: false,
+          fill: 'white',
+          color: 'black',
+          size: 120,
+          border_modules: 4,
+          module_px_size: 6,
+          file: nil # path to write
+          )
+    qrcode_path = "#{Rails.root}/tmp/qrcode/#{CGI::escape(encrypted_id)}.png"
+    p qrcode_path
+    File.open(qrcode_path, 'wb') {|f| f.write qrcode.as_png(
+          resize_gte_to: false,
+          resize_exactly_to: false,
+          fill: 'white',
+          color: 'black',
+          size: 200,
+          border_modules: 1,
+          module_px_size: 6,
+          file: nil # path to write
+        )}
+    File.open(qrcode_path) do |f|
+      @version.qrcode = f
+    end
 
     other_versions = Version.where(document_id: current_document.id)
     if other_versions.any?

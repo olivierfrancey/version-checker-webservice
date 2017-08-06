@@ -5,7 +5,6 @@ class CreateVersions < ActiveRecord::Migration[5.1]
       t.date :date
       t.string :author
       t.string :checker
-      t.string :crypted_id
       t.boolean :current_version, :default => true
       t.text :comments
 
