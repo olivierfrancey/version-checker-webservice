@@ -45,6 +45,11 @@ gem 'carrierwave', '~> 1.0'
 # rqrcode, QR-Code generator. Read more: https://github.com/whomwah/rqrcode
 gem 'rqrcode'
 
+# prawn, pdf files manipulator. Read more: https://github.com/prawnpdf/prawn
+gem 'prawn'
+# combine_pdf, merge pdf files. Read more: https://github.com/boazsegev/combine_pdf
+gem 'combine_pdf'
+
 # Boostrap
 gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.2.0'

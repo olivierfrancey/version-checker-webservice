@@ -30,7 +30,10 @@ class VersionsController < ApplicationController
     @version.document = current_document
     @version.project = current_project
     @version.current_version = true
-    @version.crypted_id = BCrypt::Password.create(current_project.id.to_s+current_document.id.to_s+@version.version_number)
+    @version.crypted_id = BCrypt::Password.create("#{current_project.id}#{current_document.id}#{@version.version_number}")
+    File.open(generate_qrcode(@version.crypted_id)) do |f|
+      @version.qrcode = f
+    end
 
     other_versions = Version.where(document_id: current_document.id)
     if other_versions.any?
@@ -46,6 +49,9 @@ class VersionsController < ApplicationController
     respond_to do |format|
       if @version.save
         p "save version"
+
+        insert_qrcode_in_pdf @version.file, @version.qrcode, 1, 794, 170, 40
+
         format.html { redirect_to versions_path, notice: 'Version was successfully created.' }
         format.json { render :show, status: :created, location: @version }
       else
@@ -94,7 +100,10 @@ class VersionsController < ApplicationController
   end
 
   def download
-    send_file CGI::unescape("#{Rails.root}/public#{params[:file_name]}")
+    path = params[:file_name].to_s.sub! "raw", "stamped"
+    p "path: #{path}"
+    p "#{Rails.root}/public#{path}"
+    send_file CGI::unescape("#{Rails.root}/public#{path}")
   end
 
 
@@ -114,5 +123,61 @@ class VersionsController < ApplicationController
       !!Kernel.Float(string) 
     rescue TypeError, ArgumentError
       false
+    end
+
+    def generate_qrcode(string)
+      qrcode = RQRCode::QRCode.new(string)
+      png = qrcode.as_png(
+            resize_gte_to: false,
+            resize_exactly_to: false,
+            fill: 'white',
+            color: 'black',
+            size: 120,
+            border_modules: 4,
+            module_px_size: 6,
+            file: nil # path to write
+            )
+      qrcode_path = "#{Rails.root}/tmp/qrcode#{CGI::escape(string)}.png"
+      p qrcode_path
+      File.open(qrcode_path, 'wb') {|f| f.write qrcode.as_png(
+            resize_gte_to: false,
+            resize_exactly_to: false,
+            fill: 'white',
+            color: 'black',
+            size: 200,
+            border_modules: 1,
+            module_px_size: 6,
+            file: nil # path to write
+          )}
+      return qrcode_path
+    end
+
+    def insert_qrcode_in_pdf(pdf_path, qrcode_path, page, x, y, size)
+      require "prawn"
+      require "prawn/measurement_extensions"
+
+      new_pdf_path = pdf_path.to_s.sub! 'raw', 'stamped'
+      p pdf_path
+      p new_pdf_path
+
+      dir = File.dirname(CGI::unescape("#{Rails.root}/public#{new_pdf_path}"))
+      FileUtils.mkdir_p(dir) unless File.directory?(dir)
+
+      # generate temporary pdf with the qrcode
+      info = {
+        :Producer     => 'version-checker',
+        :CreationDate => Time.now
+      }
+
+      qrcode_pdf = Prawn::Document.new(
+        :info => info,
+        :margin => 0)
+      qrcode_pdf.image CGI::unescape("#{Rails.root}/public#{qrcode_path}"), :at => [x.mm, y.mm], :width => size.mm
+
+      # combine pdf's and save
+      pdf = CombinePDF.load CGI::unescape("#{Rails.root}/public#{pdf_path}") # based pdf
+      pdf.pages[page-1] << CombinePDF.parse(qrcode_pdf.render).pages[0]
+      pdf.save CGI::unescape("#{Rails.root}/public#{new_pdf_path}")
+
     end
 end
