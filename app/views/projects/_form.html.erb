@@ -11,101 +11,101 @@
     </div>
   <% end %>
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
       <h2><%= t('project.form.project') %></h2>
     </div>
-    <div class="col-md-4 offset-md-1">
+    <div class="col-md-6">
       <h2><%= t('project.form.client.client') %>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-md-1">
-      <%= t('project.form.name') %>
+    <div class="col-md-2">
+      <%= t('project.form.name') %> *
     </div>
-    <div class="col-md-3">
-      <%= f.text_field :name %>
+    <div class="col-md-4">
+      <%= f.text_field :name, tabindex: 1 %>
     </div>
-    <div class="col-md-1 offset-md-1">
+    <div class="col-md-2">
       <%= t('project.form.client.name') %>
     </div>
-    <div class="col-md-3">
-      <%= f.text_field :client_name %>
+    <div class="col-md-4">
+      <%= f.text_field :client_name, tabindex: 8 %>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-md-1">
-      <%= t('project.form.identifier') %>
+    <div class="col-md-2">
+      <%= t('project.form.identifier') %> *
     </div>
-    <div class="col-md-3">
-      <%= f.text_field :identifier %>
+    <div class="col-md-4">
+      <%= f.text_field :identifier, tabindex: 2 %>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-md-1">
+    <div class="col-md-2">
       <%= t('project.form.address') %>
     </div>
-    <div class="col-md-3">
-      <%= f.text_field :address %>
+    <div class="col-md-4">
+      <%= f.text_field :address, tabindex: 3 %>
     </div>
-    <div class="col-md-1 offset-md-1">
+    <div class="col-md-2">
       <%= t('project.form.client.address') %>
     </div>
-    <div class="col-md-3">
-      <%= f.text_field :client_address %>
+    <div class="col-md-4">
+      <%= f.text_field :client_address, tabindex: 10 %>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-md-1">
+    <div class="col-md-2">
       <%= t('project.form.npa') %>
     </div>
-    <div class="col-md-3">
-      <%= f.text_field :npa %>
+    <div class="col-md-4">
+      <%= f.text_field :npa, tabindex: 4 %>
     </div>
-    <div class="col-md-1 offset-md-1">
+    <div class="col-md-2">
       <%= t('project.form.client.npa') %>
     </div>
-    <div class="col-md-3">
-      <%= f.text_field :client_npa %>
+    <div class="col-md-4">
+      <%= f.text_field :client_npa, tabindex: 11 %>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-md-1">
+    <div class="col-md-2">
       <%= t('project.form.city') %>
     </div>
-    <div class="col-md-3">
-      <%= f.text_field :city %>
+    <div class="col-md-4">
+      <%= f.text_field :city, tabindex: 5 %>
     </div>
-    <div class="col-md-1 offset-md-1">
+    <div class="col-md-2">
       <%= t('project.form.client.city') %>
     </div>
-    <div class="col-md-3">
-      <%= f.text_field :client_city %>
+    <div class="col-md-4">
+      <%= f.text_field :client_city, tabindex: 12 %>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-md-1">
+    <div class="col-md-2">
       <%= t('project.form.country') %>
     </div>
-    <div class="col-md-3">
-      <%= f.text_field :country %>
+    <div class="col-md-4">
+      <%= f.text_field :country, tabindex: 6 %>
     </div>
-    <div class="col-md-1 offset-md-1">
+    <div class="col-md-2">
       <%= t('project.form.client.country') %>
     </div>
-    <div class="col-md-3">
-      <%= f.text_field :client_country %>
+    <div class="col-md-4">
+      <%= f.text_field :client_country, tabindex: 13 %>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-md-6">
-      <%= f.submit t('project.submit'), class: "btn" %>
+    <div class="col-md-6 col-md-offset-2">
+      <%= f.submit t('project.submit'), tabindex: 7, class: "btn" %>
       <%= link_to t('project.cancel'), projects_path, class: "btn" %>
     </div>
   </div>

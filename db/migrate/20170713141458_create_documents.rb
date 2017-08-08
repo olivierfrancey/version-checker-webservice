@@ -12,7 +12,7 @@ class CreateDocuments < ActiveRecord::Migration[5.1]
       t.integer :user_id
       t.integer :project_id
       t.integer :group_id
-      t.integer :layout_id
+      t.integer :qr_code_position_id
       
       t.integer :versions_count, :default => 0
 

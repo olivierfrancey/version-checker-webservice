@@ -14,6 +14,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.integer :groups_count,    :default => 0
       t.integer :versions_count,  :default => 0
       t.integer :accesses_count,  :default => 0
+      t.integer :qr_code_positions_count, :default => 0
 
       t.timestamps
     end

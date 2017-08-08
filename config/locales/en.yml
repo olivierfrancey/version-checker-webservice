@@ -127,6 +127,7 @@ en:
       size: "Dimension"
       version-format: "Index format"
       group: "Group"
+      qrcode_layout: QR-Code layout
     edit:
       title: "Editing document"
 

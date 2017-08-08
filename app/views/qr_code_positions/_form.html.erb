@@ -1,0 +1,42 @@
+<%= form_with(model: qr_code_position, local: true) do |form| %>
+  <% if qr_code_position.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(qr_code_position.errors.count, "error") %> prohibited this qr_code_position from being saved:</h2>
+
+      <ul>
+      <% qr_code_position.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :page %>
+    <%= form.number_field :page, id: :qr_code_position_page %>
+  </div>
+
+  <div class="field">
+    <%= form.label :x %>
+    <%= form.number_field :x, id: :qr_code_position_x %>
+  </div>
+
+  <div class="field">
+    <%= form.label :y %>
+    <%= form.number_field :y, id: :qr_code_position_y %>
+  </div>
+
+  <div class="field">
+    <%= form.label :size %>
+    <%= form.number_field :size, id: :qr_code_position_size %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :qr_code_position_name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

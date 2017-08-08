@@ -12,27 +12,37 @@
   <% end %>
 
   <div class="row">
-
     <div class="col-md-2">
       <%= t('document.form.identifier') %> *
     </div>
     <div class="col-md-4">
       <%= f.text_field :identifier, tabindex: 1 %>
     </div>
-
+    <div class="col-md-2">
+      <%= t('document.form.qrcode_layout') %> *
+    </div>
+    <div  class="col-md-4">
+    <% if @qr_code_positions.any? %>
+      <%= f.select :position, options_for_select(@qr_code_positions, @document.qr_code_position.name) %>
+    <% else %>
+      <%= "create a new one" %>
+    <% end %>
+    </div>
   </div>
-  <div class="row">
 
+  <div class="row">
     <div class="col-md-2">
       <%= t('document.form.name') %> *
     </div>
     <div class="col-md-4">
       <%= f.text_field :title, tabindex: 2 %>
     </div>
-
+    <div class="col-md-2 col-md-offset-2">
+      <%= link_to "New layout", new_qr_code_position_path, class: "btn sharp" %>
+    </div>
   </div>
-  <div class="row">
 
+  <div class="row">
     <div class="col-md-2">
       <%= t('document.form.sub_title') %>
     </div>
@@ -65,7 +75,6 @@
     <div class="col-md-4 col-md-offset-2">
       <%= f.submit t('document.submit'), class: "btn", tabindex: 7 %>
       <%= link_to t('document.back'), documents_path, class: "btn" %>
-      <%= link_to t('document.delete'), @document, method: :delete, data: { confirm: t('document.delete_confirmation') }, class: "btn danger sharp" %>
     </div>
   </div>
   

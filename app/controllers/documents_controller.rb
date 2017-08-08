@@ -18,10 +18,12 @@ class DocumentsController < ApplicationController
   # GET /documents/new
   def new
     @document = Document.new
+    @qr_code_positions = QrCodePosition.where(user_id: current_user.id).pluck(:name, :id)
   end
 
   # GET /documents/1/edit
   def edit
+    @qr_code_positions = QrCodePosition.where(user_id: current_user.id).pluck(:name, :id)
   end
 
   # POST /documents
@@ -30,6 +32,7 @@ class DocumentsController < ApplicationController
     @document = Document.new(document_params)
     @document.user = current_user
     @document.project = current_project
+    @document.qr_code_position = QrCodePosition.find(@document.position)
 
     respond_to do |format|
       if @document.save
@@ -45,10 +48,13 @@ class DocumentsController < ApplicationController
   # PATCH/PUT /documents/1
   # PATCH/PUT /documents/1.json
   def update
-    p document_params
-    p @document
+    params = document_params
+    params[:qr_code_position] = QrCodePosition.find(document_params[:position])
+    #document_params[:qr_code_position_id] = document_params[:position]
+    p "document_params[:position] -> #{document_params[:position]}"
+    p "document_params[:qr_code_position] -> #{document_params[:qr_code_position]}"
     respond_to do |format|
-      if @document.update(document_params)
+      if @document.update(params)
         format.html { redirect_to documents_path, notice: 'Document was successfully updated.' }
         format.json { render :show, status: :ok, location: @document }
       else
@@ -101,6 +107,6 @@ class DocumentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def document_params
-      params.require(:document).permit(:identifier, :title, :sub_title, :doc_type, :size, :group, :last_version, :last_version_date)
+      params.require(:document).permit(:identifier, :title, :sub_title, :doc_type, :size, :group, :last_version, :last_version_date, :position)
     end
 end

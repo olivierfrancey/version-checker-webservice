@@ -125,6 +125,7 @@ fr:
       size: "Dimension"
       version-format: "Indices"
       group: "Groupe"
+      qrcode-layout: "Gabarit QR-Code"
     edit:
       title: "Editer le document"
 

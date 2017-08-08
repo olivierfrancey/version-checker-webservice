@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :qr_code_positions
   resources :accesses
   #get 'sessions/new'
 

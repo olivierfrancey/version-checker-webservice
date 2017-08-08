@@ -30,27 +30,27 @@ class VersionsController < ApplicationController
     @version.document = current_document
     @version.project = current_project
     @version.current_version = true
-    @version.crypted_id = BCrypt::Password.create("#{current_project.id}#{current_document.id}#{@version.version_number}")
-    File.open(generate_qrcode(@version.crypted_id)) do |f|
+    @version.encrypted_id = BCrypt::Password.create("#{current_project.id}#{current_document.id}#{@version.version_number}")
+    File.open(generate_qrcode(@version.encrypted_id)) do |f|
       @version.qrcode = f
     end
 
     other_versions = Version.where(document_id: current_document.id)
     if other_versions.any?
       p other_versions
-      other_versions.update(:current_version => false)
+      other_versions.update(current_version: false)
     else
       p 'no other version'
     end
 
     document = Document.find(current_document.id)
-    document.update(:last_version => @version.version_number, :last_version_date => @version.date)
+    document.update(last_version: @version.version_number, last_version_date: @version.date)
 
     respond_to do |format|
       if @version.save
         p "save version"
 
-        insert_qrcode_in_pdf @version.file, @version.qrcode, 1, 794, 170, 40
+        insert_qrcode_in_pdf @version.file, @version.qrcode, @version.document.qr_code_position.page, @version.document.qr_code_position.x, @version.document.qr_code_position.y, @version.document.qr_code_position.size
 
         format.html { redirect_to versions_path, notice: 'Version was successfully created.' }
         format.json { render :show, status: :created, location: @version }
@@ -173,6 +173,7 @@ class VersionsController < ApplicationController
         :info => info,
         :margin => 0)
       qrcode_pdf.image CGI::unescape("#{Rails.root}/public#{qrcode_path}"), :at => [x.mm, y.mm], :width => size.mm
+      #qrcode_pdf.draw_text "version-checker.com", :at => [x.mm, (y-size).mm]      
 
       # combine pdf's and save
       pdf = CombinePDF.load CGI::unescape("#{Rails.root}/public#{pdf_path}") # based pdf

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Page:</strong>
+  <%= @qr_code_position.page %>
+</p>
+
+<p>
+  <strong>X:</strong>
+  <%= @qr_code_position.x %>
+</p>
+
+<p>
+  <strong>Y:</strong>
+  <%= @qr_code_position.y %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @qr_code_position.size %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @qr_code_position.name %>
+</p>
+
+<%= link_to 'Edit', edit_qr_code_position_path(@qr_code_position) %> |
+<%= link_to 'Back', qr_code_positions_path %>
