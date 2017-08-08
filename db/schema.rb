@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170807194742) do
+ActiveRecord::Schema.define(version: 20170807192930) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,17 @@ ActiveRecord::Schema.define(version: 20170807194742) do
     t.integer "project_id"
     t.integer "documents_count", default: 0
     t.integer "versions_count", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "layouts", force: :cascade do |t|
+    t.integer "page"
+    t.integer "x"
+    t.integer "y"
+    t.integer "size"
+    t.string "name"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -92,7 +103,7 @@ ActiveRecord::Schema.define(version: 20170807194742) do
     t.date "date"
     t.string "author"
     t.string "checker"
-    t.string "crypted_id"
+    t.string "encrypted_id"
     t.boolean "current_version", default: true
     t.text "comments"
     t.integer "user_id"

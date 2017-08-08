@@ -19,5 +19,6 @@
 /public/stamped
 /public/raw
 /public/qrcode
+/public/uploads
 
 .byebug_history
