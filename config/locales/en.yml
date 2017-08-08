@@ -13,6 +13,8 @@ en:
     projects: "Projects"
     my_projects: "My projects"
     new_project: "New project"
+    my_account: "My account"
+    my_stats: "My stats"
 
   home:
     hello: "Hello world"
@@ -135,6 +137,7 @@ en:
   user:
     submit: "Submit"
     cancel: "Cancel"
+    close: "Close"
     new:
       title: "New user"
     form:
@@ -145,6 +148,12 @@ en:
       password_confirmation: "Password confirmation"
       company: "Firme"
       discipline: "Discipline"
+    stats:
+      title: "My stats"
+      projects_count: "Projects count"
+      documents_count: "Documents count"
+      versions_count: "Versions count"
+      layouts_count: "QR-code layouts count"
 
   access:
     submit: "Submit"

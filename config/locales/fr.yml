@@ -13,6 +13,8 @@ fr:
     projects: "Projets"
     my_projects: "Mes projets"
     new_project: "Nouveau projet"
+    my_account: "Mon compte"
+    my_stats: "Mes statistiques"
 
   home:
     hello: "Bonjour le monde"
@@ -133,6 +135,7 @@ fr:
   user:
     submit: "Soumettre"
     cancel: "Annuler"
+    close: "Fermer"
     new:
       title: "Nouvel utilisateur"
     form:
@@ -143,6 +146,12 @@ fr:
       password_confirmation: "Confirmation"
       company: "Entreprise"
       discipline: "Discipline"
+    stats:
+      title: "Mes statistiques"
+      projects_count: "Mes projects"
+      documents_count: "Mes documents"
+      versions_count: "Mes versions"
+      layouts_count: "Mes gabarits QR-code"
 
   access:
     submit: "Soumettre"

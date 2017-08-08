@@ -3,6 +3,7 @@ class User < ApplicationRecord
 
   validates_uniqueness_of :email, :case_sensitive => false
   validates :password, confirmation: true
+  validates :first_name, :last_name, presence: {notice: "aïe"}
 
   has_many :projects,  dependent: :destroy
   has_many :groups,    dependent: :destroy

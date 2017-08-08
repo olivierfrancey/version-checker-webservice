@@ -1,4 +1,4 @@
-<%= form_with(model: user, local: true) do |form| %>
+<%= form_with(model: user, local: true) do |f| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -11,47 +11,83 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name, id: :user_first_name %>
+
+  <div class="row">
+    <div class="col-md-2">
+      <%= t('user.form.first_name') %> *
+    </div>
+    <div class="col-md-4">
+      <%= f.text_field :first_name, tabindex: 1 %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name, id: :user_last_name %>
+  <div class="row">
+    <div class="col-md-2">
+      <%= t('user.form.last_name') %> *
+    </div>
+    <div class="col-md-4">
+      <%= f.text_field :last_name, tabindex: 2 %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, id: :user_email %>
+  <div class="row">
+    <div class="col-md-2">
+      <%= t('user.form.email') %> *
+    </div>
+    <div class="col-md-4">
+      <%= f.text_field :email, tabindex: 3 %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.password_field :password, id: :user_password %>
+  <div class="row">
+    <div class="col-md-2">
+      <%= t('user.form.password') %> *
+    </div>
+    <div class="col-md-4">
+      <%= f.password_field :password, tabindex: 4 %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation, id: :user_password_confirmation %>
+  <div class="row">
+    <div class="col-md-2">
+      <%= t('user.form.password_confirmation') %> *
+    </div>
+    <div class="col-md-4">
+      <%= f.password_field :password_confirmation, tabindex: 5 %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone, id: :user_phone %>
+  <div class="row">
+    <div class="col-md-2">
+      <%= t('user.form.phone') %>
+    </div>
+    <div class="col-md-4">
+      <%= f.text_field :phone, tabindex: 6 %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :company %>
-    <%= form.text_field :company, id: :user_company %>
+  <div class="row">
+    <div class="col-md-2">
+      <%= t('user.form.company') %>
+    </div>
+    <div class="col-md-4">
+      <%= f.text_field :company, tabindex: 7 %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :discipline %>
-    <%= form.text_field :discipline, id: :user_discipline %>
+  <div class="row">
+    <div class="col-md-2">
+      <%= t('user.form.discipline') %>
+    </div>
+    <div class="col-md-4">
+      <%= f.text_field :discipline, tabindex: 8 %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-2">
+      <%= f.submit t('user.submit'), tabindex: 9 %>
+      <%= link_to t('user.cancel'), projects_path, class: "btn" %>
+    </div>
   </div>
 <% end %>
