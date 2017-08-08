@@ -1,4 +1,5 @@
-<%= form_with(model: qr_code_position, local: true) do |form| %>
+
+<%= form_with(model: qr_code_position, local: true) do |f| %>
   <% if qr_code_position.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(qr_code_position.errors.count, "error") %> prohibited this qr_code_position from being saved:</h2>
@@ -11,32 +12,54 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :page %>
-    <%= form.number_field :page, id: :qr_code_position_page %>
+  <div class="row">
+    <div class="col-md-2">
+      <%= t('qrcode.form.page') %> *
+    </div>
+    <div class="col-md-4">
+      <%= f.number_field :page, tabindex: 1 %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :x %>
-    <%= form.number_field :x, id: :qr_code_position_x %>
+  <div class="row">
+    <div class="col-md-2">
+      <%= t('qrcode.form.x') %> *
+    </div>
+    <div class="col-md-4">
+      <%= f.number_field :x, tabindex: 2 %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :y %>
-    <%= form.number_field :y, id: :qr_code_position_y %>
+  <div class="row">
+    <div class="col-md-2">
+      <%= t('qrcode.form.y') %> *
+    </div>
+    <div class="col-md-4">
+      <%= f.number_field :y, tabindex: 3 %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :size %>
-    <%= form.number_field :size, id: :qr_code_position_size %>
+  <div class="row">
+    <div class="col-md-2">
+      <%= t('qrcode.form.size') %> *
+    </div>
+    <div class="col-md-4">
+      <%= f.number_field :size, tabindex: 4 %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :qr_code_position_name %>
+  <div class="row">
+    <div class="col-md-2">
+      <%= t('qrcode.form.name') %> *
+    </div>
+    <div class="col-md-4">
+      <%= f.text_field :name, tabindex: 5 %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-2">
+      <%= f.submit t('qrcode.submit') %>
+    <div>
   </div>
 <% end %>

@@ -8,4 +8,6 @@ class Document < ApplicationRecord
 
   has_many :versions, dependent: :destroy
 
+  validates :title, :identifier, :position, presence: {notice: "aïe"}
+
 end

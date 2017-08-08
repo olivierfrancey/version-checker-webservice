@@ -126,6 +126,7 @@ fr:
       version-format: "Indices"
       group: "Groupe"
       qrcode-layout: "Gabarit QR-Code"
+      create_new_layout: "Créer un nouveau gabarit de QR-Code"
     edit:
       title: "Editer le document"
 
@@ -190,3 +191,15 @@ fr:
       author: "Auteur"
       checker: "Contrôleur"
       comment: "Commentaire"
+    
+  qrcode:
+    submit: "Soumettre"
+    cancel: "Annuler"
+    form:
+      name: "Nom"
+      x: "Position en x"
+      y: "Position en y"
+      size: "Dimension"
+      page: "Sur quelle page?"
+    new:
+      title: "Nouveau gabarit de QR-Code"

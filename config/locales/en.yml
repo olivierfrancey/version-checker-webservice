@@ -127,7 +127,8 @@ en:
       size: "Dimension"
       version-format: "Index format"
       group: "Group"
-      qrcode_layout: QR-Code layout
+      qrcode_layout: "QR-Code layout"
+      create_new_layout: "Create a new QR-Code layout"
     edit:
       title: "Editing document"
 
@@ -192,3 +193,15 @@ en:
       author: "Author"
       checker: "Checker"
       comment: "Comment"
+    
+  qrcode:
+    submit: "Submit"
+    cancel: "Cancel"
+    form:
+      name: "Name"
+      x: "X position"
+      y: "Y position"
+      size: "Size"
+      page: "On which page?"
+    new:
+      title: "New QR-Code layout"
