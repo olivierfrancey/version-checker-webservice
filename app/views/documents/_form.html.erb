@@ -62,7 +62,7 @@
     </div>
     <div  class="col-md-10">
     <% if @qr_code_positions.any? %>
-      <%= f.select :position, options_for_select(@qr_code_positions, @document.qr_code_position.name) %>
+      <%= f.select :position, options_for_select(@qr_code_positions, @document.qr_code_position ? @document.qr_code_position.name : "") %>
     <% end %>
     <%= link_to t('document.form.create_new_layout'), new_qr_code_position_path, class: "btn sharp" %>
     </div>

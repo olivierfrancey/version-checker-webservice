@@ -14,7 +14,11 @@
             <span class="glyphicon glyphicon-chevron-down"></span></a>
             <ul class="dropdown-menu">
               <li><%= link_to t('document.index.edit'), edit_document_path(document) %></li>
-              <li><%= link_to t('document.delete'), document, method: :delete, data: { confirm: 'Are you sure?' }, class: "danger" %></li>
+              <li>
+                <% if policy(document).destroy? %>
+                  <%= link_to t('document.delete'), document, method: :delete, data: { confirm: 'Are you sure?' }, class: "danger" %>
+                <% end %>
+              </li>
               <li><%= link_to t('document.index.add_version'),   {controller: :documents, action: :move_to_version, id: document.id, new: true} %></li> 
               <li><%= link_to t('document.index.show_versions'), {controller: :documents, action: :move_to_version, id: document.id, new: false} %></li>
             </ul>

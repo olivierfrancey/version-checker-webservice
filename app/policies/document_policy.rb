@@ -6,18 +6,8 @@ class DocumentPolicy
     @document = document
   end
 
-  # def create?
-  # end
-
-  # def read?
-  # end
-
-  # def update?
-  # end
-
-  def delete?
-    user.projectAdministrator? or 
-    user.superAdministrator?
+  def destroy?
+    @user.accesses[0].role == "projectAdmin"
   end
 
 end

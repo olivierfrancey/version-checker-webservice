@@ -27,12 +27,13 @@ class AccessesController < ApplicationController
   # POST /accesses.json
   def create
     @access = Access.new(access_params)
+    authorize @access
     @access.project = current_project
     p current_project
     
     if user = User.find_by(email: @access.email)
-      @access.user = user
       p "user exists"
+      @access.user = user
       p @access
       respond_to do |format|
         if @access.save
@@ -56,6 +57,7 @@ class AccessesController < ApplicationController
   # PATCH/PUT /accesses/1
   # PATCH/PUT /accesses/1.json
   def update
+    auhtorize @access
     respond_to do |format|
       if @access.update(access_params)
         format.html { redirect_to accesses_path, notice: 'Access was successfully updated.' }
@@ -70,6 +72,7 @@ class AccessesController < ApplicationController
   # DELETE /accesses/1
   # DELETE /accesses/1.json
   def destroy
+    authorize @access
     @access.destroy
     respond_to do |format|
       format.html { redirect_to accesses_url, notice: 'Access was successfully destroyed.' }

@@ -3,12 +3,13 @@ Rails.application.routes.draw do
   resources :accesses
   #get 'sessions/new'
 
-  get 'projects/move_to_document/:id', to: 'projects#move_to_document'
-  get 'projects/move_to_access/:id', to: 'projects#move_to_access'
-  get 'projects/move_to_detail/:id', to: 'projects#move_to_detail'
-  get 'documents/move_to_version/:id', to: 'documents#move_to_version'
-  get 'versions/make_current/:id', to: 'versions#make_current'
-  post 'versions/download/', to: 'versions#download'
+  get 'users/stats/:id',                to: 'users#stats'
+  get 'projects/move_to_document/:id',  to: 'projects#move_to_document'
+  get 'projects/move_to_access/:id',    to: 'projects#move_to_access'
+  get 'projects/move_to_detail/:id',    to: 'projects#move_to_detail'
+  get 'documents/move_to_version/:id',  to: 'documents#move_to_version'
+  get 'versions/make_current/:id',      to: 'versions#make_current'
+  post 'versions/download/',            to: 'versions#download'
 
   scope "(:locale)", locale: /en|fr|de/ do
     root 'static_pages#home'

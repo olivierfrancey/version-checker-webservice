@@ -1,0 +1,39 @@
+<h1><%= t('user.stats.title') %></h1>
+
+<div class="row">
+  <div class="col-md-2">
+    <%= t('user.stats.projects_count') %>
+  </div>
+  <div class="col-md-4">
+    <%= @user.projects_count %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-2">
+    <%= t('user.stats.documents_count') %>
+  </div>
+  <div class="col-md-4">
+    <%= @user.documents_count %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-2">
+    <%= t('user.stats.versions_count') %>
+  </div>
+  <div class="col-md-4">
+    <%= @user.versions_count %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-2">
+    <%= t('user.stats.layouts_count') %>
+  </div>
+  <div class="col-md-4">
+    <%= @user.qr_code_positions_count %>
+  </div>
+</div>
+
+<%= link_to t('user.close'), :back, class: "btn" %>

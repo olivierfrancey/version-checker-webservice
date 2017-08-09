@@ -7,7 +7,9 @@
 
 <div class="row">
   <div class="col-md-12">
-    <%= link_to t('access.index.new'), new_access_path, class: "btn" %>
+    <% if policy(@accesses).create? %>
+      <%= link_to t('access.index.new'), new_access_path, class: "btn" %>
+    <% end %>
   </div>
 </div>
 
@@ -21,8 +23,13 @@
             <a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown">
             <span class="glyphicon glyphicon-chevron-down"></span></a>
             <ul class="dropdown-menu">
-              <li><%= link_to t('access.index.edit'), edit_access_path(access) %></li>
-              <li><%= link_to t('access.index.delete'), access, method: :delete, data: { confirm: 'Are you sure?' }, class: "danger" %></li>
+              <li><%= link_to t('access.index.detail'), user_path(access.user) %></li>
+              <% if policy(access).update? %>
+                <li><%= link_to t('access.index.edit'), edit_access_path(access) %></li>
+              <% end %>
+              <% if policy(access).destroy? %>
+                <li><%= link_to t('access.index.delete'), access, method: :delete, data: { confirm: 'Are you sure?' }, class: "danger" %></li>
+              <% end %>
             </ul>
           </div>
         </td>

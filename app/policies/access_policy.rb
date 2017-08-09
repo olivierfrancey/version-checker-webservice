@@ -1,9 +1,13 @@
-class ProjectPolicy
-  attr_reader :user, :project
+class AccessPolicy
+  attr_reader :user, :access
 
-  def initialize(user, project)
+  def initialize(user, access)
     @user = user
-    @project = project
+    @access = access
+  end
+
+  def create?
+    @user.accesses[0].role == "projectAdmin"
   end
 
   def update?
@@ -11,10 +15,6 @@ class ProjectPolicy
   end
 
   def destroy?
-    @user.accesses[0].role == "projectAdmin"
-  end
-
-  def accesses?
     @user.accesses[0].role == "projectAdmin"
   end
 
