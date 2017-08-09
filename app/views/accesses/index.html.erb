@@ -20,8 +20,12 @@
         <td class="middle"><%= access.user.email %></td>
         <td class="middle"><%= t('access.role.'+access.role) %></td>
         <td class="middle">
+          <% if policy(access).update? %>
             <%= link_to t('access.index.edit'), edit_access_path(access), class: "btn sharp" %>
+          <% end %>
+          <% if policy(access).destroy? %>
             <%= link_to t('access.index.delete'), access, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn sharp danger" %></td>
+          <% end %>
       </tr>
       <% end %>
 
