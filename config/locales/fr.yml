@@ -49,7 +49,7 @@ fr:
     delete_button: "Supprimer ce projet"
     delete_confirmation: "Etes-vous sûr de vouloir supprimer ce projet? Cette opération est irrémédiable."
     index:
-      title: "Mes projets"
+      title: "Projets"
       details: "Détails"
       users: "Utilisateurs"
       documents: "Documents"

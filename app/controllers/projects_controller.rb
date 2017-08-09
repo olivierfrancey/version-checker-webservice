@@ -6,8 +6,11 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.where(id: session[:projects]).order(:identifier)
-    #authorize @projects
+    if current_user.super_admin?
+      @projects= Project.all
+    else
+      @projects = Project.where(id: session[:projects]).order(:identifier)
+    end
   end
 
   # GET /projects/1

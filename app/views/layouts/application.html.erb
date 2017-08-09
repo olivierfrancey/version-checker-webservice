@@ -10,9 +10,24 @@
 
   <body class="container">
     <%= render 'layouts/header' %>
-    <div class="main-content">
-      <%= yield %>
-    </div>
+    
+    <% if current_user != nil && current_user.super_admin? %>
+      <div class="admin-content">
+        <div class="row">
+          <div class="col-md-2">
+            <%= render 'layouts/admin_tools' %>
+          </div>
+          <div class="col-md-10">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    <% else %>
+      <div class="main-content">
+        <%= yield %>
+      </div>
+    <% end %>
+    
     <%= render 'layouts/footer' %>
   </body>
 </html>

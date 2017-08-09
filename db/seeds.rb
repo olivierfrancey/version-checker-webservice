@@ -4,4 +4,13 @@
 # Examples:
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
+
+
+User.create(
+  first_name: 'Super', 
+  last_name: 'Admin',
+  email: 'superadmin@version-checker.com',
+  password: 'non ya personne',
+  super_admin: true
+  )

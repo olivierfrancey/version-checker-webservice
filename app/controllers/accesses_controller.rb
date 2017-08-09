@@ -6,7 +6,11 @@ class AccessesController < ApplicationController
   # GET /accesses
   # GET /accesses.json
   def index
-    @accesses = Access.where(project_id: session[:current_project_id]).order(:role).reverse_order
+    if current_user.super_admin
+      @accesses = Access.all
+    else
+      @accesses = Access.where(project_id: session[:current_project_id]).order(:role).reverse_order
+    end
   end
 
   # GET /accesses/1

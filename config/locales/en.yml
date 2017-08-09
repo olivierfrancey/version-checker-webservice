@@ -49,7 +49,7 @@ en:
     delete_button: "Delete this project"
     delete_confirmation: "Are you sure you want to delete this project? You can not undo this operation."
     index:
-      title: "My projects"
+      title: "Projects"
       details: "Details"
       users: "Users"
       documents: "Documents"
