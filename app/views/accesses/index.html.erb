@@ -16,12 +16,21 @@
     <table class="table">
       <% @accesses.each do |access| %>
       <tr>
+        <td class="middel">
+          <div class="dropdown">
+            <a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown">
+            <span class="glyphicon glyphicon-chevron-down"></span></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to t('access.index.edit'), edit_access_path(access) %></li>
+              <li><%= link_to t('access.index.delete'), access, method: :delete, data: { confirm: 'Are you sure?' }, class: "danger" %></li>
+            </ul>
+          </div>
+        </td>
         <td class="middle"><%= "#{access.user.first_name} #{access.user.last_name}" %></td>
+        <td class="middle"><%= access.user.company %></td>
+        <td class="middle"><%= access.user.discipline %></td>
         <td class="middle"><%= access.user.email %></td>
         <td class="middle"><%= t('access.role.'+access.role) %></td>
-        <td class="middle">
-            <%= link_to t('access.index.edit'), edit_access_path(access), class: "btn sharp" %>
-            <%= link_to t('access.index.delete'), access, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn sharp danger" %></td>
       </tr>
       <% end %>
 

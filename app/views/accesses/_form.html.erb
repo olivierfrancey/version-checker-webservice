@@ -1,4 +1,4 @@
-<%= form_with(model: access, local: true) do |form| %>
+<%= form_with(model: access, local: true) do |f| %>
   <% if access.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(access.errors.count, "error") %> prohibited this access from being saved:</h2>
