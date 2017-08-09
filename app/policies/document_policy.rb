@@ -1,8 +1,9 @@
 class DocumentPolicy
   attr_reader :user, :document
 
-  def initialize(user)
+  def initialize(user, document)
     @user = user
+    @document = document
   end
 
   # def create?

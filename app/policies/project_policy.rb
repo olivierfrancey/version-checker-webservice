@@ -6,29 +6,12 @@ class ProjectPolicy
     @project = project
   end
 
-  def create?
-    user.projectAdministrator? or 
-    user.superAdministrator?
-  end
-
-  def index?
-    #project.projectAdministrator_id == session[:user_id] or
-    #user.superAdmininistrator?
-  end
-
-  def show?
-    #project.projectAdministrator_id? or
-    #user.superAdmininistrator?
-  end
-
   def update?
-    user.projectAdministrator? or 
-    user.superAdministrator?
+    user.access.role == "projectAdmin"
   end
 
   def delete?
-    user.projectAdministrator? or 
-    user.superAdmininistrator?
+    user.access.role == "projectAdmin"
   end
 
 end

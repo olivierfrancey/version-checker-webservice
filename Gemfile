@@ -55,7 +55,8 @@ gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 
-
+# d3-rails, D3 charts helper. https://github.com/iblue/d3-rails
+gem "d3-rails"
 
 
 group :development, :test do
