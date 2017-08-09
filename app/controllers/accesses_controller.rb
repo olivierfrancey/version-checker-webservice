@@ -57,7 +57,7 @@ class AccessesController < ApplicationController
   # PATCH/PUT /accesses/1
   # PATCH/PUT /accesses/1.json
   def update
-    auhtorize @access
+    authorize @access
     respond_to do |format|
       if @access.update(access_params)
         format.html { redirect_to accesses_path, notice: 'Access was successfully updated.' }

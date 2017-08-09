@@ -1,12 +1,12 @@
 <h1><%= t('access.edit.title') %></h1>
 
-<%= form_with(model: access, local: true) do |form| %>
-  <% if access.errors.any? %>
+<%= form_with(model: @access, local: true) do |f| %>
+  <% if @access.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(access.errors.count, "error") %> prohibited this access from being saved:</h2>
+      <h2><%= pluralize(@access.errors.count, "error") %> prohibited this access from being saved:</h2>
 
       <ul>
-      <% access.errors.full_messages.each do |message| %>
+      <% @access.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
