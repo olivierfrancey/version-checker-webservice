@@ -50,6 +50,9 @@ fr:
     delete_confirmation: "Etes-vous sûr de vouloir supprimer ce projet? Cette opération est irrémédiable."
     index:
       title: "Mes projets"
+      details: "Détails"
+      users: "Utilisateurs"
+      documents: "Documents"
       new_project: "Ajouter un projet"
       docs_count: "Documents"
       versions_count: "Versions"
@@ -101,7 +104,8 @@ fr:
       accesses: "Gestion des accès"
   
   document:
-    back: "Annuler"
+    back: "Retour"
+    cancel: "Annuler"
     submit: "Soumettre"
     edit_button: "Modifier"
     delete: "Supprimer le document"
@@ -114,7 +118,6 @@ fr:
       current_version: "Version courrante"
       current_version_date: "Date"
       last_update: "Dernière modification"
-      back: "Retour à projets"
       add_version: "Ajouter une version"
       show_versions: "Afficher les versions"
     new:
@@ -136,12 +139,15 @@ fr:
     submit: "Soumettre"
     cancel: "Annuler"
     close: "Fermer"
+    delete: "Supprimer mon compte"
+    delete_confirmation: "Cette opération ne peut pas être annulée. Toutes vos données dans version-checker seront irrémédiablement perdues."
     new:
       title: "Nouvel utilisateur"
     form:
       first_name: "Prénom"
       last_name: "Nom"
       email: "Email"
+      phone: "Téléphone"
       password: "Mot de passe"
       password_confirmation: "Confirmation"
       company: "Entreprise"
@@ -152,12 +158,15 @@ fr:
       documents_count: "Mes documents"
       versions_count: "Mes versions"
       layouts_count: "Mes gabarits QR-code"
+    edit:
+      title: "Modification de mon compte"
 
   access:
     submit: "Soumettre"
     cancel: "Annuler"
     edit: "Modifier"
     delete: "Supprimer"
+    back: "Retour"
     role:
       projectAdmin: "Administrateur"
       basicUser: "Utilisateur"
@@ -175,10 +184,11 @@ fr:
   version:
     submit: "Soumettre"
     cancel: "Annuler"
+    delete: "Supprimer"
+    back: "Retour"
     index:
       title: "Versions du document"
       add: "Ajouter une nouvelle version"
-      back: "Retour à documents"
       version: "Versions"
       date: "Date"
       author: "Auteur"
@@ -186,7 +196,6 @@ fr:
       current_version: "Version courante"
       comments: "Commentaire"
       edit: "Modifier"
-      delete: "Supprimer"
       make_current: "Rendre courant"
       download_file: "Télécharger le fichier"
     new:

@@ -1,7 +1,7 @@
 <h1><%= "#{t('document.index.title')} : #{current_project.identifier} - #{current_project.name}" %></h1>
 
 <%= link_to t('document.index.new_document'), new_document_path, class: "btn" %>
-<%= link_to t('document.index.back'), projects_path, class: "btn"%>
+<%= link_to t('document.back'), projects_path, class: "btn"%>
 
 
 <table class="table">
@@ -25,7 +25,11 @@
           </div>
         </td>
         <td class="middle">
-          <h4><%= document.identifier %></h4>
+          <h4>
+          <%= link_to controller: :documents, action: :move_to_version, id: document.id, new: false do %>
+            <%= document.identifier %>
+          <% end %>
+          </h4>
         </td>
         <td class="middle">
           <strong><%= document.title %></strong>
