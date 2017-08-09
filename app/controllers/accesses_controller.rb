@@ -31,8 +31,8 @@ class AccessesController < ApplicationController
     p current_project
     
     if user = User.find_by(email: @access.email)
-      @access.user = user
       p "user exists"
+      @access.user = user
       p @access
       respond_to do |format|
         if @access.save

@@ -131,7 +131,9 @@
           </tr>
         <% end %>
         </table>
-        <%= link_to t('project.show.accesses'), accesses_path, class: "btn" %>
+        <% if policy(@project).accesses? %>
+          <%= link_to t('project.show.accesses'), accesses_path, class: "btn" %>
+        <% end %>
       </div>
     </div>
   </div>
@@ -139,12 +141,16 @@
 </div>
 <div class="row">
   <div class="col-md-4">
-    <%= link_to t('project.edit_button'), edit_project_path(@project), class: "btn" %>
+    <% if policy(@project).update? %>
+      <%= link_to t('project.edit_button'), edit_project_path(@project), class: "btn" %>
+    <% end %>
     <%= link_to t('project.cancel'), projects_path, class: "btn" %> 
   </div>
 </div>
 <div class="row">
   <div class="col-md-4">
-    <%= link_to t('project.delete_button'), @project, method: :delete, data: { confirm: t('project.delete_confirmation') }, class: "btn danger sharp" %>
+    <% if policy(@project).destroy? %>
+      <%= link_to t('project.delete_button'), @project, method: :delete, data: { confirm: t('project.delete_confirmation') }, class: "btn danger sharp" %>
+    <% end %>
   </div>
 </div>
