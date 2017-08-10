@@ -150,7 +150,7 @@
 <div class="row">
   <div class="col-md-4">
     <% if policy(@project).destroy? %>
-      <%= link_to t('project.delete_button'), @project, method: :delete, data: { confirm: t('project.delete_confirmation') }, class: "btn danger sharp" %>
+      <%= link_to t('project.delete_button'), @project, method: :delete, data: { confirm: t('project.delete_confirmation')}, class: "btn danger sharp" %>
     <% end %>
   </div>
 </div>

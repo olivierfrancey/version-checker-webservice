@@ -10,11 +10,6 @@ class ApplicationController < ActionController::Base
     I18n.locale = params[:locale] || I18n.default_locale
   end
 
-  # def get_projects
-  #   @projects = Project.all
-  #   #@projects = UserProject.where(['user_id = ?', session[:user_id]])
-  # end
-
   def check_logged_in
     if !logged_in?
       redirect_to root_path

@@ -1,6 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-john:
+one:
   first_name: John
   last_name: Doe
   email: john.doe@test.com
@@ -8,8 +8,9 @@ john:
   phone: +41 12 345 67 89
   company: Test
   discipline: Structure
+  super_admin: false
 
-sarah:
+two:
   first_name: Sarah
   last_name: Doe
   email: sarah.doe@testme.com
@@ -17,4 +18,5 @@ sarah:
   phone: +41 12 345 67 89
   company: LAutre
   discipline: Architecte
+  super_admin: true
 
