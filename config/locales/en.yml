@@ -82,7 +82,6 @@ en:
       submit: "Save"
     new:
       title: "New project"
-      success: "Your project was successfully created"
     show:
       title: "Project"
       project: "Project data"
@@ -102,6 +101,12 @@ en:
         country: "Country"
       users: "Users"
       accesses: "Accesses management"
+    create:
+      confirmation: "The project was successfully created."
+    update:
+      confirmation: "The project was successfully updated."
+    destroy:
+      confirmation: "The project was successfully destroyed."
 
   document:
     back: "Back"
@@ -134,6 +139,12 @@ en:
       create_new_layout: "Create a new QR-Code layout"
     edit:
       title: "Editing document"
+    create:
+      confirmation: "The document was successfully created."
+    update:
+      confirmation: "The document was successfully updated."
+    destroy:
+      confirmation: "The document was successfully destroyed."
 
   user:
     submit: "Submit"
@@ -160,6 +171,12 @@ en:
       layouts_count: "QR-code layouts count"
     edit:
       title: "My account edition"
+    create:
+      confirmation: "Your profil was successfully created."
+    update:
+      confirmation: "Your profil was successfully updated."
+    destroy:
+      confirmation: "Your profil was successfully destroyed."
 
   access:
     submit: "Submit"
@@ -180,6 +197,13 @@ en:
       title: "Access to the project"
       new: "New access"
       show: "Details"
+    create:
+      confirmation: "The access was successfully created."
+      send_email_confirmation: "An email was successfully sent to"
+    update:
+      confirmation: "The access was successfully updated."
+    destroy:
+      confirmation: "The access was successfully destroyed."
           
   version:
     submit: "Submit"
@@ -209,6 +233,12 @@ en:
       author: "Author"
       checker: "Checker"
       comment: "Comment"
+    create:
+      confirmation: "The version was successfully created."
+    update:
+      confirmation: "The version was successfully updated."
+    destroy:
+      confirmation: "The version was successfully destroyed."
     
   qrcode:
     submit: "Submit"
@@ -221,3 +251,9 @@ en:
       page: "On which page?"
     new:
       title: "New QR-Code layout"
+    create:
+      confirmation: "The QR-Code layout was successfully created."
+    update:
+      confirmation: "The QR-Code layout was successfully updated."
+    destroy:
+      confirmation: "The QR-Code layout was successfully destroyed."

@@ -52,7 +52,7 @@ class VersionsController < ApplicationController
 
         insert_qrcode_in_pdf @version.file, @version.qrcode, @version.document.qr_code_position.page, @version.document.qr_code_position.x, @version.document.qr_code_position.y, @version.document.qr_code_position.size
 
-        format.html { redirect_to versions_path, notice: 'Version was successfully created.' }
+        format.html { redirect_to versions_path, notice: t('version.create.confirmation') }
         format.json { render :show, status: :created, location: @version }
       else
         format.html { render :new }
@@ -66,7 +66,7 @@ class VersionsController < ApplicationController
   def update
     respond_to do |format|
       if @version.update(version_params)
-        format.html { redirect_to versions_path, notice: 'Version was successfully updated.' }
+        format.html { redirect_to versions_path, notice: t('version.update.confirmation') }
         format.json { render :show, status: :ok, location: @version }
       else
         format.html { render :edit }
@@ -80,7 +80,7 @@ class VersionsController < ApplicationController
   def destroy
     @version.destroy
     respond_to do |format|
-      format.html { redirect_to versions_url, notice: 'Version was successfully destroyed.' }
+      format.html { redirect_to versions_url, notice: t('version.destroy.confirmation') }
       format.json { head :no_content }
     end
   end

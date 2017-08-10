@@ -15,10 +15,12 @@ class QrCodePositionsController < ApplicationController
   # GET /qr_code_positions/new
   def new
     @qr_code_position = QrCodePosition.new
+    session[:return_to] ||= request.referer
   end
 
   # GET /qr_code_positions/1/edit
   def edit
+    session[:return_to] ||= request.referer
   end
 
   # POST /qr_code_positions
@@ -29,7 +31,7 @@ class QrCodePositionsController < ApplicationController
 
     respond_to do |format|
       if @qr_code_position.save
-        format.html { redirect_to @qr_code_position, notice: 'Qr code position was successfully created.' }
+        format.html { redirect_to session.delete(:return_to), notice: t('qrcode.create.confirmation') }
         format.json { render :show, status: :created, location: @qr_code_position }
       else
         format.html { render :new }
@@ -43,7 +45,7 @@ class QrCodePositionsController < ApplicationController
   def update
     respond_to do |format|
       if @qr_code_position.update(qr_code_position_params)
-        format.html { redirect_to @qr_code_position, notice: 'Qr code position was successfully updated.' }
+        format.html { redirect_to session.delete(:return_to), notice: t('qrcode.update.confirmation') }
         format.json { render :show, status: :ok, location: @qr_code_position }
       else
         format.html { render :edit }
@@ -57,7 +59,7 @@ class QrCodePositionsController < ApplicationController
   def destroy
     @qr_code_position.destroy
     respond_to do |format|
-      format.html { redirect_to qr_code_positions_url, notice: 'Qr code position was successfully destroyed.' }
+      format.html { redirect_to qr_code_positions_url, notice: t('qrcode.destroy.confirmation') }
       format.json { head :no_content }
     end
   end

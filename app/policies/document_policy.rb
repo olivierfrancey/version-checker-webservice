@@ -7,7 +7,7 @@ class DocumentPolicy
   end
 
   def destroy?
-    @user.accesses[0].role == "projectAdmin"
+    @user.super_admin || (@user.accesses[0].role == "projectAdmin")
   end
 
 end

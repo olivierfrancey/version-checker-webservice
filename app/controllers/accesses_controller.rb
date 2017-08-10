@@ -42,7 +42,7 @@ class AccessesController < ApplicationController
       respond_to do |format|
         if @access.save
           p "access created"
-          format.html { redirect_to accesses_path, notice: 'Access was successfully created.' }
+          format.html { redirect_to accesses_path, notice: t('access.create.confirmation') }
           format.json { render :show, status: :created, location: @access }
         else
           format.html { render :new }
@@ -53,7 +53,7 @@ class AccessesController < ApplicationController
       respond_to do |format|
       # TODO
       # send invitiation email
-        format.html { redirect_to projects_path, notice: 'Access failed.' }
+        format.html { redirect_to projects_path, notice: "#{t('access.create.send_email_confirmation')} : #{@access.email}" }
       end
     end
   end
@@ -64,7 +64,7 @@ class AccessesController < ApplicationController
     authorize @access
     respond_to do |format|
       if @access.update(access_params)
-        format.html { redirect_to accesses_path, notice: 'Access was successfully updated.' }
+        format.html { redirect_to accesses_path, notice: t('access.update.confirmation') }
         format.json { render :show, status: :ok, location: @access }
       else
         format.html { render :edit }
@@ -79,7 +79,7 @@ class AccessesController < ApplicationController
     authorize @access
     @access.destroy
     respond_to do |format|
-      format.html { redirect_to accesses_url, notice: 'Access was successfully destroyed.' }
+      format.html { redirect_to accesses_url, notice: t('access.destroy.confirmation') }
       format.json { head :no_content }
     end
   end

@@ -7,15 +7,15 @@ class ProjectPolicy
   end
 
   def update?
-    @user.accesses[0].role == "projectAdmin"
+    @user.super_admin || (@user.accesses[0].role == "projectAdmin")
   end
 
   def destroy?
-    @user.accesses[0].role == "projectAdmin"
+    @user.super_admin || (@user.accesses[0].role == "projectAdmin")
   end
 
   def accesses?
-    @user.accesses[0].role == "projectAdmin"
+    @user.super_admin || (@user.accesses[0].role == "projectAdmin")
   end
 
 end

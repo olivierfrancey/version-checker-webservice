@@ -43,7 +43,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save && access.save       
-        format.html { redirect_to projects_path, notice: t('project.new.success') }
+        format.html { redirect_to projects_path, notice: t('project.create.confirmation') }
         format.json { render :show, status: :created, location: @project }
       else
         format.html { render :new }
@@ -58,7 +58,7 @@ class ProjectsController < ApplicationController
     
     respond_to do |format|
       if authorize @project.update(project_params)
-        format.html { redirect_to @project, notice: 'Project was successfully updated.' }
+        format.html { redirect_to @project, notice: t('project.update.confirmation') }
         format.json { render :show, status: :ok, location: @project }
       else
         format.html { render :edit }
@@ -73,7 +73,7 @@ class ProjectsController < ApplicationController
     authorize @project
     @project.destroy
     respond_to do |format|
-      format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
+      format.html { redirect_to projects_url, notice: t('project.destroy.confirmation') }
       format.json { head :no_content }
     end
   end

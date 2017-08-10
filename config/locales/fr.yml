@@ -82,7 +82,6 @@ fr:
       submit: "Enregistrer"
     new:
       title: "Nouveau projet"
-      success: "Votre projet a été crée avec succes"
     show:
       title: "Projet"
       project: "Données du projet"
@@ -102,6 +101,13 @@ fr:
         country: "Pays"
       users: "Utilisateurs"
       accesses: "Gestion des accès"
+    create:
+      confirmation: "Le projet a été créé avec succès."
+    update:
+      confirmation: "Le projet a été mis à jour avec succès."
+    destroy:
+      confirmation: "Le projet a été supprimé avec succès."
+
   
   document:
     back: "Retour"
@@ -134,6 +140,13 @@ fr:
       create_new_layout: "Créer un nouveau gabarit de QR-Code"
     edit:
       title: "Editer le document"
+    create:
+      confirmation: "Le document a été créé avec succès."
+    update:
+      confirmation: "Le document a été mis à jour avec succès."
+    destroy:
+      confirmation: "Le document a été supprimé avec succès."
+
 
   user:
     submit: "Soumettre"
@@ -160,6 +173,12 @@ fr:
       layouts_count: "Mes gabarits QR-code"
     edit:
       title: "Modification de mon compte"
+    create:
+      confirmation: "Votre profil a été créé avec succès."
+    update:
+      confirmation: "Votre profil a été mis à jour avec succès."
+    destroy:
+      confirmation: "Votre profil a été supprimé avec succès."
 
   access:
     submit: "Soumettre"
@@ -180,6 +199,13 @@ fr:
       title: "Droits d'accès au projet"
       new: "Nouvel accès"
       show: "Détails"
+    create:
+      confirmation: "Le droit a été créé avec succès."
+      send_email_confirmation: "Un email a été envoyé avec succès à"
+    update:
+      confrimation: "Le droit a été mis à jour avec succès."
+    destroy:
+      confirmation: "Le droit a été supprimé avec succès."
 
   version:
     submit: "Soumettre"
@@ -209,6 +235,13 @@ fr:
       author: "Auteur"
       checker: "Contrôleur"
       comment: "Commentaire"
+    create:
+      confirmation: "La version a été créée avec succès."
+    update:
+      confirmation: "La version a été mise à jour avec succès."
+    destroy:
+      confirmation: "La version a été supprimée avec succès."
+    
     
   qrcode:
     submit: "Soumettre"
@@ -221,3 +254,9 @@ fr:
       page: "Sur quelle page?"
     new:
       title: "Nouveau gabarit de QR-Code"
+    create:
+      confirmation: "Le gabarit de QR-Code a été créé avec succès."
+    update:
+      confirmation: "Le gabarit de QR-Code a été mis à jour avec succès."
+    destroy:
+      confirmation: "Le gabarit de QR-Code a été supprimé avec succès." 
