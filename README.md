@@ -10,10 +10,9 @@ Its main aim is to manage the versions of pdf documents which are used for paper
 ## Dependencies
 * pundit, right management (https://github.com/elabs/pundit)
 * CarrierWave, files storage management (https://github.com/carrierwaveuploader/carrierwave)
-### Bootstrap
-* jquery-rails
-* bootstrap-sass
-* autoprefix-rails
+* rqrcode, QR-Code generator (https://github.com/whomwah/rqrcode)
+* prawn, pdf files manipulator (https://github.com/prawnpdf/prawn)
+* combine\_pdf, merge pdf files (https://github.com/boazsegev/combine\_pdf)
 
 ## Tests
 To run tests 
