@@ -12,7 +12,7 @@ Its main aim is to manage the versions of pdf documents which are used for paper
 * CarrierWave, files storage management (https://github.com/carrierwaveuploader/carrierwave)
 * rqrcode, QR-Code generator (https://github.com/whomwah/rqrcode)
 * prawn, pdf files manipulator (https://github.com/prawnpdf/prawn)
-* combine\_pdf, merge pdf files (https://github.com/boazsegev/combine\_pdf)
+* combine\_pdf, merge pdf files (https://github.com/boazsegev/combine_pdf)
 
 ## Tests
 To run tests 
