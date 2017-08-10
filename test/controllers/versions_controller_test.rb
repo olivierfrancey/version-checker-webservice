@@ -15,5 +15,15 @@ class VersionsControllerTest < ActionDispatch::IntegrationTest
     post versions_url, params: {version: @version}
     assert_response :redirect
   end
+
+  test "should show version" do
+    get version_url(@version)
+    assert_response :redirect
+  end
+
+  test "should delete a version" do
+    delete version_url(@version)
+    assert_response :redirect
+  end
   
 end

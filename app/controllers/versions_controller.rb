@@ -85,6 +85,9 @@ class VersionsController < ApplicationController
     end
   end
 
+
+
+  
   def make_current
     other_versions = Version.where(document_id: session[:current_document_id])
     other_versions.update(current_version: false)

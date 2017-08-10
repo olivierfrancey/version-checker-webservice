@@ -16,4 +16,9 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
     assert_response :redirect
   end
 
+  test "should delete a project" do
+    delete project_url(@project)
+    assert_response :redirect
+  end
+
 end

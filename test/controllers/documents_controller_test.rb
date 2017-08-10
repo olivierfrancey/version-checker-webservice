@@ -15,5 +15,10 @@ class DocumentsControllerTest < ActionDispatch::IntegrationTest
     post documents_url, params: {document: @document}
     assert_response :redirect
   end
+
+  test "should delete a document" do
+    delete document_url(@document)
+    assert_response :redirect
+  end
   
 end
