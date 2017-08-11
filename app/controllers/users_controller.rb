@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :stats]
 
   # GET /users
   # GET /users.json
@@ -10,6 +10,9 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+  end
+
+  def stats
   end
 
   # GET /users/new
@@ -65,7 +68,7 @@ class UsersController < ApplicationController
     stats = User.find(session[:user_id])
     stats.to_json(:include => {:project =>  
                  {:include => {:document => 
-                 {:include => :version}})
+                 {:include => :version}}}})
     respond_to do |format|
       format.json { render json: stats, status: :ok }
     end

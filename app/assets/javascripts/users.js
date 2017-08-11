@@ -1,6 +1,6 @@
 console.log('D3 graph')
 
-$.ajax({
+$("#sunburst").ajax({
   url: "users/stats",
   dataType: "json"
 }).done(

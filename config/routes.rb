@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'versions/make_current/:id', to: 'versions#make_current'
   post 'versions/download/', to: 'versions#download'
   get 'users/sunburst', to: 'users#sunburst'
+  get 'users/stats/:id', to: 'users#stats'
 
   scope "(:locale)", locale: /en|fr|de/ do
     root 'static_pages#home'
