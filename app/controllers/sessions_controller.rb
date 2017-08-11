@@ -5,14 +5,17 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(email: params[:email])
-    if user&.authenticate(params[:password])
-      session[:user_id] = user.id
-      session[:current_project] = nil
-      session[:current_document] = nil
-      redirect_to projects_path, notice: t('session.successfull_connection')
+    if user
+      if user&.authenticate(params[:password])
+        session[:user_id] = user.id
+        session[:current_project] = nil
+        session[:current_document] = nil
+        redirect_to projects_path, notice: t('session.successfull_connection')
+      else
+        redirect_to new_session_path, notice: t('session.failed_connection')
+      end
     else
-      flash.now.alert = t('session.failed_connection')
-      render :new
+      redirect_to new_user_path
     end
   end
 
@@ -21,6 +24,6 @@ class SessionsController < ApplicationController
     session.delete(:current_project_id)
     session.delete(:current_document_id)
     session.delete(:projects)
-    redirect_to new_session_path, notice: t('session.logout')
+    redirect_to new_session_path
   end
 end

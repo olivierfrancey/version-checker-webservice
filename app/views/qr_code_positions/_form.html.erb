@@ -17,34 +17,35 @@
       <%= t('qrcode.form.page') %> *
     </div>
     <div class="col-md-4">
-      <%= f.number_field :page, tabindex: 1 %>
+      <%= f.number_field :page, class: "input-shorter", tabindex: 1 %>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-md-2">
-      <%= t('qrcode.form.x') %> *
+    <div class="col-md-2 mm">
+      <%= t('qrcode.form.x') %> [mm] *
     </div>
-    <div class="col-md-4">
-      <%= f.number_field :x, tabindex: 2 %>
+    <div class="col-md-2">
+      <%= f.number_field :x, class: "input-shorter", tabindex: 2 %>
+    </div>
+    
+  </div>
+
+  <div class="row">
+    <div class="col-md-2 mm">
+      <%= t('qrcode.form.y') %> [mm] *
+    </div>
+    <div class="col-md-2">
+      <%= f.number_field :y, class: "input-shorter", tabindex: 3 %>
     </div>
   </div>
 
   <div class="row">
+    <div class="col-md-2 mm">
+      <%= t('qrcode.form.size') %> [mm] *
+    </div>
     <div class="col-md-2">
-      <%= t('qrcode.form.y') %> *
-    </div>
-    <div class="col-md-4">
-      <%= f.number_field :y, tabindex: 3 %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-2">
-      <%= t('qrcode.form.size') %> *
-    </div>
-    <div class="col-md-4">
-      <%= f.number_field :size, tabindex: 4 %>
+      <%= f.number_field :size, class: "input-shorter", tabindex: 4 %>
     </div>
   </div>
 

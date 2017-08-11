@@ -1,6 +1,13 @@
 
 
 fr:
+  activerecord:
+    errors:
+      models:
+        qr_code_position:
+          attributes:
+            name:
+              blank: "Le nom ne peut pas être blanc"
   navbar:
     company: "Companie"
     projects: "Projets"

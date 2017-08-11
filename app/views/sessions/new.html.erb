@@ -1,6 +1,10 @@
 
 <div class="page">
+  <% if notice %>
+  <div class="tile center login danger">
+  <% else %>
   <div class="tile center login">
+  <% end %>
     <%= form_with url: session_path do |f| %>
       <div class="row">
         <div class="col-md-8 ">
@@ -25,7 +29,7 @@
       </div>
       <div class="row">
         <div class="col-md-4 col-md-offset-4">
-          <%= button_to t('session.submit'), :class => "btn" %>
+          <%= button_to t('session.submit'), class: "btn" %>
         </div>
       </div>
     <% end %>
