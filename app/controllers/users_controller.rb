@@ -61,6 +61,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def sunburst
+    stats = User.find(session[:user_id])
+    stats.to_json(:include => {:project =>  
+                 {:include => {:document => 
+                 {:include => :version}})
+    respond_to do |format|
+      format.json { render json: stats, status: :ok }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
