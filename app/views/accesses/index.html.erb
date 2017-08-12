@@ -2,15 +2,10 @@
 
 <div class="row">
   <div class="col-md-12">
-    <%= link_to t('access.back'), :back, class: "btn" %>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-12">
     <% if policy(@accesses).create? %>
       <%= link_to t('access.index.new'), new_access_path, class: "btn" %>
     <% end %>
+    <%= link_to t('access.back'), :back, class: "btn" %>
   </div>
 </div>
 
