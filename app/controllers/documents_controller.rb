@@ -17,11 +17,14 @@ class DocumentsController < ApplicationController
   # GET /documents/new
   def new
     @document = Document.new
+    @document.project = current_project
+    authorize @document
     @qr_code_positions = QrCodePosition.where(user_id: current_user.id).pluck(:name, :id)
   end
 
   # GET /documents/1/edit
   def edit
+    authorize @document
     @qr_code_positions = QrCodePosition.where(user_id: current_user.id).pluck(:name, :id)
   end
 
@@ -32,7 +35,7 @@ class DocumentsController < ApplicationController
     @document.user = current_user
     @document.project = current_project
     @document.qr_code_position = QrCodePosition.find(@document.position)
-
+    authorize @document
     respond_to do |format|
       if @document.save
         format.html { redirect_to documents_path, notice: t('document.create.confirmation') }
@@ -47,6 +50,7 @@ class DocumentsController < ApplicationController
   # PATCH/PUT /documents/1
   # PATCH/PUT /documents/1.json
   def update
+    authorize @document
     params = document_params
     params[:qr_code_position] = QrCodePosition.find(document_params[:position])
     

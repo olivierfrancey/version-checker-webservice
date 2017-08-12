@@ -10,9 +10,11 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    authorize @user
   end
 
   def stats
+    authorize @user
   end
 
   # GET /users/new
@@ -22,6 +24,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    authorize @user
   end
 
   # POST /users
@@ -43,6 +46,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    authorize @user
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to projects_path, notice: t('user.update.confirmation') }
@@ -57,6 +61,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    authorize @user
     @user.destroy
     respond_to do |format|
       format.html { redirect_to root_path, notice: t('user.destroy.confirmation') }

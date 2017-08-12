@@ -36,7 +36,7 @@
             </ul>
           </li>
           <li class="nav-menu-separator"></li>
-          <li class="last-item">
+          <li class="">
             <%= link_to t('navbar.logout'), session_path, method: :delete %>
           </li>
         <% else %>
@@ -44,10 +44,11 @@
             <%= link_to t('navbar.signup'), new_user_path %>
           </li>
           <li class="nav-menu-separator"></li>
-          <li class="last-item">
+          <li class="">
             <%= link_to t('navbar.login'), new_session_path %>
           </li>
         <% end %>
+        <li class="nav-menu-separator"></li>
   </ul>
 </div>
 </nav>

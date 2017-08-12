@@ -11,15 +11,19 @@ class VersionsController < ApplicationController
   # GET /versions/1
   # GET /versions/1.json
   def show
+    authorize @version
   end
 
   # GET /versions/new
   def new
     @version = Version.new
+    @version.document = current_document
+    authorize @version
   end
 
   # GET /versions/1/edit
   def edit
+    authorize @version
   end
 
   # POST /versions
@@ -30,6 +34,9 @@ class VersionsController < ApplicationController
     @version.document = current_document
     @version.project = current_project
     @version.current_version = true
+
+    authorize @version
+
     @version.encrypted_id = BCrypt::Password.create("#{current_project.id}#{current_document.id}#{@version.version_number}")
     File.open(generate_qrcode(@version.encrypted_id)) do |f|
       @version.qrcode = f
@@ -64,6 +71,7 @@ class VersionsController < ApplicationController
   # PATCH/PUT /versions/1
   # PATCH/PUT /versions/1.json
   def update
+    authorize @version
     respond_to do |format|
       if @version.update(version_params)
         format.html { redirect_to versions_path, notice: t('version.update.confirmation') }
@@ -78,6 +86,7 @@ class VersionsController < ApplicationController
   # DELETE /versions/1
   # DELETE /versions/1.json
   def destroy
+    authorize @version
     @version.destroy
     respond_to do |format|
       format.html { redirect_to versions_url, notice: t('version.destroy.confirmation') }
@@ -90,7 +99,7 @@ class VersionsController < ApplicationController
   
   def make_current
     other_versions = Version.where(document_id: session[:current_document_id])
-    other_versions.update(current_version: false)
+    authorize other_versions.update(current_version: false)
 
     version = Version.find(params[:id])
     version.update(current_version: true)
@@ -104,8 +113,6 @@ class VersionsController < ApplicationController
 
   def download
     path = params[:file_name].to_s.sub! "raw", "stamped"
-    p "path: #{path}"
-    p "#{Rails.root}/public#{path}"
     send_file CGI::unescape("#{Rails.root}/public#{path}")
   end
 
