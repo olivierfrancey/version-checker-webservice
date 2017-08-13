@@ -45,7 +45,9 @@
           <%= "#{document.size}" %>
         </td>
 
-        <td width="100px"></td>
+        <td class="middle">
+          <%= document.qr_code_position.name %>
+        </td>
 
         <td class="middle">
           <%= "#{t('document.index.current_version')} : #{document.last_version}" %>

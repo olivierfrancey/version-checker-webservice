@@ -99,14 +99,13 @@ class VersionsController < ApplicationController
   
   def make_current
     other_versions = Version.where(document_id: session[:current_document_id])
-    authorize other_versions.update(current_version: false)
+    other_versions.update(current_version: false)
 
-    version = Version.find(params[:id])
+    authorize version = Version.find(params[:id])
     version.update(current_version: true)
 
     document = Document.find(session[:current_document_id])
     document.update(last_version: version.version_number, last_version_date: version.date)
-    p document
     
     redirect_to versions_path
   end
