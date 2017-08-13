@@ -55,9 +55,9 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1
   # PATCH/PUT /projects/1.json
   def update
-    
+    authorize @project
     respond_to do |format|
-      if authorize @project.update(project_params)
+      if @project.update(project_params)
         format.html { redirect_to @project, notice: t('project.update.confirmation') }
         format.json { render :show, status: :ok, location: @project }
       else
