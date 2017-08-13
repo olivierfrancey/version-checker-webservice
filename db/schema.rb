@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 20170808134740) do
     t.integer "size"
     t.string "name"
     t.integer "user_id"
+    t.integer "documents_count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -8,6 +8,7 @@ class CreateQrCodePositions < ActiveRecord::Migration[5.1]
       t.string :name
 
       t.integer :user_id
+      t.integer :documents_count, :default => 0
 
       t.timestamps
     end

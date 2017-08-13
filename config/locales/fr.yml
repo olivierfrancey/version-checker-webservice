@@ -145,6 +145,7 @@ fr:
       group: "Groupe"
       qrcode-layout: "Gabarit QR-Code"
       create_new_layout: "Créer un nouveau gabarit de QR-Code"
+      manage_layouts: "Gérer les gabarits de QR-Code"
     edit:
       title: "Editer le document"
     create:
@@ -258,7 +259,16 @@ fr:
       x: "Position en x"
       y: "Position en y"
       size: "Dimension"
-      page: "Sur quelle page?"
+      page: "Page"
+      page_info: "Indiquez sur quelle page de votre document pdf doit être introduit le QR-Code"
+    index:
+      page: "Page"
+      x: "Position en x"
+      y: "Position en y"
+      size: "Dimension"
+      not_used: "Ce gabarit n'est pas utilisé"
+      document_used: "document utilise ce gabarit"
+      documents_used: "documents utilisent ce gabarit"
     new:
       title: "Nouveau gabarit de QR-Code"
     create:

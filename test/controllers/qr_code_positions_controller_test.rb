@@ -8,7 +8,7 @@ class QrCodePositionsControllerTest < ActionDispatch::IntegrationTest
 
   test "should get index" do
     get qr_code_positions_path
-    assert_response :success
+    assert_response :redirect
   end
 
   test "should create a new qr-code position" do

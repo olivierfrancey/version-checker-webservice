@@ -143,6 +143,7 @@ en:
       group: "Group"
       qrcode_layout: "QR-Code layout"
       create_new_layout: "Create a new QR-Code layout"
+      manage_layouts: "Manage QR-Code layouts"
     edit:
       title: "Editing document"
     create:
@@ -254,7 +255,16 @@ en:
       x: "X position"
       y: "Y position"
       size: "Size"
-      page: "On which page?"
+      page: "Page"
+      page_info: "Say on which page of your pdf document the QR-Code must be stamped"
+    index:
+      page: "Page"
+      x: "x position"
+      y: "y position"
+      size: "Dimension"
+      not_used: "This layout is not used"
+      document_used: "document uses this layout"
+      documents_used: "documents use this layout"
     new:
       title: "New QR-Code layout"
     create:

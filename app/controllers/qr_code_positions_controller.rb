@@ -1,10 +1,15 @@
 class QrCodePositionsController < ApplicationController
   before_action :set_qr_code_position, only: [:show, :edit, :update, :destroy]
+  before_action :check_logged_in
 
   # GET /qr_code_positions
   # GET /qr_code_positions.json
   def index
-    @qr_code_positions = QrCodePosition.all
+    if current_user.super_admin?
+      @qr_code_positions = QrCodePosition.all
+    else
+      @qr_code_positions = QrCodePosition.where(user_id: current_user.id).order(:name)
+    end
   end
 
   # GET /qr_code_positions/1

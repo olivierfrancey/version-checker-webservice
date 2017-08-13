@@ -34,7 +34,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to new_session_path, notice: t('user.create.confirmation') }
+        format.html { redirect_to new_session_path }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }

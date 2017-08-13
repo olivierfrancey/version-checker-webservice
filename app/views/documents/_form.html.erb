@@ -15,11 +15,15 @@
     <div class="col-md-2">
       <%= t('document.form.qrcode-layout') %> *
     </div>
-    <div  class="col-md-10">
+    <div  class="col-md-4">
     <% if @qr_code_positions.any? %>
       <%= f.select :position, options_for_select(@qr_code_positions, @document.qr_code_position ? @document.qr_code_position.name : "") %>
+    <% else %>
+      <%= link_to t('document.form.create_new_layout'), new_qr_code_position_path, class: "btn sharp" %>
     <% end %>
-    <%= link_to t('document.form.create_new_layout'), new_qr_code_position_path, class: "btn sharp" %>
+    </div>
+    <div class="col-md-6">
+    <%= link_to t('document.form.manage_layouts'), qr_code_positions_path, class: "btn sharp" %>
     </div>
   </div>
 
