@@ -14,7 +14,7 @@
       <th class="text-center"><%= t('version.index.author') %></th>
       <th class="text-center"><%= t('version.index.checker') %></th>
       <th class="text-center"><%= t('version.index.current_version') %></th>
-      <th width="350px"><%= t('version.index.comments') %></th>
+      <th><%= t('version.index.comments') %></th>
       <th></th>
     </tr>
   </thead>
@@ -46,10 +46,8 @@
           <% end %>
         <% end %>
         </td>
-        <td class="middle"><%= version.comments %></td>
-        <td class="middle right">
-          
-        </td>
+        <td class="middle"><small><%= version.comments %></small></td>
+        <td class="middle"><small><%= version.pdf_file_name %></small></td>
       </tr>
     <% end %>
   </tbody>

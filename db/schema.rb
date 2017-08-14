@@ -111,6 +111,8 @@ ActiveRecord::Schema.define(version: 20170808134740) do
     t.string "encrypted_id"
     t.boolean "current_version", default: true
     t.text "comments"
+    t.string "pdf_file_name"
+    t.string "dxf_file_name"
     t.integer "user_id"
     t.integer "project_id"
     t.integer "document_id"

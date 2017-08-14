@@ -34,6 +34,7 @@ class VersionsController < ApplicationController
     @version.document = current_document
     @version.project = current_project
     @version.current_version = true
+    @version.pdf_file_name = version_params[:file].original_filename
 
     authorize @version
 
