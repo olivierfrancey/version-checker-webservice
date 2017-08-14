@@ -231,7 +231,8 @@ fr:
       comments: "Commentaire"
       edit: "Modifier"
       make_current: "Rendre courant"
-      download_file: "Télécharger le fichier"
+      download_pdf_file: "Télécharger le fichier PDF"
+      download_drawing_file: "Télécharger le fichier de dessin"
     new:
       title: "Nouvelle version"
     form:

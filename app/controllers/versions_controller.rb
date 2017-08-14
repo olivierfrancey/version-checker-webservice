@@ -30,19 +30,32 @@ class VersionsController < ApplicationController
   # POST /versions.json
   def create
     @version = Version.new(version_params)
+    
     @version.user = current_user
     @version.document = current_document
     @version.project = current_project
     @version.current_version = true
-    @version.pdf_file_name = version_params[:file].original_filename
+    @version.pdf_file_name = version_params[:pdf_file].original_filename
+    if version_params[:dxf_file]
+      @version.dxf_file_name = version_params[:dxf_file].original_filename
+    else
+      @version.dxf_file_name = ""
+      @version.dxf_file = ""
+    end
 
     authorize @version
 
+
+
+    # generate encrypted ID (used for the mobile app) and QR-Code
     @version.encrypted_id = Digest::SHA256.base64digest "#{current_project.id}#{current_document.id}#{@version.version_number}"
     File.open(generate_qrcode(@version.encrypted_id)) do |f|
       @version.qrcode = f
     end
 
+
+
+    # update data of the current document
     other_versions = Version.where(document_id: current_document.id)
     if other_versions.any?
       p other_versions
@@ -50,15 +63,16 @@ class VersionsController < ApplicationController
     else
       p 'no other version'
     end
-
     document = Document.find(current_document.id)
     document.update(last_version: @version.version_number, last_version_date: @version.date)
+
+
 
     respond_to do |format|
       if @version.save
         p "save version"
 
-        insert_qrcode_in_pdf @version.file, @version.qrcode, @version.document.qr_code_position.page, @version.document.qr_code_position.x, @version.document.qr_code_position.y, @version.document.qr_code_position.size
+        insert_qrcode_in_pdf @version.pdf_file, @version.qrcode, @version.document.qr_code_position.page, @version.document.qr_code_position.x, @version.document.qr_code_position.y, @version.document.qr_code_position.size
 
         format.html { redirect_to versions_path, notice: t('version.create.confirmation') }
         format.json { render :show, status: :created, location: @version }
@@ -75,6 +89,9 @@ class VersionsController < ApplicationController
     authorize @version
     respond_to do |format|
       if @version.update(version_params)
+
+        insert_qrcode_in_pdf @version.pdf_file, @version.qrcode, @version.document.qr_code_position.page, @version.document.qr_code_position.x, @version.document.qr_code_position.y, @version.document.qr_code_position.size
+
         format.html { redirect_to versions_path, notice: t('version.update.confirmation') }
         format.json { render :show, status: :ok, location: @version }
       else
@@ -125,7 +142,7 @@ class VersionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def version_params
-      params.require(:version).permit(:version_number, :date, :author, :checker, :crypted_id, :file, :current_version, :comments)
+      params.require(:version).permit(:version_number, :date, :author, :checker, :crypted_id, :pdf_file, :dxf_file, :pdf_file_name, :dxf_file_name, :current_version, :comments)
     end
 
     def numeric?(string)

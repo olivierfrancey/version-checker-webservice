@@ -2,7 +2,7 @@
 
   <div class="row">
     <div class="col-md-2">
-      <%= t('version.form.version_number') %>
+      <%= t('version.form.version_number') %> *
     </div>
     <div class="col-md-2">
       <%= f.text_field :version_number, tabindex: 1, class: "input-shorter" %>
@@ -49,17 +49,28 @@
   </div>
 
   <div class="row">
-    <div class="col-md-2">
-      <%= t('version.form.file') %>
+    <div class="col-md-2 middle-btn">
+      <%= t('version.form.pdf_file') %> *
     </div>
     <div class="col-md-10">
-      <%= f.file_field :file, tabindex: 6 %>
+      <%= f.file_field :pdf_file, accept:"application/pdf", tabindex: 6  %>
+      <small class="grey"><%= version.pdf_file_name %></small>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2 middle-btn">
+      <%= t('version.form.dxf_file') %>
+    </div>
+    <div class="col-md-3">
+      <%= f.file_field :dxf_file, tabindex: 7 %>
+      <small class="grey"><%= version.dxf_file_name %></small>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-4 col-md-offset-2">
-      <%= f.submit t('version.submit'), class: "btn", tabindex: 7 %>
+      <%= f.submit t('version.submit'), class: "btn", tabindex: 8 %>
       <%= link_to t('version.cancel'), versions_path, class: "btn" %>
     </div>
   </div>

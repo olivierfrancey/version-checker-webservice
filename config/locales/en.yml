@@ -228,7 +228,8 @@ en:
       comments: "Comments"
       edit: "Edit"
       make_current: "Make current"
-      download_file: "Download file"
+      download_pdf_file: "Download PDF file"
+      download_drawing_file: "Download drawing file"
     new:
       title: "New version"
     form:

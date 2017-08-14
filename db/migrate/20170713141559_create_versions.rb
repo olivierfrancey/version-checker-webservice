@@ -8,6 +8,8 @@ class CreateVersions < ActiveRecord::Migration[5.1]
       t.string :encrypted_id
       t.boolean :current_version, :default => true
       t.text :comments
+      t.string :pdf_file
+      t.string :dxf_file
       t.string :pdf_file_name
       t.string :dxf_file_name
 
