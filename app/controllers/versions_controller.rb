@@ -167,8 +167,9 @@ class VersionsController < ApplicationController
       require "prawn/measurement_extensions"
 
       new_pdf_path = pdf_path.to_s.sub! 'raw', 'stamped'
-      p pdf_path
-      p new_pdf_path
+      p "pdf_path"+pdf_path.to_s
+      p "new_pdf_path"+new_pdf_path.to_s
+      p "qr_code_path"+qrcode_path.to_s
 
       dir = File.dirname(CGI::unescape("#{Rails.root}/public#{new_pdf_path}"))
       FileUtils.mkdir_p(dir) unless File.directory?(dir)

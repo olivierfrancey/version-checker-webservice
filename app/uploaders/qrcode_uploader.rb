@@ -11,7 +11,8 @@ class QrcodeUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "qrcode/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    #"qrcode/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    "files/#{model.id}/qr_code/"
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
