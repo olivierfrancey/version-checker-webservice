@@ -37,7 +37,7 @@ class VersionsController < ApplicationController
 
     authorize @version
 
-    @version.encrypted_id = BCrypt::Password.create("#{current_project.id}#{current_document.id}#{@version.version_number}")
+    @version.encrypted_id = Digest::SHA256.base64digest "#{current_project.id}#{current_document.id}#{@version.version_number}"
     File.open(generate_qrcode(@version.encrypted_id)) do |f|
       @version.qrcode = f
     end
