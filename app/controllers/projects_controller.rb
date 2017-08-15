@@ -93,6 +93,27 @@ class ProjectsController < ApplicationController
     redirect_to project_path(params[:id])
   end
 
+  def all_download
+    p params[:id]
+    files = Version.where(project_id: params[:id], current_version: true)
+
+    zipfile_name = "#{Rails.root}/public/downloads/version-checker-#{Time.now.strftime("%Y%d%m-%H%M%S")}.zip"
+
+    Zip::File.open(zipfile_name, Zip::File::CREATE) do |zipfile|
+      files_list = "\n"
+      files.each do |file|
+        files_list += "* "+file.pdf_file_name+"\n"
+        # Two arguments:
+        # - The name of the file as it will appear in the archive
+        # - The original file, including the path to find it
+        zipfile.add(file.pdf_file_name, CGI::unescape("#{Rails.root}/public#{file.pdf_file.to_s}"))
+      end
+      zipfile.get_output_stream("version checker") { |os| os.write "YOUR DOWNLOAD at #{Time.now}\n\nThis download contents the following files: #{files_list}\nThank you for using version-checker" }
+    end
+
+    send_file CGI::unescape(zipfile_name)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project

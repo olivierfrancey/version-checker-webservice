@@ -16,9 +16,7 @@
 /node_modules
 /yarn-error.log
 
-/public/stamped
-/public/raw
-/public/qrcode
+/public/files
 /public/uploads
 
 .byebug_history

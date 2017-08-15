@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'versions/make_current/:id',      to: 'versions#make_current'
   post 'versions/download_pdf/',        to: 'versions#download_pdf'
   post 'versions/download_dxf/',        to: 'versions#download_dxf'
+  get 'projects/all_download/:id',      to: 'projects#all_download'
 
   scope "(:locale)", locale: /en|fr|de/ do
     root 'static_pages#home'

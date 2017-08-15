@@ -9,9 +9,10 @@
       <a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown">
       <span class="glyphicon glyphicon-chevron-down"></span></a>
       <ul class="dropdown-menu">
-        <li><%= link_to t('project.index.details'),    controller: :projects, action: :move_to_detail,   id: project.id %></li>
-        <li><%= link_to t('project.index.users'),      controller: :projects, action: :move_to_access,   id: project.id %></li>
-        <li><%= link_to t('project.index.documents'),  controller: :projects, action: :move_to_document, id: project.id %></li>
+        <li><%= link_to t('project.index.details'),      controller: :projects, action: :move_to_detail,   id: project.id %></li>
+        <li><%= link_to t('project.index.users'),        controller: :projects, action: :move_to_access,   id: project.id %></li>
+        <li><%= link_to t('project.index.documents'),    controller: :projects, action: :move_to_document, id: project.id %></li>
+        <li><%= link_to t('project.index.all_download'), controller: :projects, action: :all_download,   id: project.id %></li>
       </ul>
     </div>
 

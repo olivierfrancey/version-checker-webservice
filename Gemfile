@@ -55,8 +55,11 @@ gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 
-# d3-rails, D3 charts helper. https://github.com/iblue/d3-rails
+# d3-rails, D3 charts helper. Read more: https://github.com/iblue/d3-rails
 gem "d3-rails"
+
+# rubyzip, zip tools for RoR. Read more: https://github.com/rubyzip/rubyzip
+gem 'rubyzip'
 
 
 

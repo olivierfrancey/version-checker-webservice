@@ -220,6 +220,7 @@ DEPENDENCIES
   pundit
   rails (~> 5.1.2)
   rqrcode
+  rubyzip
   sass-rails (~> 5.0)
   selenium-webdriver
   spring
