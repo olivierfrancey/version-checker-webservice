@@ -29,7 +29,10 @@
             <ul class="dropdown-menu">
               <li><%= link_to t('version.edit'), edit_version_path(version) %></li>
               <li><%= link_to t('version.delete'), version, method: :delete, data: { confirm: 'Are you sure?' }, class: "danger" %></li>
-              <li><%= button_to t('version.index.download_pdf_file'), {controller: :versions, action: :download, method: :post, file_name: version.pdf_file}, {class: "no-btn"} %></li>
+              <li><%= button_to t('version.index.download_pdf_file'), {controller: :versions, action: :download_pdf, method: :post, file_name: version.pdf_file}, {class: "no-btn"} %></li>
+              <% if version.dxf_file_name? %>
+                <li><%= button_to t('version.index.download_drawing_file'), {controller: :versions, action: :download_dxf, method: :post, file_name: version.dxf_file}, {class: "no-btn"} %></li>
+              <% end %>
             </ul>
           </div>
         </td>

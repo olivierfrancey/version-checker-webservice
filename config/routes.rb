@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   get 'projects/move_to_detail/:id',    to: 'projects#move_to_detail'
   get 'documents/move_to_version/:id',  to: 'documents#move_to_version'
   get 'versions/make_current/:id',      to: 'versions#make_current'
-  post 'versions/download/',            to: 'versions#download'
+  post 'versions/download_pdf/',        to: 'versions#download_pdf'
+  post 'versions/download_dxf/',        to: 'versions#download_dxf'
 
   scope "(:locale)", locale: /en|fr|de/ do
     root 'static_pages#home'

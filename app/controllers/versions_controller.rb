@@ -128,9 +128,13 @@ class VersionsController < ApplicationController
     redirect_to versions_path
   end
 
-  def download
+  def download_pdf
     path = params[:file_name].to_s.sub! "raw", "stamped"
     send_file CGI::unescape("#{Rails.root}/public#{path}")
+  end
+
+  def download_dxf
+    send_file CGI::unescape("#{Rails.root}/public#{params[:file_name].to_s}")
   end
 
 
