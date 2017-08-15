@@ -99,7 +99,7 @@ class ProjectsController < ApplicationController
 
     zipfile_name = "#{Rails.root}/public/downloads/version-checker-#{Time.now.strftime("%Y%d%m-%H%M%S")}.zip"
 
-    Zip::File.open(zipfile_name, Zip::File::CREATE) do |zipfile|
+    ::Zip::File.open(zipfile_name, Zip::File::CREATE) do |zipfile|
       files_list = "\n"
       files.each do |file|
         files_list += "* "+file.pdf_file_name+"\n"
