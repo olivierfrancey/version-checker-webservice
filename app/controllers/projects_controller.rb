@@ -2,6 +2,8 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
   before_action :clear_current_project, only: [:index]
   before_action :check_logged_in
+
+  require 'zip'
   
   # GET /projects
   # GET /projects.json
