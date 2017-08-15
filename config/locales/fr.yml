@@ -57,13 +57,14 @@ fr:
     delete_confirmation: "Etes-vous sûr de vouloir supprimer ce projet? Cette opération est irrémédiable."
     index:
       title: "Projets"
-      details: "Détails"
+      details: "Détails du projet"
       users: "Utilisateurs"
       documents: "Documents"
       new_project: "Ajouter un projet"
       docs_count: "Documents"
       versions_count: "Versions"
       accesses_count: "Utilisateurs"
+      all_download: "Télécharger toutes les versions courrantes (PDF)"
     form:
       name: "Nom"
       identifier: "Identifiant"
@@ -219,6 +220,7 @@ fr:
     submit: "Soumettre"
     cancel: "Annuler"
     delete: "Supprimer"
+    edit: "Modifier"
     back: "Retour"
     index:
       title: "Versions du document"
@@ -233,6 +235,7 @@ fr:
       make_current: "Rendre courant"
       download_pdf_file: "Télécharger le fichier PDF"
       download_drawing_file: "Télécharger le fichier de dessin"
+      files: "Fichiers"
     new:
       title: "Nouvelle version"
     form:

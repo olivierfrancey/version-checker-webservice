@@ -94,8 +94,8 @@ class ProjectsController < ApplicationController
   end
 
   def all_download
-    p params[:id]
     files = Version.where(project_id: params[:id], current_version: true)
+    p files
 
     zipfile_name = "#{Rails.root}/public/downloads/version-checker-#{Time.now.strftime("%Y%d%m-%H%M%S")}.zip"
 

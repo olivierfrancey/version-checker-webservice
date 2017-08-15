@@ -32,16 +32,12 @@
           </h4>
         </td>
         <td class="middle">
-          <strong><%= document.title %></strong>
-        </td>
-        <td class="middle">
+          <strong><%= document.title %></strong><br>
           <%= document.sub_title %>
         </td>
 
         <td class="middle">
-          <%= "#{document.doc_type}" %>
-        </td>
-        <td class="middle">
+          <%= "#{document.doc_type}" %><br>
           <%= "#{document.size}" %>
         </td>
 
@@ -50,13 +46,9 @@
         </td>
 
         <td class="middle">
-          <%= "#{t('document.index.current_version')} : #{document.last_version}" %>
-        </td>
-        <td class="middle">
-          <%= "#{t('document.index.current_version_date')} : #{document.last_version_date}" %>
-        </td>
-        <td class="middle">
-          <%= "#{t('document.index.versions')} : #{document.versions_count}" %>
+          <%= "#{t('document.index.current_version')} : #{document.last_version}" %><br>
+          <small><%= "#{t('document.index.current_version_date')} : #{document.last_version_date}" %></small><br>
+          <small><%= "#{t('document.index.versions')} : #{document.versions_count}" %></small>
         </td>
 
       </tr>
