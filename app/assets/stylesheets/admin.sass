@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "bootstrap-sprockets"
+@import "bootstrap"
 
 .admin-content
   position: absolute
@@ -27,6 +29,11 @@
   padding-bottom: 50px
   width: 100%
 
+.admin-tools ul, .admin-tools li
+  list-style: none
+  padding: 0
+  margin: 5px 0
+
 .h-line
   border-bottom: 1px solid #777
 
@@ -40,3 +47,11 @@
   border: 1px solid black
   padding: 10px
   margin: 10px 0
+
+.btn.super-sharp
+  @extend .btn
+  font-size: 0.8em
+  padding: 2px 5px !important
+  margin: 0 5px !important
+  border: 1px solid black
+  border-radius: 0

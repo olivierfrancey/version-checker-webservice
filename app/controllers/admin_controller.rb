@@ -13,5 +13,9 @@ class AdminController < ApplicationController
     #authorize @projects
   end
 
+  def users
+    @users = User.all.order(:last_name)
+  end
+
 
 end

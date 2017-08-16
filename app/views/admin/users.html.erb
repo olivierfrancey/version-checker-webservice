@@ -1,0 +1,43 @@
+
+
+<h1>Users</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th colspan="2"></th>
+      <th>Last name</th>
+      <th>First name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Company</th>
+      <th>Discipline</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td>
+          <% if user.super_admin? %>
+            <span class="glyphicon glyphicon-star"></span>
+          <% end %>
+        </td>
+        <td>
+          <% if !user.active? %>
+            <span class="glyphicon glyphicon-remove"></span>
+          <% end %>
+        </td>
+        <td><%= user.last_name %></td>
+        <td><%= user.first_name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.phone %></td>
+        <td><%= user.company %></td>
+        <td><%= user.discipline %></td>
+        <td><%= link_to 'Edit', edit_user_path(user), class: "btn super-sharp" %>
+            <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn super-sharp danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

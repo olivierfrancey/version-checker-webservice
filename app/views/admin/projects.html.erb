@@ -4,7 +4,7 @@
   <% @projects.each do |project| %>
     <tr>
       <td><%= link_to project.id, project_path(project.id) %></td>
-      <td><%= project.name %></td>
+      <td><%= "#{project.identifier} - #{project.name}" %></td>
       <td><%= "Documents : #{project.documents_count}" %><br>
           <%= "Versions : #{project.versions_count}" %></td>
       <td>Owner: <%= project.user.email %></td>
