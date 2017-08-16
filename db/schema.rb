@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 20170808134740) do
     t.string "phone"
     t.string "company"
     t.string "discipline"
-    t.boolean "active"
+    t.boolean "active", default: true
     t.boolean "super_admin", default: false
     t.integer "projects_count", default: 0
     t.integer "documents_count", default: 0

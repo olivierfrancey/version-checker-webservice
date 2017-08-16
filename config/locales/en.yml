@@ -159,7 +159,7 @@ en:
     cancel: "Cancel"
     close: "Close"
     delete: "Delete my account"
-    delete_confirmation: "This operation can not be undo. All your data in version-checker will be lost."
+    delete_confirmation: "This operation can not be undo. All your data in version-checker will be unaccessible."
     new:
       title: "New user"
     form:
@@ -184,7 +184,7 @@ en:
     update:
       confirmation: "Your profil was successfully updated."
     destroy:
-      confirmation: "Your profil was successfully destroyed."
+      confirmation: "Your profil was successfully desactived."
 
   access:
     submit: "Submit"
@@ -277,3 +277,11 @@ en:
       confirmation: "The QR-Code layout was successfully updated."
     destroy:
       confirmation: "The QR-Code layout was successfully destroyed."
+
+  admin:
+    index:
+      title: "Admin board"
+      projects: "Projects"
+      documents: "Documents"
+      versions: "Versions"
+      users: "Users"

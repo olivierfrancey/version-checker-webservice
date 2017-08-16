@@ -162,7 +162,7 @@ fr:
     cancel: "Annuler"
     close: "Fermer"
     delete: "Supprimer mon compte"
-    delete_confirmation: "Cette opération ne peut pas être annulée. Toutes vos données dans version-checker seront irrémédiablement perdues."
+    delete_confirmation: "Cette opération ne peut pas être annulée. Toutes vos données dans version-checker ne seront plus accessibles."
     new:
       title: "Nouvel utilisateur"
     form:
@@ -187,7 +187,7 @@ fr:
     update:
       confirmation: "Votre profil a été mis à jour avec succès."
     destroy:
-      confirmation: "Votre profil a été supprimé avec succès."
+      confirmation: "Votre profil a été d'activé avec succès."
 
   access:
     submit: "Soumettre"
@@ -281,3 +281,11 @@ fr:
       confirmation: "Le gabarit de QR-Code a été mis à jour avec succès."
     destroy:
       confirmation: "Le gabarit de QR-Code a été supprimé avec succès." 
+  
+  admin:
+    index:
+      title: "Admin board"
+      projects: "Projets"
+      documents: "Documents"
+      versions: "Versions"
+      users: "Utilisateurs"

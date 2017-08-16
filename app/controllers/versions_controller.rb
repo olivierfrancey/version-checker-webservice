@@ -1,6 +1,6 @@
 class VersionsController < ApplicationController
   before_action :set_version, only: [:show, :edit, :update, :destroy]
-  before_action :check_logged_in
+  before_action :check_logged_in, except: [:checker]
   
   # GET /versions
   # GET /versions.json
@@ -12,6 +12,14 @@ class VersionsController < ApplicationController
   # GET /versions/1.json
   def show
     authorize @version
+  end
+
+  def checker
+    version = Version.find_by(encrypted_id: params[:encrypted_id])
+
+    respond_to do |format|
+      format.json { render json: version }
+    end
   end
 
   # GET /versions/new
@@ -70,7 +78,6 @@ class VersionsController < ApplicationController
 
     respond_to do |format|
       if @version.save
-        p "save version"
 
         insert_qrcode_in_pdf @version.pdf_file, @version.qrcode, @version.document.qr_code_position.page, @version.document.qr_code_position.x, @version.document.qr_code_position.y, @version.document.qr_code_position.size
 

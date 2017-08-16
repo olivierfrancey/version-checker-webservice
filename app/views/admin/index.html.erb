@@ -1,0 +1,50 @@
+<h1><%= t('admin.index.title') %></h1>
+
+<div class="row h-line"></div>
+<br>
+<div class="row h-line">
+  <div class="col-md-2 col-xl-1">
+    Projects: <%= @admin.projects %>
+  </div>
+  <div class="col-md-10 col-xl-11">
+    <span class="grey">New projects</span><br><br>
+    <%= line_chart Project.group_by_day(:created_at).count, height: "220px", width: "95%", curve: false, colors: ["#ddd", "#777"] %>
+  </div>
+</div>
+<br>
+<div class="row h-line">
+  <div class="col-md-2 col-xl-1">
+    Documents: <%= @admin.documents %>
+  </div>
+  <div class="col-md-10 col-xl-11">
+    <span class="grey">New documents</span><br><br>
+    <%= line_chart Document.group_by_day(:created_at).count, height: "220px", width: "95%", curve: false, ytitle: "Documents", colors: ["#ddd", "#777"] %>
+  </div>
+</div>
+<br>
+<div class="row h-line">
+  <div class="col-md-2 col-xl-1">
+    Versions: <%= @admin.versions %>
+  </div>
+  <div class="col-md-10 col-xl-11">
+    <span class="grey">New versions</span><br><br>
+    <%= line_chart Version.group_by_day(:created_at).count, height: "220px", width: "95%", curve: false, ytitle: "Versions", colors: ["#ddd", "#777"] %>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-2 col-xl-1">
+    Users: <%= @admin.users %>
+    <%= pie_chart({
+      "Active" => User.where(active: true).count,
+      "Inactive" => User.where(active: false).count
+      }, colors: ["#ddd", "#777"],
+      legend: "right"
+     %>
+  </div>
+  <div class="col-md-10 col-xl-11">
+    <span class="grey">New users</span><br><br>
+    <%= line_chart User.group_by_day(:created_at).count, height: "220px", width: "95%", curve: false, ytitle: "Users", colors: ["#ddd", "#777"] %>
+  </div>
+</div>
+

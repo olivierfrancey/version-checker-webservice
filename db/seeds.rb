@@ -11,6 +11,7 @@ User.create(
   first_name: 'Super', 
   last_name: 'Admin',
   email: 'superadmin@version-checker.com',
-  password: 'non ya personne',
-  super_admin: true
+  password: 'sesame',
+  super_admin: true,
+  active: true
   )

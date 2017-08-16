@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.all.order(:last_name)
   end
 
   # GET /users/1
@@ -62,7 +62,7 @@ class UsersController < ApplicationController
   # DELETE /users/1.json
   def destroy
     authorize @user
-    @user.destroy
+    @user.update(active: false)
     respond_to do |format|
       format.html { redirect_to root_path, notice: t('user.destroy.confirmation') }
       format.json { head :no_content }
@@ -77,6 +77,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :phone, :company, :discipline)
+      params.require(:user).permit(:first_name, :last_name, :super_admin, :email, :password, :password_confirmation, :phone, :company, :discipline)
     end
 end
