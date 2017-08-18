@@ -6,7 +6,7 @@
     <li><%= link_to "Admin board", admin_index_path %></li>
     <li class="h-line"></li>
     <li><%= link_to "Users", controller: :admin, action: :users %></li>
-    <li><%= link_to "New user", new_user_path %></li>
+    <li><%= link_to "New user", controller: :admin, action: :new_user %></li>
     <li class="h-line"></li>
     <li><%= link_to "Projects", controller: :admin, action: :projects %></li>
     <li><%= link_to "New project", new_project_path %></li>

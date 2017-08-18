@@ -20,6 +20,14 @@ class AdminController < ApplicationController
     @users = User.all.order(:last_name, :first_name)
   end
 
+  def new_user
+    @user = User.new
+  end
+
+  def edit_user
+    @user = User.find(params[:id])
+  end
+
   def logs
     @logs = Audits.all.order(:created_at).reverse
   end

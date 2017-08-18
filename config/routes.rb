@@ -9,15 +9,16 @@ Rails.application.routes.draw do
 
   get 'documents/move_to_version/:id',  to: 'documents#move_to_version'
 
-  get 'versions/make_current/:id',      to: 'versions#make_current'
   post 'versions/download_pdf/',        to: 'versions#download_pdf'
   post 'versions/download_dxf/',        to: 'versions#download_dxf'
+  get 'versions/make_current/:id',      to: 'versions#make_current'
+  get 'checker/:encrypted_id',          to: 'versions#checker'
   
   get 'admin/projects',                 to: 'admin#projects'
   get 'admin/users',                    to: 'admin#users'
+  get 'admin/new_user',                 to: 'admin#new_user'
+  get 'admin/edit_user/:id',            to: 'admin#edit_user'
   get 'admin/logs',                     to: 'admin#logs'
-
-  get 'checker/:encrypted_id',          to: 'versions#checker'
 
   scope "(:locale)", locale: /en|fr|de/ do
     root 'static_pages#home'

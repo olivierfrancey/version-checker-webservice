@@ -37,7 +37,7 @@
         <td><%= user.phone %></td>
         <td><%= user.company %></td>
         <td><%= user.discipline %></td>
-        <td><%= link_to 'Edit', edit_user_path(user), class: "btn super-sharp" %>
+        <td><%= link_to 'Edit', controller: :admin, action: :edit_user, id: user.id, class: "btn super-sharp" %>
             <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn super-sharp danger" %></td>
       </tr>
     <% end %>
