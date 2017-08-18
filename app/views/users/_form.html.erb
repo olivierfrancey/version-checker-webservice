@@ -85,6 +85,15 @@
   </div>
 
   <div class="row">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-4">
+      <%= f.check_box :terms_of_service %>
+      <%= t('user.form.terms_of_service') %>
+    </div>
+  </div>
+
+  <div class="row">
     <div class="col-md-4 col-md-offset-2">
       <%= f.submit t('user.submit'), tabindex: 9 %>
       <%= link_to t('user.cancel'), :back, class: "btn" %>

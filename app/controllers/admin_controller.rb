@@ -14,7 +14,7 @@ class AdminController < ApplicationController
   end
 
   def users
-    @users = User.all.order(:last_name)
+    @users = User.all.order(:last_name, :first_name)
   end
 
 

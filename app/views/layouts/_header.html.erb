@@ -33,12 +33,10 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <li><%= link_to t('navbar.my_account'), edit_user_path(current_user.id) %></li>
               <li><%= link_to t('navbar.my_stats'), controller: :users, action: :stats, id: current_user.id %></li> 
+              <li><%= link_to t('navbar.logout'), session_path, method: :delete %></li>
             </ul>
           </li>
           <li class="nav-menu-separator"></li>
-          <li class="">
-            <%= link_to t('navbar.logout'), session_path, method: :delete %>
-          </li>
         <% else %>
           <li>
             <%= link_to t('navbar.signup'), new_user_path %>

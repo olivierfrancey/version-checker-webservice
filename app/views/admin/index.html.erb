@@ -1,40 +1,31 @@
 <h1><%= t('admin.index.title') %></h1>
 
-<div class="row h-line"></div>
-<br>
-<div class="row h-line">
-  <div class="col-md-2 col-xl-1">
-    Projects: <%= @admin.projects %>
+
+<div class="row">
+  <div class="col-md-3 col-xl-3">
+    Projects: <%= @admin.projects %><br>
+    Documents: <%= @admin.documents %><br>
+    Versions: <%= @admin.versions %><br>
+    Users: <%= @admin.users %>
   </div>
-  <div class="col-md-10 col-xl-11">
+  <div class="col-md-3 col-xl-3">
     <span class="grey">New projects</span><br><br>
     <%= line_chart Project.group_by_day(:created_at).count, height: "220px", width: "95%", curve: false, colors: ["#ddd", "#777"] %>
   </div>
-</div>
-<br>
-<div class="row h-line">
-  <div class="col-md-2 col-xl-1">
-    Documents: <%= @admin.documents %>
-  </div>
-  <div class="col-md-10 col-xl-11">
+
+  <div class="col-md-3 col-xl-3">
     <span class="grey">New documents</span><br><br>
     <%= line_chart Document.group_by_day(:created_at).count, height: "220px", width: "95%", curve: false, ytitle: "Documents", colors: ["#ddd", "#777"] %>
   </div>
-</div>
-<br>
-<div class="row h-line">
-  <div class="col-md-2 col-xl-1">
-    Versions: <%= @admin.versions %>
-  </div>
-  <div class="col-md-10 col-xl-11">
+
+  <div class="col-md-3 col-xl-3">
     <span class="grey">New versions</span><br><br>
     <%= line_chart Version.group_by_day(:created_at).count, height: "220px", width: "95%", curve: false, ytitle: "Versions", colors: ["#ddd", "#777"] %>
   </div>
 </div>
-<br>
+
 <div class="row">
-  <div class="col-md-2 col-xl-1">
-    Users: <%= @admin.users %>
+  <div class="col-md-3 col-xl-3">
     <%= pie_chart({
       "Active" => User.where(active: true).count,
       "Inactive" => User.where(active: false).count
@@ -43,9 +34,9 @@
       width: "200px")
      %>
   </div>
-  <div class="col-md-10 col-xl-11">
+  <div class="col-md-3 col-xl-3">
     <span class="grey">New users</span><br><br>
-    <%= line_chart User.group_by_day(:created_at).count, height: "220px", width: "95%", curve: false, ytitle: "Users", colors: ["#ddd", "#777"] %>
+    <%= line_chart User.group_by_day(:created_at).count, height: "220px", width: "95%", curve: false, ytitle: "Users", colors: ["#ddd", "#777"] %> 
   </div>
 </div>
 

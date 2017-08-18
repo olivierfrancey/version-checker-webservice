@@ -3,6 +3,7 @@ class User < ApplicationRecord
 
   validates_uniqueness_of :email, :case_sensitive => false
   validates :password, confirmation: true, on: :create
+  validates :terms_of_service, acceptance: true, on: :create
   validates_length_of :password, in: 5..30, on: :create
   validates :check_password, confirmation: true, on: :update
   validates :first_name, :last_name, presence: {notice: "aïe"}
