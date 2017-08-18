@@ -22,7 +22,7 @@
       <td><%= log.action %></td>
       <td>
           <% if log.user %>
-          <%= "#{log.user.first_name} #{log.user.last_name} : #{log.user.email}" %>
+          <%= log.user.email %>
           <% end %>
       </td>
       <td><%= link_to "Detail", versions_path, class: "btn super-sharp" %></td>

@@ -31,9 +31,10 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
+    p @user
     respond_to do |format|
       if @user.save
+        
         format.html { redirect_to new_session_path }
         format.json { render :show, status: :created, location: @user }
       else
