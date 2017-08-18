@@ -62,6 +62,9 @@ gem 'rubyzip'
 gem "chartkick"
 gem 'groupdate'
 
+# audited, log tool. Read more: https://github.com/collectiveidea/audited
+gem "audited", "~> 4.5"
+
 
 
 group :development, :test do
@@ -71,6 +74,8 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
 
+  # brakeman, check security issue in the code. Read more: https://github.com/presidentbeef/brakeman
+  # $ brakeman -f html > report.html
   gem 'brakeman', require: false
 end
 

@@ -1,4 +1,6 @@
 class Project < ApplicationRecord
+
+
   belongs_to :user, counter_cache: true
   
   has_many :groups,    dependent: :destroy
