@@ -2,29 +2,12 @@
 
 
 <div class="row">
-  <div class="col-md-3 col-xl-3">
+  <div class="col-md-2 col-xl-2">
     Projects: <%= @admin.projects %><br>
     Documents: <%= @admin.documents %><br>
     Versions: <%= @admin.versions %><br>
     Users: <%= @admin.users %>
   </div>
-  <div class="col-md-3 col-xl-3">
-    <span class="grey">New projects</span><br><br>
-    <%= line_chart Project.group_by_day(:created_at).count, height: "220px", width: "95%", curve: false, colors: ["#ddd", "#777"] %>
-  </div>
-
-  <div class="col-md-3 col-xl-3">
-    <span class="grey">New documents</span><br><br>
-    <%= line_chart Document.group_by_day(:created_at).count, height: "220px", width: "95%", curve: false, ytitle: "Documents", colors: ["#ddd", "#777"] %>
-  </div>
-
-  <div class="col-md-3 col-xl-3">
-    <span class="grey">New versions</span><br><br>
-    <%= line_chart Version.group_by_day(:created_at).count, height: "220px", width: "95%", curve: false, ytitle: "Versions", colors: ["#ddd", "#777"] %>
-  </div>
-</div>
-
-<div class="row">
   <div class="col-md-3 col-xl-3">
     <%= pie_chart({
       "Active" => User.where(active: true).count,
@@ -36,7 +19,43 @@
   </div>
   <div class="col-md-3 col-xl-3">
     <span class="grey">New users</span><br><br>
-    <%= line_chart User.group_by_day(:created_at).count, height: "220px", width: "95%", curve: false, ytitle: "Users", colors: ["#ddd", "#777"] %> 
+    <%= column_chart User.group_by_day(:created_at).count, height: "220px", width: "95%", curve: false, ytitle: "Users", colors: ["#ddd", "#777"] %> 
+  </div>
+  <div class="col-md-3 col-xl-3">
+    <span class="grey">Users</span><br><br>
+    <%= line_chart @users_quantity, height: "220px", width: "95%", curve: false, points: false, colors: ["#ddd", "#777"] %>
   </div>
 </div>
+
+<div class="row">
+  <br><br><br>
+</div>
+
+
+<div class="row">
+  <div class="col-md-3 col-xl-3 col-md-offset-2">
+    <span class="grey">New projects</span><br><br>
+    <%= column_chart Project.group_by_day(:created_at).count, height: "220px", width: "95%", curve: false, colors: ["#ddd", "#777"] %>
+    <br><br><br>
+    <span class="grey">Projects</span><br><br>
+    <%= line_chart @projects_quantity, height: "220px", width: "95%", curve: false, points: false, colors: ["#ddd", "#777"] %>
+  </div>
+
+  <div class="col-md-3 col-xl-3">
+    <span class="grey">New documents</span><br><br>
+    <%= column_chart Document.group_by_day(:created_at).count, height: "220px", width: "95%", curve: false, ytitle: "Documents", colors: ["#ddd", "#777"] %>
+    <br><br><br>
+    <span class="grey">Documents</span><br><br>
+    <%= line_chart @documents_quantity, height: "220px", width: "95%", curve: false, points: false, colors: ["#ddd", "#777"] %>
+  </div>
+
+  <div class="col-md-3 col-xl-3">
+    <span class="grey">New versions</span><br><br>
+    <%= column_chart Version.group_by_day(:created_at).count, height: "220px", width: "95%", curve: false, ytitle: "Versions", colors: ["#ddd", "#777"] %>
+    <br><br><br>
+    <span class="grey">Versions</span><br><br>
+    <%= line_chart @versions_quantity, height: "220px", width: "95%", curve: false, points: false, colors: ["#ddd", "#777"] %>
+  </div>
+</div>
+
 

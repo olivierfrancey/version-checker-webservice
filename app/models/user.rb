@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :versions,  dependent: :destroy
   has_many :accesses,  dependent: :destroy
   has_many :qr_code_positions
+  has_many :audits
 
   def check_password
     return unless password.present? || password_confirmation.present?

@@ -44,7 +44,7 @@ class ProjectsController < ApplicationController
     access.role = "projectAdmin"
 
     respond_to do |format|
-      if @project.save && access.save       
+      if @project.save && access.save
         format.html { redirect_to projects_path, notice: t('project.create.confirmation') }
         format.json { render :show, status: :created, location: @project }
       else

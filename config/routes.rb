@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   
   get 'admin/projects',                 to: 'admin#projects'
   get 'admin/users',                    to: 'admin#users'
+  get 'admin/logs',                     to: 'admin#logs'
 
   get 'checker/:encrypted_id',          to: 'versions#checker'
 
